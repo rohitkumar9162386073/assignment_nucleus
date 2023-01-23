@@ -1,0 +1,213 @@
+                                                                       Oracle sql
+								Date Defination Language
+
+
+1.  CREATE TABLE LMS_CUSTOMER_M(Customer_ID varchar(20) not null, First_Name varchar(20) not null, Last_Name varchar(20),
+    Gender varchar(1) not null, Date_Of_Birth Date not null, Contact_Number varchar(10) not null, Email_Address varchar(40) not null,
+ Monthly_Income NUMBER(8,2) not null,Profession varchar(40), Total_Monthly_Expense NUMBER(8,2) not null, Designation varchar(40), Company_Name varchar(40) );
+
+2.  create table LMS_PRODUCT_CATEGORY_M(Category_ID varchar(10) not null,
+ Category_Name varchar(50) not null, Asset_Based varchar(1) not null, Description varchar(150), 
+SecuredLoan varchar(2) not null, constraint chk_Asset_Based check(Asset_Based in ('y','n','Y','N')), 
+constraint chk_SecureLoad check(SecureLoad in ("S","US)));
+
+3. create table LMS_Product_M(Product_Code varchar(20) not null, Product_Name varchar(100) not null,
+ Product_Description varchar(200), Product_Category varchar(10) not null, Max_Tenure NUMBER(2), Min_Tenure NUMBER(2));
+
+4. create table LMS_AGREEMENT_DTL(Agreement_ID varchar(20) not null, Lessee_ID varchar(100) not null,
+ Tenure NUMBER(2), ROI NUMBER(3,1), Loan_Amount NUMBER(10,2), Repayment_Frequency varchar(2), Loan_Disbursal_Date Date, 
+Status varchar(10), Product_Code varchar(20) not null, constraint chk_Repayment_Frequency check(Repayment_Frequency in('M','Y','Q','HY')),
+ constraint chk_Product_Code check(Product_Code in ('Pending','Approved','Rejected','Active','Closed')));
+
+5. create table LMS_REPAYSCH_DTL(Agreement_id varchar(20) not null, PropInstID NUMBER(8) not null, Installment_Amount NUMBER(8,2) not null,
+ Installment_Number NUMBER(3) not null, Principal_Component NUMBER(8,2) not null, 
+Interest_Component NUMBER(8,2) not null, Balance_Principal_Amount NUMBER(8,2) not null, Penalty_Charges NUMBER(8,2), 
+Installment_Due_Date Date not null, constraint PropInstID_uk unique(PropInstID));
+
+6. create table LMS_TXNTYPE_M(Txn_Type varchar(20) not null, 
+Description varchar(100), constraint chk_Txn_Type check(Txn_Type in('Installment','LPP')));
+
+7. create table LMS_TXN_ADVICE_DTL(Txn_Advice_ID Number(8) not null, Adviceamt Number(8,2) not null,
+ AdviceDate Date not null, Case_Id varchar(20) not null, TxnID Number(8) not null, TxnType varchar(20) not null);
+
+8.create table LMS_CHEQUE_DTL(Cheque_Id Number(8) not null, Payment_Mode varchar(1) not null,
+ cheque_Num varchar(50) not null, Cheque_Date Date, Cheque_Amount Number(10,2), Drawn_On_Bank varchar(50), Deposit_Date Date, 
+status varchar(1), unique constraint Cheque_Id_uk unique(Cheque_Id), 
+constraint chk_Payment_Mode check(Payment_Mode in ('C','Q','D','T')), constraint chk_Status check(Status in('C','D','X','B')));
+
+9.create table LMS_PAYMENT_DTL(Payment_ID Number(8) unique not null, Cheque_ID Number(8) unique not null,
+ Payment_Date Date not null, Status varchar(1) not null, Txn_Advic_Id Number(8) not null, constraint chk_Status check(Status in ('C','N')));
+
+10. select * from user_tables when table_name = 'LMS_PAYMENT_DTL';
+
+
+11.ALTER TABLE LMS_CUSTOMER_M
+ADD CONSTRAINT LMS_CUSTOMER_M_PK PRIMARY KEY (Customer_ID);
+
+ALTER TABLE LMS_PRODUCT_CATEGORY_M
+ADD CONSTRAINT LMS_PRODUCT_CAT_M_PK PRIMARY KEY (Category_ID);
+
+ALTER TABLE LMS_PRODUCT_M
+ADD CONSTRAINT LMS_PRODUCT_M_PK PRIMARY KEY (Product_Code);
+
+ALTER TABLE LMS_AGREEMENT_DTL
+ADD CONSTRAINT LMS_AGREEMENT_DTL_PK PRIMARY KEY (Agreement_ID);
+
+
+ALTER TABLE LMS_REPAYSCH_DTL
+ADD CONSTRAINT LMS_REPAYSCH_DTL_PK PRIMARY KEY (PropInstID);
+
+
+ALTER TABLE LMS_TXNTYPE_M
+ADD CONSTRAINT LMS_TXNTYPE_M_PK PRIMARY KEY (TxnType);
+
+ALTER TABLE LMS_TXN_ADVICE_DTL
+ADD CONSTRAINT LMS_TXN_ADVICE_DTL_PK PRIMARY KEY (Txn_Advice_ID);
+
+
+ALTER TABLE LMS_CHEQUE_DTL
+ADD CONSTRAINT LMS_CHEQUE_DTL_PK PRIMARY KEY (Cheque_ID);
+
+ALTER TABLE LMS_PAYMENT_DTL
+ADD CONSTRAINT LMS_PAYMENT_DTL_PK PRIMARY KEY (Payment_ID);
+
+
+12. ALTER TABLE LMS_Product_M
+   ADD CONSTRAINT LMS_Product_Cat_FK
+   FOREIGN KEY (Product_Category) REFERENCES LMS_Product_Category_M
+  (Category_ID);
+
+ 
+  ALTER TABLE LMS_Agreement_DTL
+   ADD CONSTRAINT LMS_Agreement_Dtl_FK1
+   FOREIGN KEY (Lessee_ID) REFERENCES LMS_Customer_M
+  (Customer_ID);
+
+
+  ALTER TABLE LMS_Agreement_DTL
+   ADD CONSTRAINT LMS_Agreement_DTL_FK2
+   FOREIGN KEY (Product_code) REFERENCES LMS_Customer_M
+  (Product_code);
+
+
+   ALTER TABLE LMS_Repaysch_Dtl
+   ADD CONSTRAINT LMS_Repaysch_Dtl_FK 
+   FOREIGN KEY (Agreement_Id) REFERENCES LMS_Agreement_DTL
+  (Agreement_id);
+
+   
+  ALTER TABLE LMS_TXN_ADVICE_DTL
+   ADD CONSTRAINT LMS_TXN_ADVICE_DTL_FK1
+   FOREIGN KEY (TxnType) REFERENCES LMS_TXNTYPE_M
+  (Txn_Type);
+
+
+  ALTER TABLE LMS_TXN_ADVICE_DTL
+   ADD CONSTRAINT LMS_TXN_ADVICE_DTL_FK2
+   FOREIGN KEY (Case_Id) REFERENCES LMS_Agreement_DTL
+  (Agreement_Id);
+
+   
+   ALTER TABLE LMS_TXN_ADVICE_DTL
+   ADD CONSTRAINT LMS_TXN_ADVICE_DTL_FK2
+   FOREIGN KEY (TxnID) REFERENCES  LMS_REPAYSCH_DTL
+  (PropInstID);
+
+   
+   ALTER TABLE LMS_Payment_DTL
+   ADD CONSTRAINT LMS_Payment_Dtl_FK1
+   FOREIGN KEY (Cheque_ID ) REFERENCES  LMS_CHEQUE_DTL
+  (Cheque_id);
+
+  
+   ALTER TABLE LMS_Payment_DTL
+   ADD CONSTRAINT LMS_Payment_Dtl_FK2
+   FOREIGN KEY (Txn_Advice_ID )REFERENCES  LMS_TXN_ADVICE_DTL
+  (Txn_Advice_id);
+
+
+13. 
+
+   ALTER TABLE LMS_CUSTOMER_M MODIFY Last_Name VARCHAR(30) NOT NULL;
+
+14.
+
+  CREATE TABLE Customer2(
+    ID VARCHAR(20) PRIMARY KEY,
+    NAME VARCHAR(20) NOT NULL,
+    EMAIL  VARCHAR(40) NOT NULL,
+    PROFESSION   VARCHAR(40),
+    INCOME NUMBER(8,2)
+    );
+
+15. DROP TABLE Customer2;
+
+16. show recyclebin;
+
+17. FLASHBACK TABLE Customer2 TO BEFORE DROP;
+
+18. ALTER TABLE Customer2 DROP COLUMN NAME;
+
+
+
+                                                                                Data Manipulation language
+
+
+
+1. insert into LMS_CUSTOMER_M values ('C101','Amit','Gupta','M',to_date('10-jan-88','DD-MON-RR'),
+  6668745231,'amitguptacus1@gmail.com',50000,'service',15000,'software engineer','Nucleus');
+
+
+2. insert into LMS_CUSTOMER_M(customer_id,first_name,last_name,gender,Date_of_Birth,contact_number,
+ email_address,monthly_income,profession,total_monthly_expense,designation_profession,company_name)
+ values('C102','Rekha','Arora','F',to_date('08-aug-76','DD-MON-RR'),878974561
+ ,'arekha@gmail.com',100000,'Service',40000,'Project Manager','TCS');
+
+
+3. select * from LMS_CUSTOMER_M;
+
+
+4. 
+
+5.
+
+6.
+
+7. select * from LMS_CUSTOMER_M;
+
+8. commit;
+
+9.
+
+10. update LMS_CUSTOMER_M set last_name = 'sharma' where customer_id = 'C103';
+
+11. update LMS_CUSTOMER_M set profession = 'service' and 
+   set designation_profession = 'AsstManager',company_name = 'Wipro'
+   where customer_id = 'C104';
+
+12. delete form LMS_CUSTOMER_M where monthly_income < 40000;
+
+13. 
+
+14. commit;
+
+
+
+                                                                          Control Data Transaction
+
+
+
+
+15. 
+
+16. savepoint  savepoint_1;
+
+17. Truncate from LMS_AGREEMENT_DTL;
+
+18. select * from LMS_AGREEMENT_DTL;
+
+19. rollback to savepoint_1;
+
+20. select * from LMS_AGREEMENT_DTL;
+
+21. commit;
