@@ -48,7 +48,7 @@ CREATE TABLE LMS_AGREEMENT_DTL_SAGAR8998(
     Tenure NUMBER(2),
     ROI NUMBER(3,1),
     Loan_Amount NUMBER(10,2),
-    Repayment_Frequency VARCHAR(2) CHECK(Repayment_Frequency IN('M', 'Y', 'Q', 'HY')),     /*M – Monthly, Y – Yearly, Q – Quarterly, HY – Half Yearly  */
+    Repayment_Frequency VARCHAR(2) CHECK(Repayment_Frequency IN('M', 'Y', 'Q', 'HY')),     /*M â€“ Monthly, Y â€“ Yearly, Q â€“ Quarterly, HY â€“ Half Yearly  */
     Loan_Disbursal_Date DATE,
     Status VARCHAR(10) CHECK(Status IN('Pending', 'Approved', 'Rejected', 'Active', 'Closed')),
     Product_Code VARCHAR(20) NOT NULL
@@ -683,3 +683,124 @@ FROM LMS_CUSTOMER_M_SAGAR899;
 SELECT Installment_Amount, Installment_Due_Date AS "First_Installmet"
 FROM LMS_REPAYSCH_DTL_SAGAR899
 WHERE Installment_Number = 1;
+
+--QUESTION 1--
+SELECT C.First_Name, P.Product_Name, P.Product_Category, A.Loan_Amount,A.Loan_Disbursal_Date, A.Repayment_Frequency 
+FROM LMS_CUSTOMER_M_SAGAR8998 C 
+JOIN LMS_AGREEMENT_DTL_SAGAR8998 A ON C.Customer_ID = A.Lessee_ID 
+JOIN LMS_Product_M_SAGAR8998 P ON A.Product_Code = P.Product_Code;
+
+--QUESTION 2--
+SELECT A.Agreement_ID, C.First_Name, T.Txn_Advice_ID, T.AdviceDate, P.Payment_ID, T.Adviceamt, P.Payment_Date
+FROM LMS_AGREEMENT_DTL_SAGAR8998 A
+JOIN LMS_CUSTOMER_M_SAGAR8998 C ON A. lessee_id=C.Customer_Id
+JOIN LMS_TXN_ADVICE_DTL_SAGAR8998 T ON T.CASE_ID=A.Agreement_ID 
+JOIN LMS_PAYMENT_DTL_SAGAR8998 P ON P.Txn_Advice_ID=T. Txn_Advice_ID
+WHERE Agreement_ID='&AGR_ID';
+
+
+SELECT * FROM LMS_AGREEMENT_DTL_SAGAR8998;
+
+
+--QUESTION 3 --
+SELECT * FROM LMS_TXN_ADVICE_DTL_SAGAR8998 T 
+JOIN LMS_PAYMENT_DTL_SAGAR8998 P ON P.TXN_ADVICE_ID = T.Txn_Advice_id 
+JOIN LMS_CHEQUE_DTL_SAGAR8998 C ON P.CHEQUE_ID = C.CHEQUE_ID
+WHERE CHEQUE_NUM = '&CHEQUE_NUM';
+
+SELECT * FROM LMS_CHEQUE_DTL_SAGAR8998;
+
+--QUESTION 4--
+SELECT COUNT(*) FROM LMS_AGREEMENT_DTL_SAGAR8998 A 
+JOIN LMS_TXN_ADVICE_DTL_SAGAR8998 T ON A.agreement_id = T.case_id 
+JOIN LMS_PAYMENT_DTL_SAGAR8998 P ON t.Txn_Advice_id = p.txn_advice_id
+WHERE A.Agreement_ID = '&AGR_';
+
+SELECT * FROM LMS_AGREEMENT_DTL_SAGAR8998;
+
+
+--QUESTION 5--
+SELECT COUNT(*), SUM(C.Cheque_Amount) 
+FROM LMS_AGREEMENT_DTL_SAGAR8998 A 
+JOIN LMS_TXN_ADVICE_DTL_SAGAR8998 T ON a.agreement_id = t.case_id 
+JOIN LMS_PAYMENT_DTL_SAGAR8998 P on t.txn_advice_id = p.txn_advice_id
+JOIN LMS_CHEQUE_DTL_SAGAR8998 C ON p.cheque_id = c.cheque_id 
+WHERE A.Agreement_ID = 'GR_ID' AND c.Payment_Mode = 'C' OR c.Payment_Mode = '0';
+
+--QUESTION 6--
+SELECT COUNT(*), SUM(C.Cheque_Amount)
+FROM LMS_AGREEMENT_DTL_SAGAR8998 A
+JOIN LMS_TXN_ADVICE_DTL_SAGAR8998 T ON a.agreement_id = t.case_id
+JOIN LMS_PAYMENT_DTL_SAGAR8998 P ON t.txn_advice_id = p.txn_advice_id 
+JOIN LMS_CHEQUE_DTL_SAGAR8998 C ON p.cheque_id = c.cheque_id
+WHERE A.Agreement_ID = '&AGR_ID' AND c.status='B';
+
+SELECT * FROM LMS_AGREEMENT_DTL_SAGAR8998;
+
+--QUESTION 7--
+SELECT COUNT(*), SUM(C.Cheque_Amount) FROM LMS_AGREEMENT_DTL_SAGAR8998 A 
+JOIN LMS_TXN_ADVICE_DTL_SAGAR8998 T ON a.agreement_id = t.case_id 
+JOIN LMS_PAYMENT_DTL_SAGAR8998 P ON t.txn_advice_id = p.txn_advice_id 
+JOIN LMS_CHEQUE_DTL_SAGAR8998 C ON p.cheque_id = c.cheque_id
+WHERE c.Payment_Mode = 'C' OR c.Payment_Mode = 'Q';
+
+--QUESTION 8--
+SELECT c.customer_id, c.first_name, c.last_name, ag.lessee_id, ag.agreement_id, ag.product_code, r.propinstId 
+FROM LMS_CUSTOMER_M_SAGAR8998 c
+JOIN LMS_AGREEMENT_DTL_SAGAR8998 ag on c.customer_id = ag.lessee_id LEFT OUTER JOIN LMS_REPAYSCH_DTL_SAGAR8998 R on ag.agreement_id = r.agreement_id 
+where r.propinstid IS NULL and customer_id = 'customer_id';
+
+
+--QUESTION 9--
+SELECT C.First_Name, P.Product_Name, A.Loan_Amount 
+FROM LMS_CUSTOMER_M_SAGAR8998 C 
+JOIN LMS_AGREEMENT_DTL_SAGAR8998 A ON A.Lessee_ID = C.Customer_Id 
+JOIN LMS_Product_M_SAGAR8998 P ON P.Product_Code = a.product_code 
+JOIN LMS_PRODUCT_CATEGORY_M_SAGAR8998 PC ON P.Product_Category = PC.Category_ID 
+WHERE PC.Asset_Based = 'Y';
+
+--QUESTION 10--
+Select SUM(installment_amount) from LMS_REPAYSCH_DTL_SAGAR8998 r
+WHERE r.installment_due_date <= '&date';
+
+select * from LMS_REPAYSCH_DTL_SAGAR8998;
+
+--QUESTION 11--
+SELECT c.customer_id, c.first_name, c.last_name, a.lessee_id
+FROM LMS_CUSTOMER_M_SAGAR8998 c
+JOIN LMS_AGREEMENT_DTL_SAGAR8998 a ON c.Customer_Id = a.lessee_id
+JOIN LMS_REPAYSCH_DTL_SAGAR8998 R ON R.Agreement_ID = A.Agreement_ID 
+JOIN LMS_TXN_ADVICE_DTL_SAGAR8998 T ON A.Agreement_ID = T.Case_Id
+JOIN LMS_PAYMENT_DTL_SAGAR8998 P ON T.Txn_Advice_id = P.Txn_Advice_id
+WHERE P.Payment_Date <= R.Installment_Due_Date;
+
+--QUESTION 12--
+SELECT * FROM LMS_AGREEMENT_DTL_SAGAR8998;
+
+SELECT p.Product_Name,p.Max_Tenure,p.Min_Tenure, pc.Asset_Based, pc.securedloan
+FROM LMS_Product_M_SAGAR8998 p 
+JOIN LMS_AGREEMENT_DTL_SAGAR8998 a ON p.product_code = a.product_code 
+JOIN LMS_PRODUCT_CATEGORY_M_SAGAR8998 pc ON p.Product_Category = pc.Category_ID 
+WHERE a.agreement_id = 'sagreement_id';
+
+--QUESTION 13--
+SELECT * FROM LMS_REPAYSCH_DTL_SAGAR8998;
+
+SELECT * FROM LMS_AGREEMENT_DTL_SAGAR8998 ag 
+JOIN LMS_REPAYSCH_DTL_SAGAR8998 r ON ag.Agreement_ID = r.Agreement_id
+WHERE r.PropInstID = '&PropInstID';
+
+
+--QUESTION 14--
+SELECT * FROM LMS_AGREEMENT_DTL_SAGAR8998 ;
+
+SELECT Loan_Amount, Installment_Amount, Principal_Component, Interest_Component 
+FROM LMS_AGREEMENT_DTL_SAGAR8998 ag
+JOIN LMS_REPAYSCH_DTL_SAGAR8998 r ON ag.Agreement_ID = r.Agreement_id
+WHERE ag.Agreement_ID = '&Agreement_ID';
+
+
+--QUESTION 15--
+SELECT * FROM LMS_CUSTOMER_M_SAGAR8998 c 
+JOIN LMS_AGREEMENT_DTL_SAGAR8998 a ON c.customer_id = a.lessee_id 
+WHERE a.agreement_id like '%Home%';
