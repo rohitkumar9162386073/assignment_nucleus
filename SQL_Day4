@@ -1,0 +1,118 @@
+Subqueries 
+1.	Create a query to display the Customer Name and Date of Birth of all the Customers who are younger than Customer ‘David’.
+
+Answer : SELECT First_Name||' '|| Last_Name Name, Date_Of_Birth FROM LMS_CUSTOMER_M_16920 WHERE Date_Of_Birth < (SELECT Date_Of_Birth FROM LMS_CUSTOMER_M_16920 WHERE First_Name = 'David');
+ 
+2.	Find out all the Customers who have more than 1 loan. Return Customer name and number of loans. 
+
+Answer : SELECT Cus.FIRST_NAME, COUNT_LOAN No_Of_Loans
+FROM( SELECT COUNT(AGREEMENT_ID) COUNT_LOAN, LESSEE_ID
+FROM LMS_AGREEMENT_DTL_16920 GROUP BY LESSEE_ID )
+JOIN LMS_CUSTOMER_M_16920 Cus ON CUSTOMER_ID = LESSEE_ID
+WHERE COUNT_LOAN > 1;
+
+3.	Find out all the customers who have more than 1 loan of tenure greater than 5 years and repayment frequency is Quarterly. Return Customer Name, Product Name, Loan Disbursal Date and Loan Amount. 
+
+Answer : SELECT Cus.CUSTOMER_ID, Cus.fIRST_NAME, Cus.LAST_NAME, Cus.GENDER ,
+Cus.DATE_OF_BIRTH, Cus.CONTACT_NUMBER, Cus.PROFESSION FROM(
+SELECT LESSEE_ID,COUNT(AGREEMENT_ID) TENURE_COUNT
+FROM LMS_AGREEMENT_DTL_16920 WHERE TENURE > 5 AND UPPER(Repayment_Frequency) ='Q' GROUP BY LESSEE_ID ) JOIN LMS_CUSTOMER_M_16920 Cus ON Cus.CUSTOMER_ID=LESSEE_ID WHERE TENURE_COUNT>1;
+
+4.	Write a query to display the customer id, customer first name of all customers whose designation is same as any customer whose last name contains a ‘U’ 
+
+Answer : SELECT Customer_ID, First_Name FROM LMS_Customer_M_16920 WHERE Designation = (SELECT Designation FROM LMS_Customer_M_16920 WHERE Last_Name LIKE '%u%' GROUP BY Designation HAVING COUNT(*) > 1);
+
+5.	Write a query to fetch all the loan details whose disbursal date is greater than the disbursal date of the loans being taken by a Customer ‘David’ 
+
+Answer : SELECT * FROM LMS_AGREEMENT_DTL_16920 WHERE Loan_Disbursal_Date < (SELECT Loan_Disbursal_Date FROM LMS_AGREEMENT_DTL_16920 WHERE Lessee_ID = 
+(SELECT Customer_ID FROM LMS_CUSTOMER_M_16920 WHERE First_Name = 'David'));
+
+6.	Write a query to fetch all the loan details whose loan amount is greater than the average of loan amounts being disbursed till date sorted descending.
+
+Answer : SELECT * FROM LMS_AGREEMENT_DTL_16920 WHERE Loan_Amount > (
+    SELECT AVG(Loan_Amount) FROM LMS_AGREEMENT_DTL_16920) 
+   ORDER BY LOAN_DISBURSAL_DATE DESC;
+ 
+7.	Write a query to find all the customers who took all products (all loan types available) 
+
+Answer : SELECT * FROM LMS_CUSTOMER_M_16920 Cus JOIN (SELECT LESSEE_ID
+FROM LMS_AGREEMENT_DTL_16920 Agr JOIN LMS_PRODUCT_M_16920 Prod
+ON Prod.PRODUCT_CODE = Agr.PRODUCT_CODE WHERE Prod.PRODUCT_CATEGORY
+= ALL(SELECT CATEGORY_ID FROM LMS_PRODUCT_CATEGORY_M_16920)
+GROUP BY Agr.LESSEE_ID) ON Cus.CUSTOMER_ID=LESSEE_ID;
+
+8.	Write a query to fetch those loans where loan amount exceeds everyone’s credit limit 
+
+Answer : SELECT *FROM LMS_AGREEMENT_DTL_16920 WHERE LOAN_AMOUNT > ALL(
+SELECT Monthly_Income*12*0.30 FROM LMS_CUSTOMER_M_16920 );
+
+9.	Write a query to fetch those customers whose monthly expenses are greater than average monthly expenses of all customers 
+
+Answer : SELECT * FROM LMS_CUSTOMER_M_16920 WHERE TOTAL_MONTHLY_EXPENSE > (SELECT AVG(TOTAL_MONTHLY_EXPENSE) FROM LMS_CUSTOMER_M_16920);
+
+10.	Write a query to find out those customers who have paid the least penalty charges on the installments 
+
+Answer : 
+ 
+Views 
+1.	Create a view on LMS_CHEQUE_DTL table based on Cheque_num, deposit_date, cheque_amount, payment_mode and status. Change the column names to ‘Cheque 
+Number’, ‘Date’, ‘Amount’, and ‘Mode’ respectively. Name the view as ChequeDetails_VU. 
+ 
+Answer : CREATE VIEW ChequeDetails_VU_16920 AS 
+SELECT CHEQUE_NUM "Cheque Number", DEPOSIT_DATE "Date", CHEQUE_AMOUNT Amount, PAYMENT_MODE "Mode", STATUS 
+FROM LMS_CHEQUE_DTL_16920;
+
+2.	Confirm that the view works. Display only the Cheque number and Date from the above view 
+Answer : SELECT "Cheque Number", "Date" FROM ChequeDetails_VU_16920;
+ 
+3.	Create a view which take care of all the Loan Agreements of HOME LOAN Type only. Name the view as HOME_LOAN_VU. Confirm that the view works. 
+
+Answer : CREATE VIEW HOME_LOAN_VU_16920 AS SELECT * FROM LMS_AGREEMENT_DTL_16920 WHERE Agreement_ID LIKE '%Home%';
+
+SELECT * FROM HOME_LOAN_VU_16920;
+
+4.	Create a view which displays all the Loans being taken by the Customers. The view contains Customer Name, Product Name, Loan Amount, Disbursal Date and instalment amount. Customer name should contain both First name and last name. 
+
+Answer : CREATE VIEW ALL_HOME_LOAN_VU_16920 AS SELECT
+Cus.FIRST_NAME||' '||Cus.LAST_NAME "CUSTOMER NAME", Prod.PRODUCT_NAME
+"PRODUCT NAME", Agr.LOAN_AMOUNT "LOAN_AMOUNT", Agr.LOAN_DISBURSAL_DATE
+"DISBURSAL DATE", Repay.INSTALLMENT_AMOUNT "INSTALLMENT_AMOUNT"
+FROM LMS_AGREEMENT_DTL_16920 Agr JOIN LMS_PRODUCT_M_16920 Prod
+ON Agr.PRODUCT_CODE=Prod.PRODUCT_CODE JOIN LMS_CUSTOMER_M_16920 Cus
+ON Agr.LESSEE_ID=Cus.CUSTOMER_ID JOIN LMS_REPAYSCH_DTL_16920 Repay
+ON Repay.AGREEMENT_ID=Agr.AGREEMENT_ID ;
+
+5.	Confirm that the view works 
+
+Answer : SELECT * FROM ALL_HOME_LOAN_VU_16920;
+ 
+6.	Create a view based on Customer name and count of all the loans being taken by the Customer whose repayment frequency is Monthly. 
+
+Answer : CREATE VIEW COUNT_MONTHLY_LOAN_VU_16920 AS SELECT
+Cus.FIRST_NAME||' '||Cus.LAST_NAME "CUSTOMER NAME", subQ."ALL LOANS BY CUSTOMER" FROM LMS_CUSTOMER_M_16920 Cus JOIN
+(SELECT LESSEE_ID, COUNT(AGREEMENT_ID) "ALL LOANS BY CUSTOMER"
+FROM LMS_AGREEMENT_DTL_16920 Agr WHERE REPAYMENT_FREQUENCY='M'
+GROUP BY LESSEE_ID) SubQ ON Cus.CUSTOMER_ID = SubQ.LESSEE_ID;
+
+7.	Confirm that the view works. 
+
+Answer : SELECT * FROM COUNT_MONTHLY_LOAN_VU_16920;
+ 
+8.	Create a view based on Product Name, sum of total pending instalments sorted descending. 
+
+Answer : CREATE VIEW PRODUCT_VU_16920 AS SELECT Prod.PRODUCT_NAME,
+SUM(Repay.INSTALLMENT_AMOUNT) "TOTAL PENDING INSTALLMENTS" FROM
+LMS_PRODUCT_M_16920 Prod JOIN LMS_AGREEMENT_DTL_16920 Agr
+ON Prod.PRODUCT_CODE = Agr.PRODUCT_CODE JOIN LMS_REPAYSCH_DTL_16920 Repay
+ON Repay.AGREEMENT_ID=Agr.AGREEMENT_ID WHERE INSTALLMENT_DUE_DATE<(SELECT
+CURRENT_DATE FROM DUAL) GROUP BY PRODUCT_NAME ORDER BY SUM(Repay.INSTALLMENT_AMOUNT) DESC;
+
+SELECT * FROM PRODUCT_VU_16920;
+
+9.	Create a view based on Customer Name, Gender, Contact number, Profession, Monthly income and monthly expense.  
+
+Answer : CREATE VIEW CUSTOMER_VU_16920 AS SELECT FIRST_NAME||' '||LAST_NAME
+"CUSTOMER NAME", GENDER, CONTACT_NUMBER, PROFESSION , MONTHLY_INCOME
+INCOME, TOTAL_MONTHLY_EXPENSE "MONTHLY EXPENSE" FROM
+LMS_CUSTOMER_M_16920;
+ 
