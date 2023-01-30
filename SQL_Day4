@@ -50,9 +50,17 @@ SELECT Monthly_Income*12*0.30 FROM LMS_CUSTOMER_M_16920 );
 
 Answer : SELECT * FROM LMS_CUSTOMER_M_16920 WHERE TOTAL_MONTHLY_EXPENSE > (SELECT AVG(TOTAL_MONTHLY_EXPENSE) FROM LMS_CUSTOMER_M_16920);
 
-10.	Write a query to find out those customers who have paid the least penalty charges on the installments 
+/* QS.10 Write a query to find out those customers who have paid the least penalty charges on the 
+installments */
 
-Answer : 
+SELECT * FROM LMS_CUSTOMER_M_16911 WHERE CUSTOMER_ID=(SELECT
+LESSEE_ID FROM( SELECT A.LESSEE_ID LESSEE_ID,SUM(repay.PENALTY_CHARGES)
+PENALSUM FROM LMS_AGREEMENT_DTL_16911 A JOIN 
+LMS_REPAYSCH_DTL_16911 repay ON repay.AGREEMENT_ID=A.AGREEMENT_ID
+GROUP BY A.LESSEE_ID) WHERE PENALSUM=(SELECT MIN(PENALSUM) FROM(
+SELECT SUM(repay.PENALTY_CHARGES) PENALSUM FROM 
+LMS_AGREEMENT_DTL_16911 A JOIN LMS_REPAYSCH_DTL_16911 repay
+ON repay.AGREEMENT_ID=A.AGREEMENT_ID GROUP BY A.LESSEE_ID )));
  
 Views 
 1.	Create a view on LMS_CHEQUE_DTL table based on Cheque_num, deposit_date, cheque_amount, payment_mode and status. Change the column names to ‘Cheque 
