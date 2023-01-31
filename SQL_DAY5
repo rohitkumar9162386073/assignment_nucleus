@@ -1,0 +1,32 @@
+Provide the answers with proper examples: 
+1.	You have primary key (Oracle creates default index on a primary key) as well as user created index on the same table then which index will fire? 
+Answer : Index which is faster and will fetch the query in most optimized way will fire.
+2.	Is it possible to create an index on views? 
+Answer : Oracle SQL doesn’t allow to create Index on VIEWS. Even if it is possible to create an INDEX on VIEWS it would directly work on the TABLE.
+3.	Is it possible to create an index on updatable views? 
+Answer : No because Oracle doesn’t allow to create INDEX on VIEWS.
+4.	Index makes searching fast explain how? 
+Answer : Index contains exact pin point address of the query output i.e. it contains the pointers to the data. Hence it is easy for searching. It is easier to find the data if we know the address compared to searching every row while burning resources.
+5.	When to use Function-based index? 
+Answer : 1. When there is a WHERE clause that narrows the range of the search.
+		2. If the WHERE clause shows less than 15% of the table.
+		3. When a more flexible sort is needed using UPPER()/LOWER() or etc. functions.
+6.	How does a database know when to use an index? 
+Answer : DB Engines use INDEX only when the cardinality of the table is only 15-20% of the whole table. The pointers that are stored in the DB Engine depends upon different type of database structures.
+7.	How many clustered indexes can be created on a table? 
+Answer : Only 1 clustered index can be created per table in ORACLE because for the INDEXING to work the rows must be sorted in a particular way where the pointers are know for the common values.
+8.	If we create separate index on each column of a table, what are the advantages or disadvantages of the same?
+Answer :  ADVANTAGES 
+1.	Faster Searching and Sorting times for the query.
+2.	Modification and grouping will be easy.
+3.	Maintaining an unique column will be easy.
+DISADVANTAGES
+1.	Slower searching and sorting when the records are more than 30% of the table.
+2.	Can result in an increased complexity for unknown or rare values in the row.
+3.	 Compromised security if some unique tables are easily available.
+9.	Can we create clustered index on a column containing duplicate values? 
+Answer : Since clustered index can be made on non-primary columns, it can be said that duplicate values are allowed.
+10.	Can we create a Primary Key on a table on which a clustered index is already defined? 
+Answer : As stated above clustere index can be made of non-primary columns. Hence a primary key can be made even if clustered index is declared.
+ 
+ 
