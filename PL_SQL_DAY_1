@@ -1,0 +1,236 @@
+PL/SQL Basics
+Practice 1:
+
+Evaluate each of the following declarations.
+Determine which of them are not legal and explain why?
+a. DECLARE v_id NUMBER(4);
+-LEGAL.
+ b. DECLARE v_x , v_y, v_z VARCHAR2(10);
+-It is not a legal declaration as we cannot declare multiple variables in a single declaration even though they are of same data type and precision.
+ c. DECLARE v_birthdate DATE NOT NULL;
+-LEGAL
+ d. DECLARE v_in_stock BOOLEAN :=1;
+-it is not a legal declaration as data type is of Boolean type while input given is of integer type.
+Practice 2: What will be the output of the following program?
+DECLARE
+v_data NUMBER(7);
+BEGIN
+DBMS_OUTPUT.PUT_LINE(v_data);
+END;
+ANSWER- Null
+Practice 3:
+ DECLARE
+ v_weight NUMBER (3):=600;
+ v_message VARCHAR2(255):=‘Product 10012’;
+ BEGIN
+DECLARE
+ v_weight NUMBER(3) :=1;
+ v_message VARCHAR2 (25):=‘Product 11001’;
+ v_new_locn VARCHAR2(25):=‘Europe’;
+ BEGIN
+ v_weight := v_weight +1;
+ v_new_locn:=‘Western ‘ ||v_new_locn;
+-- Point 1
+END;
+v_weight:=v_weight + 1;
+v_message:=v_message|| ‘ is in stock’;
+-- Point 2
+ END;
+Consider the above PL/SQL code. What will be the values of the
+variables v_weight, v_message and v_new_locn at point 1 and point 2
+ANSWER :
+At point 1-> 
+v_weight=2
+v_message=Product 11001
+v_new_locn=Western Europe
+At point 2-> 
+v_weight=601
+v_message=Product 10012 is in Stock
+v_new_locn=Error will displayed as V_new_locn is an local variable and we are trying to access it outside the PLSQl block.
+
+Practice 4:
+Write a PL/SQL block that accepts values of two non zero numbers
+from user. The block performs the following operation
+( first_number/second_number + second_number). The result of the
+operation should be stored in a PL/SQL variable and also displayed on
+the screen.
+ANSWER: 
+set serveroutput on;
+Declare
+a NUMBER(10);
+b NUMBER(10);
+c NUMBER(10);
+BEGIN
+dbms_output.put_line('value of a and b sould be greater than zero');
+  a:=&a;
+  b:=&b;
+  c:=a+b/b;
+  dbms_output.put_line('value ofc:' || c);
+END;
+Practice 5:
+Declare two SQL* plus variables named MAX_SALARY and
+MIN_SALARY that are of data type NUMBER.
+Write a PL/SQL block that accepts deptno value from a user, selects
+the maximum salary and minimum salary paid in the department,
+from the EMP table and stores the corresponding values in
+MAX_SALARY and MIN_SALARY respectively.
+Use appropriate SQL * plus command to see the modified values of
+MAX_SALARY and MIN_SALARY
+ANSWER 5: 
+Declare
+max_salary NUMBER(10);
+min_salary NUMBER(10);
+BEGIN
+select S.a,S.b
+into Min_salary,max_salary
+from(select dept_no,min(salary) a,max(salary) b
+from emp_16908 
+group by dept_no
+having dept_no = &dept_id) S;
+dbms_output.put_line('maximum salalry :' || MAX_salary);
+dbms_output.put_line('minimum salalry :' || MIN_salary);
+END;
+/
+Practice 6:
+Write a PL/SQL block that accepts employee number from a user and
+retrieves the salary for the employee from the EMP table. It
+determines the salary class as per the following criteria and displays
+the salary and salary class on the screen
+Criteria for deciding salary class:
+•If the salary is less than 2500, then it comes under the class ‘LOW’
+•If the salary is greater than or equal to 2500 and less than 5000,
+then it comes under class ‘MEDIUM’.
+•If the salary is greater than or equal to 5000, then it comes under
+class ‘HIGH’
+ANSWER 6: 
+DECLARE 
+emp_ID NUMBER(20):= &employee_number;
+emp_sal NUMBER(10) ;
+BEGIN
+SELECT SALARY INTO EMP_SAL FROM EMP_16908 WHERE dept_no =emp_id;
+case
+when emp_sal<2500 then 
+dbms_output.put_line('LOW');
+WHEN (EMP_SAL >= 2500 AND EMP_SAL<5000) THEN
+dbms_output.put_line('MEDIUM');
+ELSE
+dbms_output.put_line('HIGH');
+END CASE;
+END;
+/
+Practice 7:
+Write a PL/SQL block that accepts an integer value between 1 and 12
+from a user and displays the name of the corresponding month. If the
+number input is not in the range +1 to +12 then the block should
+display the message “Invalid Month” on the screen
+ANSWER 7: 
+DECLARE
+A NUMBER(20):=&MONTH;
+BEGIN
+case
+ WHEN(a=1)
+ then
+ dbms_output.put_line('JANUARY');
+ WHEN(a=2) 
+ then
+dbms_output.put_line('FEBURARY');
+WHEN(a=3)
+ then 
+dbms_output.put_line('MARCH');
+WHEN(a=4)
+ then
+ dbms_output.put_line('APRIL');
+ WHEN(a=5) 
+ then
+dbms_output.put_line('MAY');
+WHEN(a=6)
+ then 
+  dbms_output.put_line('JUNE');
+WHEN(a=7)
+ then 
+  dbms_output.put_line('JULY');
+WHEN(a=8)
+ then 
+  dbms_output.put_line('AUGUST');
+WHEN(a=9)
+ then 
+  dbms_output.put_line('SEPTEMBER');
+WHEN(a=10)
+ then 
+  dbms_output.put_line('OCTOBER');
+WHEN(a=11)
+ then 
+  dbms_output.put_line('NOVOMBER');
+WHEN(a=12)
+ then 
+  dbms_output.put_line('DECEMBER');
+ ELSE
+  dbms_output.put_line('INVALID INPUT');
+  END CASE;
+  END;
+  /
+Practice 8a:
+Write a PL/SQL block that accepts a positive number from a user and
+displays its factorial on the screen
+ANSWER 8(a):
+CREATE FUNCTION factorial_16908 (
+  n POSITIVE
+) RETURN POSITIVE
+  AUTHID DEFINER
+AS
+BEGIN
+  IF n = 1 THEN                 -- terminating condition
+    RETURN n;
+  ELSE
+    RETURN n * factorial_16908(n-1);  -- recursive invocation
+  END IF;
+END;
+DECLARE 
+num1 NUMBER(10):= &num1;
+BEGIN
+dbms_output.put_line('FACTORIAL OF A NUMBER : ' || factorial_16908(NUM1));
+END;
+8b) Write a PL/SQL block that accepts a positive number ‘n’ from a
+user and displays a Fibonacci series of ‘n’ numbers.
+ANSWER 8(b):
+create function fibonacci_16908 (n NUMBER)
+  RETURN NUMBER
+  RESULT_CACHE
+  AUTHID DEFINER
+IS
+BEGIN
+  IF (n =0) OR (n =1) THEN
+    RETURN 1;
+  ELSE
+    RETURN fibonacci_16908(n - 1) + fibonacci_16908(n - 2);
+  END IF;
+END;
+DECLARE 
+num1 NUMBER(10):= &num1;
+BEGIN
+dbms_output.put_line('FIBONACCI OF A NUMBER : ' || fibonacci_16908(NUM1));
+END;
+8c) Write a PL/SQL block that accepts a positive number ‘n’ from a
+user and displays a Fibonacci series whose last number is the largest
+integer lesser than or equal to ‘n’.
+
+8d) Write a PL/SQL block that accepts a positive number ‘n’ and
+displays whether that number is a Prime number or not.
+8e) Write a PL/SQL block that accepts a positive number ‘n’ and
+displays all the prime numbers lesser than the given number ‘n’.
+Practice 9:
+Write a PL/SQL block that accepts employee number from a user.
+Declare a PL/SQL record or a composite variable to store the employee
+number, employee name, department number and the department
+name of the employee. Retrieve the values of these columns for the
+employee from the EMP and DEPT tables and display the employee
+name and the corresponding department name on the screen.
+Practice 10:
+Write a PL/SQL block to add a department row in the DEPT table with
+the following values for columns
+a. The block retrieves the maximum value of deptno from the dept
+table and adds 1 to it to generate the value of deptno
+b. Dname value should be ‘Education’
+c. Loc value should be NULL
+
+---
