@@ -280,4 +280,21 @@ BEGIN
             end if;
          end loop;
            
-END; 
+END;
+
+9->
+DECLARE 
+    TYPE emp_record_type IS RECORD
+        (employee_id  NUMBER(6) NOT NULL :=&EMPLOYEE_ID,
+        first_name EMPLOYEES1.FIRST_NAME%TYPE,
+        DEPTNO  DEPT.DEPTNO%TYPE,
+        DNAME DEPT.DNAME%TYPE);                     
+ 	emp_record emp_record_type;
+BEGIN                                       
+	SELECT EMPLOYEE_ID, FIRST_NAME, DEPTNO ,DNAME INTO emp_record  FROM EMPLOYEES1 INNER JOIN DEPT 
+    ON EMPLOYEES1.EMPLOYEE_ID=DEPT.DEPTNO
+    where EMPLOYEE_ID=employee_id;
+	DBMS_OUTPUT.PUT_LINE( emp_record.first_name||emp_record.employee_id);
+END;
+/
+
