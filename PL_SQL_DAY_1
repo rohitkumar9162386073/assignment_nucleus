@@ -210,27 +210,74 @@ num1 NUMBER(10):= &num1;
 BEGIN
 dbms_output.put_line('FIBONACCI OF A NUMBER : ' || fibonacci_16908(NUM1));
 END;
-8c) Write a PL/SQL block that accepts a positive number ‘n’ from a
-user and displays a Fibonacci series whose last number is the largest
-integer lesser than or equal to ‘n’.
 
-8d) Write a PL/SQL block that accepts a positive number ‘n’ and
-displays whether that number is a Prime number or not.
-8e) Write a PL/SQL block that accepts a positive number ‘n’ and
-displays all the prime numbers lesser than the given number ‘n’.
-Practice 9:
-Write a PL/SQL block that accepts employee number from a user.
-Declare a PL/SQL record or a composite variable to store the employee
-number, employee name, department number and the department
-name of the employee. Retrieve the values of these columns for the
-employee from the EMP and DEPT tables and display the employee
-name and the corresponding department name on the screen.
-Practice 10:
-Write a PL/SQL block to add a department row in the DEPT table with
-the following values for columns
-a. The block retrieves the maximum value of deptno from the dept
-table and adds 1 to it to generate the value of deptno
-b. Dname value should be ‘Education’
-c. Loc value should be NULL
+8c) Write a PL/SQL block that accepts a positive number ‘n’ from a user and displays a Fibonacci series whose last number is the largest integer lesser than or equal to ‘n’. 
+ 
+Answer : declare
+first number := 0;
+second number := 1;
+temp number;
+n number := &val;
+i number := 2;
+begin
+    dbms_output.put_line(first);
+    loop
+    if (temp >= n) then
+    exit;
+    end if;
+        temp:=first+second;
+first := second;
+second := temp;
+i := i + 1;
+    dbms_output.put_line(first);
+end loop;
+end;
 
----
+8d) Write a PL/SQL block that accepts a positive number ‘n’ and displays whether that number is a Prime number or not. 
+ 
+Answer : declare
+n number := &val;            
+i number := 2;           
+temp number := 1; 
+begin
+  for i in 2..n/2
+    loop
+        if mod(n, i) = 0
+        then
+            temp := 0;
+            exit;
+        end if;
+    end loop;
+   
+    if temp = 1
+    then
+        dbms_output.put_line('Prime Hai Ji');
+    else
+        dbms_output.put_line('Not Prime Hai Ji');
+    end if;
+end;
+
+8e) Write a PL/SQL block that accepts a positive number ‘n’ and displays all the prime numbers lesser than the given number ‘n’. 
+ 
+Answer : DECLARE
+   high number(2) := &val;
+   n number(2);
+   m number(2);
+   c number(20);
+BEGIN
+--The main operation happens in this loop
+  for n IN 1.. high 
+    loop
+       c:=0;
+       for m IN 1.. n
+         loop  
+           if mod(n, m)=0 then
+             c:=c+1;
+            end if;
+            end loop;
+            if c<=2 then 
+               dbms_output.put_line(n);
+            end if;
+         end loop;
+           
+END; 
