@@ -1,0 +1,242 @@
+ANSWER: 1
+
+CREATE OR REPLACE PROCEDURE USER_QUERY_EMP (p_myeno IN NUMBER,
+                                             p_myjob OUT VARCHAR2,
+                                             p_mysal OUT NUMBER)
+AS
+BEGIN
+  SELECT job, sal INTO p_myjob, p_mysal
+  FROM emp
+  WHERE empno = p_myeno;
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    dbms_output.put_line('Employee with number ' || p_myeno || ' does not exist in the EMP table.');
+END;
+/
+To invoke the procedure and display the salary and job title for employee number 7839:
+DECLARE
+  v_job emp.job%TYPE;
+  v_sal emp.sal%TYPE;
+BEGIN
+  USER_QUERY_EMP(7839, v_job, v_sal);
+  dbms_output.put_line('Job: ' || v_job);
+  dbms_output.put_line('Salary: ' || v_sal);
+END;
+/
+To do the same for employee number 7123:
+DECLARE
+  v_job emp.job%TYPE;
+  v_sal emp.sal%TYPE;
+BEGIN
+  USER_QUERY_EMP(7123, v_job, v_sal);
+  dbms_output.put_line('Job: ' || v_job);
+  dbms_output.put_line('Salary: ' || v_sal);
+END;
+/
+ ANSWER: 2
+
+CREATE OR REPLACE FUNCTION USER_ANNUAL_COMP (p_eno IN NUMBER)
+RETURN NUMBER
+AS
+  v_sal NUMBER;
+  v_comm NUMBER;
+BEGIN
+  SELECT NVL(sal, 0), NVL(comm, 0)
+  INTO v_sal, v_comm
+  FROM emp
+  WHERE empno = p_eno;
+
+  RETURN (v_sal + v_comm) * 12;
+END;
+/
+To call the function in a SELECT statement against the EMP table:
+SELECT empno, ename, USER_ANNUAL_COMP(empno) as annual_compensation
+FROM emp;
+
+ANSWER:3
+
+CREATE OR REPLACE FUNCTION USER_VALID_DEPTNO (p_dno IN NUMBER)
+RETURN BOOLEAN
+AS
+  v_count NUMBER;
+BEGIN
+  SELECT COUNT(*)
+  INTO v_count
+  FROM dept
+  WHERE deptno = p_dno;
+
+  RETURN v_count = 1;
+END;
+/
+CREATE OR REPLACE PROCEDURE SHOW_STRENGTH (p_deptno IN NUMBER)
+AS
+  v_count NUMBER;
+BEGIN
+  IF USER_VALID_DEPTNO(p_deptno) THEN
+    SELECT COUNT(*)
+    INTO v_count
+    FROM emp
+    WHERE deptno = p_deptno;
+    dbms_output.put_line('Number of employees in department ' || p_deptno || ': ' || v_count);
+  ELSE
+    dbms_output.put_line('Department with number ' || p_deptno || ' does not exist in the DEPT table.');
+  END IF;
+END;
+/
+To call the procedure and pass on department number 10:
+BEGIN
+  SHOW_STRENGTH(10);
+END;
+/
+To do the same for department number 76:
+BEGIN
+  SHOW_STRENGTH(76);
+END;
+/
+
+ANSWER: 4
+
+CREATE OR REPLACE PROCEDURE SHOW_RECORDS(p_join_date IN DATE) AS
+BEGIN
+  DECLARE
+    v_count NUMBER(10) := 0;
+  BEGIN
+    SELECT COUNT(*) INTO v_count
+    FROM EMP
+    WHERE HIREDATE > p_join_date;
+    
+    IF v_count = 0 THEN
+      dbms_output.put_line('No employees have joined after ' || to_char(p_join_date, 'DDTH Month YYYY'));
+    ELSE
+      dbms_output.put_line('Employees joined after ' || to_char(p_join_date, 'DDTH Month YYYY'));
+      dbms_output.put_line('EMPLOYEE NAME JOB SALARY DEPARTMENT');
+      dbms_output.put_line('_____________________________________________________________');
+      FOR emp_rec IN (SELECT ENAME, JOB, SAL, DEPTNO FROM EMP WHERE HIREDATE > p_join_date) LOOP
+        dbms_output.put_line(emp_rec.ENAME || ' ' || emp_rec.JOB || ' ' || emp_rec.SAL || ' ' || emp_rec.DEPTNO);
+      END LOOP;
+    END IF;
+  END;
+END;
+/
+And here's how you could call the procedure from an anonymous PL/SQL block:
+BEGIN
+  SHOW_RECORDS('01-JAN-2022');
+END;
+/
+This code creates a procedure named SHOW_RECORDS that accepts a p_join_date as a parameter. 
+The procedure first counts the number of employees who joined after the p_join_date using the SELECT COUNT statement. 
+If the count is 0, it displays a message that no employees have joined after the given date. If the count is not 0, 
+it displays the employees' details in the format specified in the problem statement using a FOR loop and 
+the SELECT statement. 
+The procedure is then called from an anonymous PL/SQL block by passing a hardcoded date '01-JAN-2022'.
+
+ANSWER: 5
+
+CREATE OR REPLACE PROCEDURE ADD_EMPLOYEE (
+  p_job      IN VARCHAR2,
+  p_mgr      IN NUMBER,
+  p_hiredate IN DATE,
+  p_salary   IN NUMBER,
+  p_commission IN NUMBER,
+  p_deptno   IN NUMBER
+)
+AS
+  v_employee_id NUMBER;
+  v_job_valid CONSTANT BOOLEAN := (UPPER(p_job) = 'CLERK' OR UPPER(p_job) = 'ANALYST' OR UPPER(p_job) = 'SALESMAN');
+  v_mgr_exists NUMBER;
+  v_dept_exists NUMBER;
+BEGIN
+  -- Validate input
+  SELECT COUNT(*) INTO v_mgr_exists
+  FROM employees
+  WHERE employee_id = p_mgr;
+
+  SELECT COUNT(*) INTO v_dept_exists
+  FROM dept
+  WHERE deptno = p_deptno;
+
+  IF NOT v_job_valid THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Invalid job. Must be CLERK, ANALYST, or SALESMAN.');
+  ELSIF v_mgr_exists = 0 THEN
+    RAISE_APPLICATION_ERROR(-20002, 'Manager does not exist.');
+  ELSIF p_hiredate >= SYSDATE THEN
+    RAISE_APPLICATION_ERROR(-20003, 'Hiredate must be less than system date.');
+  ELSIF p_salary <= 800 THEN
+    RAISE_APPLICATION_ERROR(-20004, 'Salary must be greater than 800.');
+  ELSIF UPPER(p_job) = 'SALESMAN' AND p_commission IS NULL THEN
+    RAISE_APPLICATION_ERROR(-20005, 'Commission must not be null for job SALESMAN.');
+  ELSIF v_dept_exists = 0 THEN
+    RAISE_APPLICATION_ERROR(-20006, 'Department does not exist.');
+  END IF;
+
+  -- Generate employee ID using sequence
+  SELECT employees_seq.NEXTVAL INTO v_employee_id FROM DUAL;
+
+  -- Insert employee record
+  INSERT INTO employees (employee_id, job, mgr, hiredate, salary, commission, deptno)
+  VALUES (v_employee_id, UPPER(p_job), p_mgr, p_hiredate, p_salary, p_commission, p_deptno);
+
+  -- Display success message
+  DBMS_OUTPUT.PUT_LINE('1 row inserted');
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END ADD_EMPLOYEE;
+
+And here's the anonymous PL/SQL block to call the procedure:
+BEGIN
+  ADD_EMPLOYEE ('SALESMAN', 100, SYSDATE-365, 1000, 500, 20);
+END;
+
+ANSWER: 6
+
+CREATE OR REPLACE FUNCTION FIND_SAL_GRADE (p_salary NUMBER)
+RETURN VARCHAR2
+IS
+  v_grade VARCHAR2(10);
+BEGIN
+  IF p_salary BETWEEN 1000 AND 1500 THEN
+    v_grade := 'Grade 1';
+  ELSIF p_salary BETWEEN 1500 AND 2000 THEN
+    v_grade := 'Grade 2';
+  ELSIF p_salary BETWEEN 2000 AND 2500 THEN
+    v_grade := 'Grade 3';
+  ELSIF p_salary BETWEEN 2500 AND 3000 THEN
+    v_grade := 'Grade 4';
+  ELSE
+    RAISE_APPLICATION_ERROR(-20000, 'Salary does not fit in any grade range');
+  END IF;
+  RETURN v_grade;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE CALL_FIND_SAL_GRADE
+IS
+  CURSOR c_emp IS
+    SELECT empno, ename, sal
+    FROM emp;
+  v_empno NUMBER;
+  v_ename VARCHAR2(20);
+  v_sal NUMBER;
+  v_grade VARCHAR2(10);
+BEGIN
+  FOR r_emp IN c_emp
+  LOOP
+    v_empno := r_emp.empno;
+    v_ename := r_emp.ename;
+    v_sal := r_emp.sal;
+    BEGIN
+      v_grade := FIND_SAL_GRADE(v_sal);
+      DBMS_OUTPUT.PUT_LINE(v_empno || ' ' || v_ename || ' ' || v_grade);
+    EXCEPTION
+      WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE(v_empno || ' ' || v_ename || ' ' || 'Salary error');
+    END;
+  END LOOP;
+END;
+/
+
+BEGIN
+  CALL_FIND_SAL_GRADE;
+END;
+/
