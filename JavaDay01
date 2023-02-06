@@ -1,0 +1,446 @@
+1. Write a program called CheckPassFail which prints "PASS" if the int variable "mark" is more than
+or equal to 50; or prints "FAIL" otherwise. The program shall always print “DONE” before exiting.
+Answer :
+import java.util.*;
+public class CheckPassFailDip {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter your marks : ");
+ int marks = sc.nextInt();
+ sc.close();
+ if(marks >= 50 && marks <= 100)
+ System.out.println("PASS.");
+ else
+ System.out.println("FAIL.");
+ System.out.println("DONE.");
+ }
+}
+2. Write a program called PrintDayInWord which prints “Sunday”, “Monday”, ... “Saturday” if the int variable
+"dayNumber" is 0, 1, ..., 6, respectively. Otherwise, it shall print "Not a valid day". Use
+a. "nested-if" statement.
+b. "switch-case-default" statement
+Try dayNumber = 0, 1, 2, 3, 4, 5, 6, 7 and verify your results
+Answer :
+(a).
+import java.util.*;
+public class PrintDayInWorld {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter the number of the day : ");
+ int dayNum = sc.nextInt();
+ sc.close();
+ if(dayNum >= 0 && dayNum <= 6){
+ if(dayNum == 1)
+ System.out.println("MONDAY.");
+ if(dayNum == 2)
+ System.out.println("TUESDAY.");
+ if(dayNum == 3)
+ System.out.println("WEDNESDAY.");
+ if(dayNum == 4)
+ System.out.println("THURSDAY.");
+ if(dayNum == 5)
+ System.out.println("FRIDAY.");
+ if(dayNum == 6)
+ System.out.println("SATURDAY.");
+ if(dayNum == 0)
+ System.out.println("SUNDAY.");
+ }
+ if(!(dayNum >= 0 && dayNum <= 6))
+ System.out.println("NOT A VALID DAY.");
+ }
+}
+(b).
+import java.util.*;
+public class PrintDayInWordCase {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter the number of the day : ");
+ int dayNum = sc.nextInt();
+ sc.close();
+ switch(dayNum){
+ case 0 : System.out.println("SUNDAY.");
+ break;
+ case 1 : System.out.println("MONDAY.");
+ break;
+ case 2 : System.out.println("TUESDAY.");
+ break;
+ case 3 : System.out.println("WEDNESDAY.");
+ break;
+ case 4 : System.out.println("THURSDAY.");
+ break;
+ case 5 : System.out.println("FRIDAY.");
+ break;
+ case 6 : System.out.println("SATURDAY.");
+ break;
+ default :
+ System.out.println("NOT A VALID DAY.");
+ break;
+ }
+ }
+}
+3. The progressive income tax rate is mandated as follows:
+Taxable Income Rate (%)
+First $20,000 0
+Next $20,000 10
+Next $20,000 20
+The remaining 30
+For example, suppose that the taxable income is $85000, the income tax payable is $20000*0% +
+$20000*10% + $20000*20% + $25000*30%.
+Write a program called IncomeTaxCalculator that reads the taxable income (in int). The program shall
+calculate the income tax payable (in double); and print the result rounded to 2 decimal places. For
+examples,
+a. Enter the taxable income: $41234
+The income tax payable is: $2246.80
+b. Enter the taxable income: $67891
+The income tax payable is: $8367.30
+c. Enter the taxable income: $85432
+The income tax payable is: $13629.60
+d. Enter the taxable income: $12345 The income tax payable is: $0.00
+Answer :
+package Day01;
+import java.util.*;
+public class IncomeTaxCalculatorDip {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter the amount : ");
+ double amount = sc.nextDouble();
+ sc.close();
+ double incomeTax = 0;
+ if(amount > 20000 && amount <=40000)
+ incomeTax = (amount - 20000) * 0.1;
+ else if(amount > 40000 && amount <= 60000)
+ incomeTax = (0.1 * 20000) + ((amount - 40000) * 0.2);
+ else if(amount > 60000)
+ incomeTax = (0.1 * 20000) + (0.2 * 20000) + ((amount - 60000) *
+0.3);
+ System.out.println("Income Tax : " + String.format("%.2f", incomeTax));
+ }
+}
+4. Write a program in Java to check whether an input number is even, odd-non-prime or odd-Prime .
+Answer :
+package Day01;
+import java.util.*;
+public class EvenOddPrime {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter a non zero number : ");
+ int num = sc.nextInt();
+ sc.close();
+ if(num <= 0)
+ System.out.println("Congratulations your input is invalid.");
+ if(num % 2 == 0)
+ System.out.println("EVEN NUM.");
+ else{
+ int count = 0;
+ for(int i=2; i<=num; i++)
+ if(num % i == 0)
+ count++;
+ if(count == 1)
+ System.out.println("ODD AND PRIME.");
+ else
+ System.out.println("ODD AND NON PRIME.");
+ }
+ }
+}
+5. Write a program in Java to print the Pascal triangle up to nth level; n being an input from the user :
+Use multidimensional array only
+Answer :
+package Day01;
+import java.util.Scanner;
+public class PascalsTriangle
+{
+ public static void main(String args[]){
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter N : ");
+ int n = sc.nextInt();
+ sc.close();
+ int s = n-1;
+ int a[][] = new int[n][n];
+ for(int i=0; i<n; i++){
+ for(int j=0; j<=i; j++)
+ if(j==0 || j==i)
+ a[i][j]=1;
+ else
+ a[i][j]=a[i-1][j-1]+a[i-1][j];
+ }
+ System.out.println("\nOUTPUT:\n");
+ for(int i=0; i<n; i++)
+ {
+ for(int j=0; j<=s; j++)
+ System.out.print(" ");
+ s--;
+ for(int j=0; j<=i; j++)
+ System.out.print(a[i][j]+" ");
+ System.out.println();
+ }
+ }
+}
+6. Shyam wants to apply for Home Loan with ABC Bank. The bank has to calculate DBR (Debt to Burden
+ratio) to find out whether Loan can be approved or not. The formula to calculate DBR is as below:
+DBR = expenses / monthly income
+Wherein:
+Expenses - sum of all the expenses like rent, credit card payment, existing car loan EMI, existing
+student loan EMI, any other existing loan EMI
+Monthly income - total of all the combined sources of income like salary or any rent income or any
+other income coming from interest paid on the saving amount.
+The loan can be approved if the DBR is 20% or less. If DBR is more than 40%, the loan application is
+rejected.
+Create a java program to calculate the DBR and specify whether loan should be approved or rejected.
+Answer :
+package Day01;
+import java.util.*;
+class calcDBR{
+ private double expense;
+ private double monthlyIncome;
+ private double dbr;
+ public double getDbr() {
+ dbr = expense/monthlyIncome;
+ return dbr;
+ }
+ public void setExpense(double expense) {
+ this.expense = expense;
+ }
+ public void setMonthlyIncome(double monthlyIncome) {
+ this.monthlyIncome = monthlyIncome;
+ }
+ public void loanStatus(){
+ if(getDbr() < 0.2)
+ System.out.println("Loan will be accepted.");
+ else if(getDbr() > 0.4)
+ System.out.println("Loan will be rejected.");
+ else
+ System.out.println("Loan on hold.");
+ }
+}
+public class DBR {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter your monthly expense : ");
+ double expense = sc.nextDouble();
+ System.out.print("Enter your monthly income : ");
+ double monthlyIncome = sc.nextDouble();
+ sc.close();
+ calcDBR obj = new calcDBR();
+ obj.setExpense(expense);
+ obj.setMonthlyIncome(monthlyIncome);
+ obj.loanStatus();
+ }
+}
+7. Shyam has applied for a Home Loan with ABC Bank. The bank has to calculate LTV. LTV is Loan to Value
+ratio which describes the size of a loan compared to the value of the property securing the loan. The
+bank policy is that LTV can be maximum 80%.
+The formula to calculate LTV is:
+LTV = Loan amount asked / property value
+Write a Java program to calculate the LTV.
+Answer :
+package Day01;
+import java.util.*;
+class calcLTV{
+ private double propertyValue;
+ private double loanAsked;
+ private double ltv;
+ public void setPropertyValue(double propertyValue) {
+ this.propertyValue = propertyValue;
+ }
+ public void setLoanAsked(double loanAsked) {
+ this.loanAsked = loanAsked;
+ }
+ public double getLtv() {
+ this.ltv = loanAsked/propertyValue;
+ return ltv;
+ }
+ public void ltvStatus(){
+ if(getLtv() > 0.8)
+ System.out.println("LTV limit exceeded.");
+ else
+ System.out.println("LTV within limit.");
+ }
+}
+public class LTV {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter your property value : ");
+ double propertyValue = sc.nextDouble();
+ System.out.print("Enter the value of Loan asked : ");
+ double loanAsked = sc.nextDouble();
+ sc.close();
+ calcLTV obj = new calcLTV();
+ obj.setLoanAsked(loanAsked);
+ obj.setPropertyValue(propertyValue);
+ obj.ltvStatus();
+ }
+}
+8. Before a Loan can be processed by a Bank, the Bank must find out the Maximum Loan Amount which
+can be given to a particular applicant. The formula to calculate the Maximum Eligible Loan Amount is
+as below:
+Max_eligible_Loan_amount = E * (( 1 + R) ^t) -1 )/ (R * (( 1 + R) ^t)
+Where:
+E = Max eligible EMI (50% of effective monthly salary after deducting 20% DBR)
+R = effective Monthly Rate
+T = tenure (Max tenure which can be considered is 7 years)
+Create a java program to calculate Max Eligible Loan Amount for an applicant.
+Answer :
+package Day01;
+import java.util.*;
+class maxEMI{
+ private double maximumEMI;
+ private double dbr;
+ public double getDbr(double expense, double monthlyIncome) {
+ this.dbr = expense/monthlyIncome;
+ return 0.2 * dbr;
+ }
+ public double getMaximumEMI() {
+ return maximumEMI;
+ }
+ public void setMaximumEMI(double rate, double monthlySalary, double tenure,
+double expense) {
+ double numerator = Math.pow(1 + rate, tenure);
+ numerator -= 1;
+ double denominator = Math.pow(1+rate, tenure);
+ denominator = denominator * rate;
+ this.maximumEMI = (numerator/denominator) * ((monthlySalary -
+getDbr(expense ,monthlySalary)) * 0.5);
+ }
+}
+public class maxEligibleLoanAmount {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter your monthly expense : ");
+ double expense = sc.nextDouble();
+ System.out.print("Enter the monthly rate : ");
+ double rate = sc.nextDouble();
+ System.out.print("Enter your monthly salary : ");
+ double monthlySalary = sc.nextDouble();
+ System.out.println("Enter the tenure in years : ");
+ double tenure = sc.nextDouble();
+ maxEMI obj = new maxEMI();
+ obj.setMaximumEMI(rate, monthlySalary, tenure, expense);
+ System.out.println("Maximum EMI is : " + String.format("%.2f",
+obj.getMaximumEMI()));
+ }
+}
+9. Calculate the installment amount of a loan given the following terms of loan:
+• Loan Amount
+• Rate of Interest
+• Tenure
+• Number of installments in a year
+Formula for calculating installment amount is as below:
+
+Where
+X = installment amount
+P = original Loan Principal Amount
+I = interest rate pa
+T = Number of payments in a year
+N = tenure or number of installments
+RV = Residual Value of a loan at the end of tenure
+Answer :
+package Day01;
+import java.util.*;
+class calcInstallmentAmt{
+ private double ia;
+ public double getIa() {
+ return ia;
+ }
+ public void setIa(double P, double I, double T, double N, double RV) {
+ double numerator = RV * (I/T);
+ numerator = numerator/(Math.pow(1+(I/T), N));
+ numerator = (P*(I/T)) - numerator;
+ double denominator = 1/(Math.pow(1+(I/T),N));
+ denominator = 1 - denominator;
+ this.ia = numerator/denominator;
+ }
+}
+public class installmentAmount {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter the original principal amount : ");
+ double P = sc.nextDouble();
+ System.out.print("Interest Rate Per Annum : ");
+ double I = sc.nextDouble();
+ System.out.print("Enter the number of payments per year : ");
+ double T = sc.nextDouble();
+ System.out.print("Number of Installments : ");
+ double N = sc.nextDouble();
+ System.out.print("Enter the residual value of the loan : ");
+ double RV = sc.nextDouble();
+ sc.close();
+ calcInstallmentAmt obj = new calcInstallmentAmt();
+ obj.setIa(P, I, T, N, RV);
+ double X = obj.getIa();
+ System.out.print("The Installment Amount is : " + String.format("%.2f",
+X));
+ }
+}
+10. Generate the Repayment Schedule for the entire Loan period i.e. calculate the return Principal and
+interest component of each installment given the same parameters as in Question 4. The Java code will
+return a complete repayment schedule i.e. the following information for the entire period in question
+(one for each month/installment):
+Installment Number
+Opening Balance
+Interest component
+Principal component
+Installment
+** The above will be repeated for the number of installments
+Formula for creating Principal and Interest Component of an installment is as below (monthly installment is
+assumed). Installment is calculated in Question 4, use the same formula.
+o In = OPn * (r /100) * (1/12) o Pn = Installment – In
+o OPn+1 = OPn – Pn
+Where:
+In : Interest component of the nth Installment
+OPn : Outstanding Principal at the beginning of the nth Installment period r
+: Interest rate per annum
+Pn : Principal component of the nth installment
+OPn+1 : Outstanding Principal at the end of the nth Installment period
+Answer :
+package Day01;
+import java.util.*;
+class repaymentSchedule{
+ private double in;
+ private double pn;
+ private double outstandingPrincipal;
+ public double getOutstandingPrincipal() {
+ return outstandingPrincipal;
+ }
+ public void setOutstandingPrincipal(double opn){
+ double temp = getPn();
+ this.outstandingPrincipal = opn - temp;
+ }
+ public double getPn() {
+ return pn;
+ }
+ public void setPn(double inRate) {
+ double amount = getIn();
+ this.pn = inRate - amount;
+ }
+ public double getIn() {
+ return in;
+ }
+ public void setIn(double opn, double rate) {
+ this.in = (opn * rate)/1200;
+ }
+}
+public class tenthQuestion {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter Outstanding Principal at the beginning of the
+nth Installment period : ");
+ double opn = sc.nextDouble();
+ System.out.print("Enter the interest rate per annum : ");
+ double rate = sc.nextDouble();
+ System.out.print("Enter the installment amount : ");
+ double inRate = sc.nextDouble();
+ sc.close();
+ repaymentSchedule obj = new repaymentSchedule();
+ obj.setIn(opn, rate);
+ obj.setPn(inRate);
+ obj.setOutstandingPrincipal(opn);
+ System.out.println("Interest Compound : " + obj.getIn());
+ System.out.println("Principle Component : " + obj.getPn());
+ System.out.println("Outstanding Component : " +
+obj.getOutstandingPrincipal());
+ }
+}
+11. Calculate the Principal and interest component of an installment given:
+• The same parameters as Question 4
+• The installment number for which the breakup is required.
+Use the same formula as in Question 5. 
