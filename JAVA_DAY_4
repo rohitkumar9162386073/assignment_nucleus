@@ -1,0 +1,140 @@
+ 
+1.	Create a class with a method that prints "This is parent class" and its subclass with another method that prints "This is child class". Now, create an object for each of the class and call 
+1	- method of parent class by object of parent class 
+2	- method of child class by object of child class 
+               
+package DAY_5;
+
+class parent {
+
+    void print(){
+        System.out.println("This is a parent Class");
+    }
+}
+class child extends parent{
+    void print1(){
+        System.out.println("This is the Child Class");
+    }
+}
+public class Q1 {
+    public static void main(String[] args) {
+        child ch=new child();
+        parent p=new parent();
+        p.print();
+        ch.print1();
+
+    }
+}
+
+ 
+2.	In the above example, declare the method of the parent class as private and then repeat the operations. 
+ 
+3.	With the help of a demo code, explain the constructor calling sequence in multi-level inheritance. 
+
+    package DAY_5;
+class Animal{
+     Animal(){
+        System.out.println("All animals are living being");}
+}
+class Dog extends Animal{
+         Dog(){
+            System.out.println("Dog is an Living Being and Dog Barks");
+        }
+        }
+        class cow extends Dog {
+             cow() {
+                System.out.println("COW is an Living Being and cow eats grass");
+            }
+        }
+        class lion extends cow{
+             lion(){
+                System.out.println("OWL's sleep at night");
+            }
+            }
+public class Main{
+            public static void main(String[] args) {
+               lion lion=new lion();
+            }
+}
+
+4.	Create a class 'Parent' with a method 'message'. It has two subclasses each having a method with the same name 'message' that prints "This is first subclass" and "This is second subclass" respectively. Call the methods 'message' by creating an object for each subclass. 
+-
+package DAY_5;
+class parent1{
+    void message(){
+
+    }
+}
+class A extends parent1 {
+    void message(){
+        System.out.println("THIS IS THE FIRST SUBCLASS");
+    }
+}
+class B extends parent1 {
+    void message() {
+        System.out.println("THIS IS THE SECOND SUBCLASS");
+    }
+}
+public class Message
+    {
+    public static void main(String[] args)
+    {
+        A obj1 = new A();
+        obj1.message();
+        B obj2 = new B();
+        obj2.message();
+    }
+}
+
+ 
+5.	Make the class ‘Parent’ as an abstract class and the method ‘message’ as abstract. Override the method in both subclasses. Call the methods ‘message’ by creating the reference of Parent class and storing the object of each subclass in it. Comment the findings which method got invoked when.  
+  package DAY_5;
+abstract class parent4{
+    abstract void message();
+}
+class A extends parent4 {
+    @Override
+    void message(){
+        System.out.println("THIS IS THE FIRST SUBCLASS");
+    }
+}
+class B extends parent4 {
+    @Override
+    void message() {
+        System.out.println("THIS IS THE SECOND SUBCLASS");
+    }
+}
+public class Q6
+{
+    public static void main(String[] args)
+    {
+        parent4 obj1 = new A();
+        obj1.message();
+        parent4 obj2 = new B();
+        obj2.message();
+    }
+}
+       
+ 
+6.	Write the classes as shown in the following class diagram.   
+  
+ 
+a.	Mark all the overridden methods with annotation @Override. 
+b.	Call the constructor of Person class from Student & Staff class constructor using super keyword. 
+c.	In the overridden method, use super keyword to call the base class method. 
+ 
+ 
+ 
+7.	Create the LoanProduct class hierarchy according to the given Class Diagram.   
+                 
+Create the required constructor and write a test class to test the functionalities.  
+a.	The method ‘LTVCalculationAsPerCollatoralType’ need to be overridden in all three classes. The formula to be used is given in Assignment-1. Pass the ‘LoanAmountAsked’ value in the method.  
+b.	Use upcasting to call this method.  
+ 
+ 
+8.	Make the base class – LoanProduct as an abstract class and the method as an abstract method. Use upcasting to call the abstract method.  
+ 
+ 
+ 
+ 
+  
