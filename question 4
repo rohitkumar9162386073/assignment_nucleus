@@ -1,0 +1,56 @@
+package Assignment2;
+
+public class Student {
+    private String studentId;
+   private String studentName;
+    private int creditPoints;
+
+    public Student(){
+        this.studentId = null;
+        this.studentId = null;
+        this.creditPoints = 0;
+    }
+
+    public Student(String studentId, String studentName){
+
+        if(studentId.length() >= 3){
+            this.studentId = studentId;
+        }else {
+            System.out.println("Error : please Enter three or more characters");
+        }
+
+        if(studentName.length() >= 4){
+            this.studentName = studentName;
+        }else {
+            System.out.println("Error : please Enter three or more characters");
+        }
+    }
+
+    public String  getLoginName(){
+
+        return studentName.substring(0,4) + studentId.substring(0,3);
+
+    }
+
+    public void changeStudentName(String newName){
+        this.studentName = newName;
+    }
+
+    public String StudentName(){
+        return studentName;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void addCredits(int newcreditpoints) {
+
+        creditPoints = creditPoints + newcreditpoints;
+    }
+    
+    public int getCreditPoints(){
+        return creditPoints;
+    }
+
+}
