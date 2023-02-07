@@ -1,0 +1,486 @@
+1. Write a program which keeps track of the number of customer objects that are created and
+display the count in a method called display().
+Answer :
+package day04;
+import Day01.maxEligibleLoanAmount;
+import java.time.*;
+import java.util.*;
+public class customer {
+ private int customerId;
+ private String customerName;
+ private LocalDate dateOfBirth;
+ private String contactNumber;
+ private String emailAddress;
+ private double monthlyIncome;
+ private String profession;
+ private double totalMonthlyExpenses;
+ private double maxEligibleLoanAmount;
+ private String designation;
+ private String companyName;
+ private static int countObj;
+ public double getMonthlyIncome() {
+ return monthlyIncome;
+ }
+ public void setMonthlyIncome(double monthlyIncome) {
+ this.monthlyIncome = monthlyIncome;
+ }
+ public double getTotalMonthlyExpenses() {
+ return totalMonthlyExpenses;
+ }
+ public void setTotalMonthlyExpenses(double totalMonthlyExpenses) {
+ this.totalMonthlyExpenses = totalMonthlyExpenses;
+ }
+ private double maximumEMI;
+ private double dbr;
+ public double getDbr(double expense, double monthlyIncome) {
+ this.dbr = expense/monthlyIncome;
+ return 0.2 * dbr;
+ }
+ public double calculateDBR() {
+ return totalMonthlyExpenses/monthlyIncome;
+ }
+ public double calculateMaxEligibleEMI() {
+ double maxEMI = (monthlyIncome * 0.5) - ((totalMonthlyExpenses /
+monthlyIncome) * 0.2);
+ return maxEMI;
+ }
+ public double getMaximumEMI() {
+ return maximumEMI;
+ }
+ public void setMaximumEMI(double rate, double monthlySalary, double
+tenure, double expense) {
+ double numerator = Math.pow(1 + rate, tenure);
+ numerator -= 1;
+ double denominator = Math.pow(1+rate, tenure);
+ denominator = denominator * rate;
+ this.maximumEMI = (numerator/denominator) * ((monthlySalary -
+getDbr(expense ,monthlySalary)) * 0.5);
+ }
+ public void calculateEligibleLoanAmount() {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter your monthly expense : ");
+ double expense = sc.nextDouble();
+ System.out.print("Enter the monthly rate : ");
+ double rate = sc.nextDouble();
+ System.out.print("Enter your monthly salary : ");
+ double monthlySalary = sc.nextDouble();
+ System.out.println("Enter the tenure in years : ");
+ double tenure = sc.nextDouble();
+ }
+ public customer(){
+ countObj++;
+ }
+ public static void main(String[] args) {
+ customer obj1 = new customer();
+ customer obj2 = new customer();
+ customer obj3 = new customer();
+ System.out.println("Total number of objects : " +
+customer.countObj);
+ }
+}
+2. Add the functionality of automatically generating Loan Agreement Id and Customer Id in
+Loan class and Customer class respectively. The series for both Id’s should start from 1.
+
+Answer :
+package day04;
+import Day01.maxEligibleLoanAmount;
+import java.time.*;
+import java.util.*;
+public class customer {
+ private int customerId;
+ private String customerName;
+ private LocalDate dateOfBirth;
+ private String contactNumber;
+ private String emailAddress;
+ private double monthlyIncome;
+ private String profession;
+ private double totalMonthlyExpenses;
+ private double maxEligibleLoanAmount;
+ private String designation;
+ private String companyName;
+ private static int countObj;
+ public customer(){
+ countObj++;
+ }
+ public int getCustomerId() {
+ this.customerId = countObj;
+ return customerId;
+ }
+ public double getMonthlyIncome() {
+ return monthlyIncome;
+ }
+ public void setMonthlyIncome(double monthlyIncome) {
+ this.monthlyIncome = monthlyIncome;
+ }
+ public double getTotalMonthlyExpenses() {
+ return totalMonthlyExpenses;
+ }
+ public void setTotalMonthlyExpenses(double totalMonthlyExpenses) {
+ this.totalMonthlyExpenses = totalMonthlyExpenses;
+ }
+ private double maximumEMI;
+ private double dbr;
+ public double getDbr(double expense, double monthlyIncome) {
+ this.dbr = expense/monthlyIncome;
+ return 0.2 * dbr;
+ }
+ public double calculateDBR() {
+ return totalMonthlyExpenses/monthlyIncome;
+ }
+ public double calculateMaxEligibleEMI() {
+ double maxEMI = (monthlyIncome * 0.5) - ((totalMonthlyExpenses /
+monthlyIncome) * 0.2);
+ return maxEMI;
+ }
+ public double getMaximumEMI() {
+ return maximumEMI;
+ }
+ public void setMaximumEMI(double rate, double monthlySalary, double
+tenure, double expense) {
+ double numerator = Math.pow(1 + rate, tenure);
+ numerator -= 1;
+ double denominator = Math.pow(1+rate, tenure);
+ denominator = denominator * rate;
+ this.maximumEMI = (numerator/denominator) * ((monthlySalary -
+getDbr(expense ,monthlySalary)) * 0.5);
+ }
+ public void calculateEligibleLoanAmount() {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter your monthly expense : ");
+ double expense = sc.nextDouble();
+ System.out.print("Enter the monthly rate : ");
+ double rate = sc.nextDouble();
+ System.out.print("Enter your monthly salary : ");
+ double monthlySalary = sc.nextDouble();
+ System.out.println("Enter the tenure in years : ");
+ double tenure = sc.nextDouble();
+ }
+ public static void main(String[] args) {
+ customer obj1 = new customer();
+ System.out.println("Customer ID of customer 1 : " +
+obj1.getCustomerId());
+ customer obj2 = new customer();
+ System.out.println("Customer ID of customer 2 : " +
+obj2.getCustomerId());
+ customer obj3 = new customer();
+ System.out.println("Customer ID of customer 3 : " +
+obj3.getCustomerId());
+ }
+}
+//Changes done in getCustomerId();
+package day04;
+import Day01.LTV;
+import Day01.maxEligibleLoanAmount;
+import Day02.LoanProduct;
+import java.time.LocalDate;
+import java.util.Scanner;
+public class loan {
+ private static int LoanAgreementId;
+ LoanProduct loanProduct = new LoanProduct();
+ double loanAmount;
+ private int tenure;
+ private enum loanStatus{
+ PENDING, APPROVED, REJECTED, ACTIVE, CLOSED
+ };
+ double emiPerMonth;
+ LocalDate loanDisbursalDate;
+ int repaymentFrequency;
+ public void calculateEMI(){
+ maxEligibleLoanAmount obj = new maxEligibleLoanAmount();
+ obj.getMaximumEMI();
+ }
+ public double calculateLatePenalty(){
+ return 0;
+ }
+ public double calculateLoanToValueRatio(){
+ LTV obj = new LTV();
+ return obj.getLtv();
+ }
+ public loan(){
+ LoanAgreementId++;
+ }
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ loan obj1 = new loan();
+ System.out.println("The loan id is : " + loan.LoanAgreementId);
+ loan obj2 = new loan();
+ System.out.println("The loan id is : " + loan.LoanAgreementId);
+ loan obj3 = new loan();
+ System.out.println("The loan id is : " + loan.LoanAgreementId);
+ }
+}
+// Counting automatic loanAgreementID by counting in default constructor.
+3. Create the constructor as private in the Question – 1 of Day-3 and using the static method
+create only 3 instances of the Employee class. When user tries to create the fourth instance,
+it returns null.
+Answer :
+package day04;
+public class employee{
+ private int id;
+ private String firstName ;
+ private String lastName;
+ private int salary;
+ private String Name;
+ private int AnnualSalary;
+ private static int countInstance;
+ private employee(){
+ countInstance++;
+ }
+ public int getId() {
+ return id;
+ }
+ public String getFirstName() {
+ return firstName;
+ }
+ public String getLastName() {
+ return lastName;
+ }
+ public String getName() {
+ return firstName + " " + lastName;
+ }
+ public int getSalary() {
+ return salary;
+ }
+ public void setSalary(int salary) {
+ this.salary = salary;
+ }
+ public int getAnnualSalary() {
+ return salary * 12;
+ }
+ public int raiseSalary(int percent) {
+ salary += (salary * percent)/100;
+ return salary;
+ }
+ employee(int id, String firstName, String lastName, int salary) {
+ countInstance++;
+ if (this.countInstance < 4) {
+ System.out.println(employee.countInstance);
+ this.id = id;
+ this.firstName = firstName;
+ this.lastName = lastName;
+ this.salary = salary;
+ }
+ }
+ public static employee getInstance(){
+ if(countInstance > 3) {
+ return null;
+ }
+ return new employee;
+ }
+ @Override
+ public String toString() {
+ return "Employee[" + "id=" + id + ", Name=" + firstName + " " +
+lastName + ", salary=" + salary + ']';
+ }
+ public static void main(String[] args) {
+ employee emp = employee.getInstance();
+ employee emp1 = employee.getInstance();
+ employee emp2 = employee.getInstance();
+ employee emp3 = employee.getInstance();
+ System.out.println(emp3);
+ }
+}
+4. Extend the above Question-3 to have only one object created (maintain Singleton). User can
+create as many numbers of references as required.
+Answer :
+package day04;
+public class employee{
+ private int id;
+ private String firstName ;
+ private String lastName;
+ private int salary;
+ private String Name;
+ private int AnnualSalary;
+ private static int countInstance;
+ private static employee single_instance = null;
+ private employee(){
+ countInstance++;
+ }
+ public int getId() {
+ return id;
+ }
+ public String getFirstName() {
+ return firstName;
+ }
+ public String getLastName() {
+ return lastName;
+ }
+ public String getName() {
+ return firstName + " " + lastName;
+ }
+ public int getSalary() {
+ return salary;
+ }
+ public void setSalary(int salary) {
+ this.salary = salary;
+ }
+ public int getAnnualSalary() {
+ return salary * 12;
+ }
+ public int raiseSalary(int percent) {
+ salary += (salary * percent)/100;
+ return salary;
+ }
+ employee(int id, String firstName, String lastName, int salary) {
+ countInstance++;
+ if (this.countInstance < 4) {
+ System.out.println(employee.countInstance);
+ this.id = id;
+ this.firstName = firstName;
+ this.lastName = lastName;
+ this.salary = salary;
+ }
+ }
+ public static employee getInstance(){
+ if(single_instance == null) {
+ single_instance = new employee();
+ return single_instance;
+ }
+ return null;
+ }
+ @Override
+ public String toString() {
+ return "Employee[" + "id=" + id + ", Name=" + firstName + " " +
+lastName + ", salary=" + salary + ']';
+ }
+ public static void main(String[] args) {
+ employee emp = employee.getInstance();
+ employee emp1 = employee.getInstance();
+ employee emp2 = employee.getInstance();
+ employee emp3 = employee.getInstance();
+ System.out.println(emp);
+ System.out.println(emp1);
+ System.out.println(emp2);
+ System.out.println(emp3);
+ }
+}
+5. Create a class named 'PrintNumber' to print various numbers of different datatypes by
+creating different methods with the same name 'printn' having a parameter for each
+datatype.
+Answer :
+package day04;
+public class printNumber {
+ void printN(int n){
+ System.out.println("This is int : " + n);
+ }
+ void printN(long n){
+ System.out.println("This is long : " + n);
+ }
+ void printN(float n){
+ System.out.println("This is float : " + n);
+ }
+ void printN(double n){
+ System.out.println("This is double : " + n);
+ }
+ public static void main(String[] args) {
+ int a = 103243;
+ float b = 12;
+ long c = 1234567390;
+ double d = 12.867567;
+ printNumber obj = new printNumber();
+ obj.printN(a);
+ obj.printN(b);
+ obj.printN(c);
+ obj.printN(d);
+ }
+}
+6. Create a class User with three data members which are name, age, and address. The
+constructor of the class assigns default values name as "unknown", age as '0' and address as
+"not available". It has two methods with the same name 'setInfo'. First method has two
+parameters for name and age and assigns the same whereas the second method takes has
+three parameters which are assigned to name, age, and address respectively. Print the
+name, age, and address of 10 users.
+Answer :
+package day04;
+public class user {
+ private String name;
+ private int age;
+ private String address;
+ public user(){
+ this.name = "Unknown";
+ this.age = 0;
+ this.address = "Not Applicable";
+ }
+ public void setInfo(String name, int age){
+ this.name = name;
+ this.age = age;
+ }
+ public void setInfo(String name, int age, String add){
+ this.name = name;
+ this.age = age;
+ this.address = add;
+ }
+ public static void main(String[] args) {
+ user obj = new user();
+ obj.setInfo("Dipayan", 21, "Jamshedpur");
+ user obj1 = new user();
+ obj1.setInfo("Dipayan", 21);
+ user obj2 = new user();
+ obj2.setInfo("Rohit", 23, "Jamshedpur");
+ user obj3 = new user();
+ obj3.setInfo("Rohit", 23);
+ System.out.println(obj.name + obj.age + obj.address);
+ System.out.println(obj1.name + obj1.age + obj1.address);
+ System.out.println(obj2.name + obj2.age + obj2.address);
+ System.out.println(obj3.name + obj3.age + obj3.address);
+ }
+}
+7. Given three strings S, S1, and S2 consisting of N, M, and K characters respectively, create a
+program to modify the string S by replacing all the substrings S1 with the string S2 in the
+string S.
+Answer :
+package day04;
+import java.util.*;
+public class stringPlay {
+ static String solve(String S, String S1, String S2){
+ String temp = S.replace(S1, S2);
+ return temp;
+ }
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter string S : ");
+ String S = sc.next();
+ System.out.println("Enter string S1 : ");
+ String S1 = sc.next();
+ System.out.println("Enter string S2 : ");
+ String S2 = sc.next();
+ System.out.println(stringPlay.solve(S, S1, S2));
+ sc.close();
+ }
+}
+8. Write a program to reverse String using the below three ways
+a. Using StringBuffer class
+b. Using StringBuilder class
+c. Using recursion
+Answer :
+package day04;
+import java.util.*;
+public class stringReverse {
+ public static String usingBuffer(String s){
+ StringBuffer obj = new StringBuffer(s);
+ StringBuffer output = obj.reverse();
+ return output.toString();
+ }
+ public static String usingBuilder(String s){
+ StringBuilder obj = new StringBuilder(s);
+ StringBuilder output = obj.reverse();
+ return output.toString();
+ }
+ public static String usingRecursion(String s){
+ if(s.length() == 0)
+ return "";
+ return s.charAt(s.length() - 1) + usingRecursion(s.substring(0,
+s.length() -1));
+ }
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter a string : ");
+ String str = sc.next();
+ sc.close();
+ System.out.println(usingRecursion(str));
+ System.out.println(usingBuffer(str));
+ System.out.println(usingBuilder(str));
+ }
+}
+9. Make the variable – companyName of Customer class of Day3 assignment as final and then
+try to change 
