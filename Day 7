@@ -8,4 +8,19 @@ public class Main {
     }
   }
 }
-In this code
+
+
+
+
+
+3 c-Write a program to throw an checked exception explicitly using 'throw' keyword and Don't either handle or use the throws clause.  
+
+
+
+
+
+4-	Write a program in which main method calls the foo method which calls the bar method. Bar method can throw a checked exception. Use throws for throwing the exception from bar. Don’t handle exception in bar using try catch. Let the calling function handle the same.  
+
+
+
+5.	6.	Create a User defined exception – LoanNotApprovedException. In case the given criteria of Loan approval doesn’t match, the exception must be thrown. The Loan Approval criterions for different type of loans are available in Eligibility.txt file. The exception should specifically give details about the mismatched criteria because of which the loan could not be approved.   
