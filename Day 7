@@ -15,9 +15,11 @@ public class Main {
 
 3 c-Write a program to throw an checked exception explicitly using 'throw' keyword and Don't either handle or use the throws clause.  
 
-public class Main {
-   public static void main(String[] args) {
-      throw new ClassNotFoundException("
+class ExceptionThrown {
+    public static void main(String[] args) {
+        throw new java.io.IOException("Exception thrown explicitly.");
+    }
+}
 
 
 
