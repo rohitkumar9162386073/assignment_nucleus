@@ -1,0 +1,171 @@
+6.	Write the classes as shown in the following class diagram.   
+  
+ 
+a.	Mark all the overridden methods with annotation @Override. 
+b.	Call the constructor of Person class from Student & Staff class constructor using super keyword. 
+c.	In the overridden method, use super keyword to call the base class method. 
+ 
+ Answer : 
+Person.java
+
+package day05;
+
+public class person {
+
+    private String name;
+    private String address;
+
+    person(String name, String address){
+        this.name = name;
+        this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String toString(){
+        return "[Person : Name = " + name + ", Address = " + address + "]";
+    }
+}
+
+student.java
+
+package day05;
+
+public class student extends person {
+    private String program;
+    private int year;
+    private double fee;
+
+    student(String name, String address, String program, int year, double fee) {
+        super(name, address);
+        this.program = program;
+        this.year = year;
+        this.fee = fee;
+    }
+
+    public String getProgram() {
+        return program;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public double getFee() {
+        return fee;
+    }
+
+    public void setProgram(String program) {
+        this.program = program;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setFee(double fee) {
+        this.fee = fee;
+    }
+
+    @Override
+    public String toString(){
+        return "[Student : " + super.toString() +", Program = " + getProgram() + ", Year = " + getYear() + ", Fee = " + getFee();
+    }
+}
+
+staff.java
+
+package day05;
+
+public class staff extends person{
+        private String school;
+        private double pay;
+
+        staff(String name, String address, String school, double pay){
+            super(name, address);
+            this.school = school;
+            this.pay = pay;
+        }
+
+        public String getSchool() {
+            return school;
+        }
+
+        public void setSchool(String school) {
+            this.school = school;
+        }
+
+        public double getPay() {
+            return pay;
+        }
+
+        public void setPay(double pay) {
+            this.pay = pay;
+        }
+
+        @Override
+        public String toString(){
+            return "Staff[" + super.toString() + ", school=" + getSchool() + ", pay=" + getPay();
+        }
+}
+
+
+ 
+7.	Create the LoanProduct class hierarchy according to the given Class Diagram.   
+                 
+Create the required constructor and write a test class to test the functionalities.  
+a.	The method ‘LTVCalculationAsPerCollatoralType’ need to be overridden in all three classes. The formula to be used is given in Assignment-1. Pass the ‘LoanAmountAsked’ value in the method.  
+b.	Use upcasting to call this method.  
+ 
+Answer :
+loanProduct.java
+package day05;
+import Day02.*;
+
+public abstract class loanProduct {
+    private String loanProductCode;
+    private String loanProductName;
+    private boolean assetBased;
+    private String loanSecurityType;
+    private double minTenure;
+    private double maxTenure;
+    private double minLoanAmount;
+    private double maxLoanAmount;
+    private double roi;
+    private double ltv;
+
+    public abstract double LTVCalculationAsPerCollateralType(double LoanAmount, double propertyValue);
+}
+
+homeLoan.java
+package day05;
+import Day02.*;
+import Day01.LTV;
+
+public class homeLoan extends LoanProduct{
+    private String propertyType;
+    private String natureOfProperty;
+    private String propertyPurpose;
+    private String propertyOwnership;
+    private double marketValue;
+    private double builtUpArea;
+    private double carpetArea;
+    private double propertyAge;
+
+    @Override
+    public double LTVCalculationAsPerCollateralType(double loanAmount,double propertyValue) {
+        LTV obj = new LTV();
+        obj.calcLTV(loanAmount, propertyValue);
+        return obj.getLtv();
+    }
+}
