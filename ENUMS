@@ -1,0 +1,85 @@
+enum EducationStream{
+        ENGINEERING,
+        MEDIAL,
+        MANAGEMENT,
+        TECHNICAL
+    }
+
+    enum DegreeType{
+        DIPLOMA,
+        GRADUATE,
+        POSTGRADUATE
+    }
+
+    enum CourseType{
+        PARTTIME,
+        REGULAR,
+        DAYTIME
+    }
+
+    enum AssetVariant{
+        PETROL,
+        DIESEL,
+        CNG
+    }
+
+    enum AssetCategory{
+        CAR,
+        SCOOTER,
+        BIKE
+    }
+
+    enum PropertyType{
+        SHOP,
+        OFFICE,
+        FLAT,
+        VILLA
+    }
+
+    enum PropertyPurpose{
+        RENT,
+        SELF
+    }
+
+    enum PropertyOwnership{
+        FREEHOLD,
+        LEASE
+    }
+
+    enum NatureOfProperty{
+        RESIDENTIAL,
+        COMMERCIAL
+    }
+
+    enum ChequeStatus{
+        DEPOSIT,
+        REALIZED,
+        CANCELLED,
+        BOUNCED
+    }
+
+    enum PaymentMode{
+        CHEQUE,
+        CREDITCARD,
+        FUNDTRANSFER
+    }
+
+    enum LoanStatus{
+        PENDING,
+        APPROVED,
+        REJECTED,
+        ACTIVE,
+        CLOSED
+    }
+
+    enum EMIPaidStatus{
+        PAID,
+        OVERDUE
+    }
+
+    enum RepayFrequency{
+        MONTHLY,
+        QUARTERLY,
+        HALFYEARLY,
+        YEARLY
+    }
