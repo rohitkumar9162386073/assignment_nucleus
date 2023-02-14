@@ -56,5 +56,90 @@ public class Customer {
         for (Customer customer : filteredCustomers) {
             System.out.println(customer.getName() + " - " + customer.getEmail() + " - " + customer.getAnnualIncome());
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        import java.util.function.Predicate;
+
+public class Customer {
+
+    private String name;
+
+    private int age;
+
+    private double monthlyIncome;
+
+    public Customer(String name, int age, double monthlyIncome) {
+
+        this.name = name;
+
+        this.age = age;
+
+        this.monthlyIncome = monthlyIncome;
+
+    }
+
+    public String getName() {
+
+        return name;
+
+    }
+
+    public int getAge() {
+
+        return age;
+
+    }
+
+    public double getMonthlyIncome() {
+
+        return monthlyIncome;
+
+    }
+
+    public static void main(String[] args) {
+
+        // Create an array of customer objects
+
+        Customer[] customers = {
+
+                new Customer("John", 35, 700000),
+
+                new Customer("Jane", 28, 450000),
+
+                new Customer("Bob", 42, 800000),
+
+                new Customer("Alice", 30, 550000),
+
+                new Customer("Tom", 25, 350000)
+
+        };
+
+        // Define a predicate to filter customers by monthly income
+
+        Predicate<Customer> incomePredicate = customer -> customer.getMonthlyIncome() > 500000;
+
+        // Print the names of customers whose monthly income is greater than 5 lakhs
+
+        for (Customer customer : customers) {
+
+            if (incomePredicate.test(customer)) {
+
+                System.out.println(customer.getName());
+
+            }
+
+        }
+
+    }
+
+}
     }
 }
