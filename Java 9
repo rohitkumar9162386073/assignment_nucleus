@@ -140,6 +140,97 @@ public class Customer {
 
     }
 
+
+
+
+
+
+
+
+
+
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import java.util.function.Predicate;
+
+interface CustomerFilter {
+
+    boolean filter(Customer c);
+
 }
+
+public class Customer {
+
+    private String name;
+
+    private int age;
+
+    private double monthlyIncome;
+
+    public Customer(String name, int age, double monthlyIncome) {
+
+        this.name = name;
+
+        this.age = age;
+
+        this.monthlyIncome = monthlyIncome;
+
     }
+
+    public String getName() {
+
+        return name;
+
+    }
+
+    public int getAge() {
+
+        return age;
+
+    }
+
+    public double getMonthlyIncome() {
+
+        return monthlyIncome;
+
+    }
+
+    public static void main(String[] args) {
+
+        // Create a list of customer objects
+
+        List<Customer> customers = new ArrayList<>();
+
+        customers.add(new Customer("John", 35, 700000));
+
+        customers.add(new Customer("Jane", 28, 450000));
+
+        customers.add(new Customer("Bob", 22, 800000));
+
+        customers.add(new Customer("Alice", 20, 550000));
+
+        customers.add(new Customer("Tom", 25, 350000));
+
+        // Define a predicate to filter customers by age range
+
+        CustomerFilter ageRangeFilter = c -> c.getAge() >= 18 && c.getAge() <= 25;
+
+        // Print the names of customers whose age is in the range of 18 to 25
+
+        for (Customer customer : customers) {
+
+            if (ageRangeFilter.filter(customer)) {
+
+                System.out.println(customer.getName());
+
+            }
+
+        }
+
+    }
+
 }
+
