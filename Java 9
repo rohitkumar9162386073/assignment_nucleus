@@ -319,6 +319,65 @@ public class LoanAgreement {
 
         }
 
+
+
+
+
+
+
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class LoanAgreement {
+
+    private String accountNumber;
+    private double loanAmount;
+
+    public LoanAgreement(String accountNumber, double loanAmount) {
+        this.accountNumber = accountNumber;
+        this.loanAmount = loanAmount;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getLoanAmount() {
+        return loanAmount;
+    }
+
+    public static void main(String[] args) {
+        // Create an array of LoanAgreement class objects
+        LoanAgreement[] loans = {
+                new LoanAgreement("L001", 100000),
+                new LoanAgreement("L002", 200000),
+                new LoanAgreement("L003", 150000),
+                new LoanAgreement("L004", 50000),
+                new LoanAgreement("L005", 250000)
+        };
+
+        // Define a comparator to compare loan amounts in descending order using a lambda expression
+        Comparator<LoanAgreement> loanComparator = (loan1, loan2) -> Double.compare(loan2.getLoanAmount(), loan1.getLoanAmount());
+
+        // Sort the loans array using the comparator
+        Arrays.sort(loans, loanComparator);
+
+        // Print the account numbers and loan amounts in descending order
+        for (LoanAgreement loan : loans) {
+            System.out.println("Account Number: " + loan.getAccountNumber() + ", Loan Amount: " + loan.getLoanAmount());
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
     }
 
 }
