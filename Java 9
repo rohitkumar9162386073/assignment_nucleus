@@ -234,3 +234,92 @@ public class Customer {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.function.Predicate;
+
+public class LoanAgreement {
+
+    private String accountNumber;
+
+    private String status;
+
+    private boolean emiPending;
+
+    public LoanAgreement(String accountNumber, String status, boolean emiPending) {
+
+        this.accountNumber = accountNumber;
+
+        this.status = status;
+
+        this.emiPending = emiPending;
+
+    }
+
+    public String getAccountNumber() {
+
+        return accountNumber;
+
+    }
+
+    public String getStatus() {
+
+        return status;
+
+    }
+
+    public boolean isEmiPending() {
+
+        return emiPending;
+
+    }
+
+    public static void main(String[] args) {
+
+        // Create an array of LoanAgreement class objects
+
+        LoanAgreement[] loans = {
+
+                new LoanAgreement("L001", "active", true),
+
+                new LoanAgreement("L002", "inactive", false),
+
+                new LoanAgreement("L003", "active", true),
+
+                new LoanAgreement("L004", "active", false),
+
+                new LoanAgreement("L005", "inactive", true)
+
+        };
+
+        // Define a predicate to filter loan accounts by status and EMI pending
+
+        Predicate<LoanAgreement> loanFilter = loan -> loan.getStatus().equalsIgnoreCase("active") && loan.isEmiPending();
+
+        // Print the account numbers of loan accounts whose status is active and EMI is pending
+
+        for (LoanAgreement loan : loans) {
+
+            if (loanFilter.test(loan)) {
+
+                System.out.println(loan.getAccountNumber());
+
+            }
+
+        }
+
+    }
+
+}
+
