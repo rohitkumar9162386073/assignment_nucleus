@@ -348,3 +348,311 @@ employeeArr.listIterator(employeeArr.size());
  System.out.println(eList.size());
  }
  }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ import java.util.*;
+
+class Employee implements Comparable<Employee> {
+
+    private int id;
+
+    private String name;
+
+    private int salary;
+
+    public Employee(int id, String name, int salary) {
+
+        this.id = id;
+
+        this.name = name;
+
+        this.salary = salary;
+
+    }
+
+    public int getId() {
+
+        return id;
+
+    }
+
+    public String getName() {
+
+        return name;
+
+    }
+
+    public int getSalary() {
+
+        return salary;
+
+    }
+
+    @Override
+
+    public int compareTo(Employee emp) {
+
+        return this.id - emp.getId();
+
+    }
+
+    @Override
+
+    public String toString() {
+
+        return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        // 1. 
+
+        TreeSet<Employee> employeeSet = new TreeSet<Employee>();
+
+        employeeSet.add(new Employee(101, "John", 5000));
+
+        employeeSet.add(new Employee(102, "Mike", 10000));
+
+        employeeSet.add(new Employee(103, "Sarah", 15000));
+
+        employeeSet.add(new Employee(104, "David", 20000));
+
+        // a. 
+
+        System.out.println("a : ");
+
+        for (Employee emp : employeeSet) {
+
+            System.out.println(emp);
+
+        }
+
+        // b. 
+
+        System.out.println("b : ");
+
+        Employee[] employeeArr = employeeSet.toArray(new Employee[0]);
+
+        for (int i = 0; i < employeeArr.length; i++) {
+
+            System.out.println(employeeArr[i]);
+
+        }
+
+        // c. 
+
+        // c i.
+
+        System.out.println("c i : ");
+
+        Employee first = employeeSet.first();
+
+        System.out.println(first);
+
+        // c ii.
+
+        System.out.println("c ii : ");
+
+        Employee last = employeeSet.last();
+
+        System.out.println(last);
+
+        // c iii.
+
+        System.out.println("c iii : ");
+
+        Iterator<Employee> e = employeeSet.iterator();
+
+        while (e.hasNext()) {
+
+            System.out.println(e.next());
+
+        }
+
+        // c iv.
+
+        System.out.println("c iv : ");
+
+        ListIterator<Employee> listEmp = new ArrayList<Employee>(employeeSet).listIterator(employeeSet.size());
+
+        while (listEmp.hasPrevious()) {
+
+            System.out.println(listEmp.previous());
+
+        }
+
+        // d.
+
+        System.out.println("d : ");
+
+        System.out.println(employeeSet);
+
+        Iterator<Employee> emp1 = employeeSet.iterator();
+
+        while (emp1.hasNext()) {
+
+            Employee ob = emp1.next();
+
+            System.out.println("Salary : " + ob.getSalary());
+
+            if (ob.getSalary() < 10000) {
+
+                emp1.remove();
+
+            }
+
+        }
+
+        System.out.println(employeeSet);
+
+        // 2.
+
+        System.out.println("2 : ");
+
+        List<Employee> eList = new ArrayList<Employee>();
+
+        eList.add(new Employee(5, "A", 45000));
+
+        eList.add(new Employee(2, "B", 30000));
+
+        eList.add(new Employee(7, "C", 80000));
+
+        Employee ob1 = eList.get(0);
+
+        boolean check = eList.contains(ob1);
+
+        System.out.println(check);
+
+        eList.remove(ob1);
+
+        System.out.println(eList.size());
+
+    }
+
+}
+
+
+
+
+
+
+
+import java.util.*;
+
+class Employee implements Comparable<Employee> {
+    private int id;
+    private String name;
+    private int salary;
+
+    public Employee(int id, String name, int salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    @Override
+    public int compareTo(Employee emp) {
+        return this.id - emp.getId();
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // 1. 
+        TreeSet<Employee> employeeSet = new TreeSet<Employee>();
+        employeeSet.add(new Employee(101, "John", 5000));
+        employeeSet.add(new Employee(102, "Mike", 10000));
+        employeeSet.add(new Employee(103, "Sarah", 15000));
+        employeeSet.add(new Employee(104, "David", 20000));
+
+        // a. 
+        System.out.println("a : ");
+        for (Employee emp : employeeSet) {
+            System.out.println(emp);
+        }
+
+        // b. 
+        System.out.println("b : ");
+        Employee[] employeeArr = employeeSet.toArray(new Employee[0]);
+        for (int i = 0; i < employeeArr.length; i++) {
+            System.out.println(employeeArr[i]);
+        }
+
+        // c. 
+        // c i.
+        System.out.println("c i : ");
+        Employee first = employeeSet.first();
+        System.out.println(first);
+
+        // c ii.
+        System.out.println("c ii : ");
+        Employee last = employeeSet.last();
+        System.out.println(last);
+
+        // c iii.
+        System.out.println("c iii : ");
+        Iterator<Employee> e = employeeSet.iterator();
+        while (e.hasNext()) {
+            System.out.println(e.next());
+        }
+
+        // c iv.
+        System.out.println("c iv : ");
+        ListIterator<Employee> listEmp = new ArrayList<Employee>(employeeSet).listIterator(employeeSet.size());
+        while (listEmp.hasPrevious()) {
+            System.out.println(listEmp.previous());
+        }
+
+        // d.
+        System.out.println("d : ");
+        System.out.println(employeeSet);
+        Iterator<Employee> emp1 = employeeSet.iterator();
+        while (emp1.hasNext()) {
+            Employee ob = emp1.next();
+            System.out.println("Salary : " + ob.getSalary());
+            if (ob.getSalary() < 10000) {
+                emp1.remove();
+            }
+        }
+        System.out.println(employeeSet);
+
+        // 2.
+        System.out.println("2 : ");
+        List<Employee> eList = new ArrayList<Employee>();
+        eList.add(new Employee(5, "A", 45000));
+        eList.add(new Employee(2, "B", 30000));
+        eList.add(new Employee(7, "C", 80000));
+        Employee ob1 = eList.get(0);
+        boolean check = eList.contains(ob1);
+        System.out.println(check);
+        eList.remove(ob1);
+        System.out.println(eList.size());
+    }
+}
