@@ -1,0 +1,225 @@
+[16/02, 17:06] Kr.rohit: import java.util.Arrays;
+
+import java.util.List;
+
+import java.util.stream.Collectors;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        List<Integer> listWithDuplicates = Arrays.asList(1, 2, 3, 1, 2, 4, 5, 6, 5);
+
+        List<Integer> listWithoutDuplicates = listWithDuplicates.stream()
+
+                .distinct()
+
+                .collect(Collectors.toList());
+
+        System.out.println("List with duplicates: " + listWithDuplicates);
+
+        System.out.println("List without duplicates: " + listWithoutDuplicates);
+
+    }
+
+}
+
+[16/02, 17:09] Kr.rohit: import java.util.ArrayList;
+
+import java.util.List;
+
+public class SumOfListUsingStream {
+
+    public static void main(String[] args) {
+
+        List<Integer> numbers = new ArrayList<>();
+
+        numbers.add(1);
+
+        numbers.add(2);
+
+        numbers.add(3);
+
+        numbers.add(4);
+
+        numbers.add(5);
+
+        int sum = numbers.stream().mapToInt(Integer::intValue).sum();
+
+        System.out.println("Sum of all numbers in the list: " + sum);
+
+    }
+
+}
+
+[16/02, 17:11] Kr.rohit: import java.util.ArrayList;
+
+import java.util.List;
+
+public class CubeAndFilterUsingStream {
+
+    public static void main(String[] args) {
+
+        List<Integer> numbers = new ArrayList<>();
+
+        numbers.add(2);
+
+        numbers.add(5);
+
+        numbers.add(7);
+
+        numbers.add(9);
+
+        numbers.add(10);
+
+        numbers.add(12);
+
+        List<Integer> filteredNumbers = numbers.stream()
+
+                .map(n -> n * n * n)    // cube each number
+
+                .filter(n -> n > 50)   // filter out numbers greater than 50
+
+                .toList();
+
+        System.out.println("Filtered numbers greater than 50 after performing cube: " + filteredNumbers);
+
+    }
+
+}
+
+[16/02, 17:13] Kr.rohit: import java.util.ArrayList;
+
+import java.util.List;
+
+public class FilterStringUsingStream {
+
+    public static void main(String[] args) {
+
+        List<String> strings = new ArrayList<>();
+
+        strings.add("hello");
+
+        strings.add("world");
+
+        strings.add("this");
+
+        strings.add("is");
+
+        strings.add("a");
+
+        strings.add("test");
+
+        strings.add("string");
+
+        strings.stream()
+
+               .filter(s -> s.length() > 5)   // filter out strings with length less than or equal to 5
+
+               .forEach(System.out::println); // print the remaining strings
+
+    }
+
+}
+
+[16/02, 17:17] Kr.rohit: import java.util.ArrayList;
+
+import java.util.List;
+
+public class CountStringUsingStream {
+
+    public static void main(String[] args) {
+
+        List<String> strings = new ArrayList<>();
+
+        strings.add("hello");
+
+        strings.add("world");
+
+        strings.add("this");
+
+        strings.add("is");
+
+        strings.add("a");
+
+        strings.add("test");
+
+        strings.add("string");
+
+        long count = strings.stream()
+
+                            .filter(s -> s.length() > 5)   // filter out strings with length less than or equal to 5
+
+                            .count();                       // count the remaining strings
+
+        System.out.println("Number of strings whose length is greater than 5: " + count);
+
+    }
+
+}
+
+[16/02, 17:18] Kr.rohit: import java.util.ArrayList;
+
+import java.util.List;
+
+public class MaxNumberUsingStream {
+
+    public static void main(String[] args) {
+
+        List<Integer> numbers = new ArrayList<>();
+
+        numbers.add(10);
+
+        numbers.add(20);
+
+        numbers.add(30);
+
+        numbers.add(40);
+
+        numbers.add(50);
+
+        int max = numbers.stream()
+
+                         .mapToInt(Integer::intValue) // convert stream of Integer to IntStream
+
+                         .max()                       // get the maximum value in the stream
+
+                         .orElse(-1);                 // return -1 if the stream is empty
+
+        System.out.println("Maximum number: " + max);
+
+    }
+
+}
+
+[16/02, 17:22] Kr.rohit: import java.util.ArrayList;
+
+import java.util.List;
+
+public class FirstElementUsingStream {
+
+    public static void main(String[] args) {
+
+        List<Integer> numbers = new ArrayList<>();
+
+        numbers.add(10);
+
+        numbers.add(20);
+
+        numbers.add(30);
+
+        numbers.add(40);
+
+        numbers.add(50);
+
+        int first = numbers.stream()
+
+                           .findFirst()  // get the first element of the stream
+
+                           .orElse(-1);  // return -1 if the stream is empty
+
+        System.out.println("First element: " + first);
+
+    }
+
+}
