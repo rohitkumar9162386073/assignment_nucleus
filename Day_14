@@ -722,3 +722,123 @@ public class Main1 {
         }
     }
 }
+
+
+
+package DAY_13;
+
+import java.util.*;
+
+class Employee implements Comparable<Employee> {
+
+    private int id;
+
+    private String name;
+
+    private int salary;
+
+    public Employee(int id, String name, int salary) {
+
+        this.id = id;
+
+        this.name = name;
+
+        this.salary = salary;
+
+    }
+
+    public int getId() {
+
+        return id;
+
+    }
+
+    public String getName() {
+
+        return name;
+
+    }
+
+    public int getSalary() {
+
+        return salary;
+
+    }
+
+    @Override
+
+    public int compareTo(Employee emp) {
+
+        return this.id - emp.getId();
+
+    }
+
+    @Override
+
+    public String toString() {
+
+        return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+
+    }
+
+}
+
+class EmployeeNameComparator implements Comparator<Employee> {
+
+    @Override
+
+    public int compare(Employee emp1, Employee emp2) {
+
+        return emp1.getName().compareTo(emp2.getName());
+
+    }
+
+}
+
+public class Main1 {
+
+    public static void main(String[] args) {
+
+        // 1.
+
+        TreeSet<Employee> employeeSet = new TreeSet<Employee>(new EmployeeNameComparator());
+
+        employeeSet.add(new Employee(101, "John", 5000));
+
+        employeeSet.add(new Employee(102, "Mike", 10000));
+
+        employeeSet.add(new Employee(103, "Sarah", 15000));
+
+        employeeSet.add(new Employee(104, "David", 20000));
+
+        // a.
+
+        System.out.println("a : ");
+
+        for (Employee emp : employeeSet) {
+
+            System.out.println(emp);
+
+        }
+
+        // b.
+
+        Iterator<Employee> emp1 = employeeSet.iterator();
+
+        while (emp1.hasNext()) {
+
+            Employee ob = emp1.next();
+
+            System.out.println("Salary : " + ob.getSalary());
+
+            if (ob.getSalary() < 10000) {
+
+                emp1.remove();
+
+            }
+
+        }
+
+    }
+
+}
