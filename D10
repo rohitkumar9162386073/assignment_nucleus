@@ -1,0 +1,279 @@
+
+Eager initialization: In this approach, the singleton instance is created as soon as the class is loaded into memory.
+
+
+
+
+
+
+public class Singleton {
+
+    private static Singleton instance = new Singleton();
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+
+        return instance;
+
+    }
+
+}
+
+
+We can get the instance of the singleton by calling Singleton.getInstance(). Note that the constructor of the class is private, so the singleton object cannot be instantiated from outside the class.
+
+
+
+Lazy initialization: In this approach, the singleton instance is created only when it is first requested.
+
+
+public class Singleton {
+
+    private static Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+
+        if (instance == null) {
+
+            instance = new Singleton();
+
+        }
+
+        return instance;
+
+    }
+
+}
+
+
+We can get the instance of the singleton by calling Singleton.getInstance(). The first time this method is called, the instance variable is null, so a new object is created. Subsequent calls to this method will return the same instance.
+
+
+
+
+
+
+
+
+Initialization-on-demand holder (IoDH) idiom: This approach uses a nested static class to hold the singleton instance. The singleton instance is created only when the nested class is loaded into memory.
+
+
+
+
+public class Singleton {
+
+    private Singleton() {}
+
+    private static class SingletonHolder {
+
+        private static final Singleton instance = new Singleton();
+
+    }
+
+    public static Singleton getInstance() {
+
+        return SingletonHolder.instance;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+ingleton Object Creation - 3 Ways.
+
+rohit kumar
+
+What are the 3 ways of creating singleton objects ? Show demo of all three
+
+In programming, a singleton is a design pattern that restricts the instantiation of a class to one object. There are several ways to create singleton objects, but the most common ones are:
+
+Using a static variable: We can use a static variable to store the instance of the singleton object. The constructor of the class should be private, and we can use a static method to access the instance. This ensures that only one instance of the object can be created.
+
+Here's an example of implementing a singleton using a static variable in Python:
+
+python
+
+Copy code
+
+class Singleton:
+
+    __instance = None
+
+    def __init__(self):
+
+        if Singleton.__instance != None:
+
+            raise Exception("You cannot create more than one instance of Singleton class")
+
+        else:
+
+            Singleton.__instance = self
+
+    @staticmethod
+
+    def get_instance():
+
+        if Singleton.__instance == None:
+
+            Singleton()
+
+        return Singleton.__instance
+
+We can use the get_instance() method to access the singleton object.
+
+scss
+
+Copy code
+
+s1 = Singleton.get_instance()
+
+s2 = Singleton.get_instance()
+
+print(s1)
+
+print(s2)
+
+Output:
+
+python
+
+Copy code
+
+<__main__.Singleton object at 0x7ff7642e7580>
+
+<__main__.Singleton object at 0x7ff7642e7580>
+
+As you can see, both s1 and s2 refer to the same object.
+
+Using a decorator: We can also use a decorator to create a singleton class. This method is useful when we want to apply the singleton pattern to an existing class.
+
+Here's an example of using a decorator to create a singleton class in Python:
+
+less
+
+Copy code
+
+from functools import wraps
+
+def singleton(cls):
+
+    instances = {}
+
+    @wraps(cls)
+
+    def get_instance(*args, **kwargs):
+
+        if cls not in instances:
+
+            instances[cls] = cls(*args, **kwargs)
+
+        return instances[cls]
+
+    return get_instance
+
+@singleton
+
+class
+
+rohit kumar
+
+What are the 3 ways of creating singleton objects in java ? Show demo of all three
+
+Sure! Here are three common ways to create singleton objects in Java:
+
+Eager initialization: In this approach, the singleton instance is created as soon as the class is loaded into memory.
+
+csharp
+
+Copy code
+
+public class Singleton {
+
+    private static Singleton instance = new Singleton();
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+
+        return instance;
+
+    }
+
+}
+
+We can get the instance of the singleton by calling Singleton.getInstance(). Note that the constructor of the class is private, so the singleton object cannot be instantiated from outside the class.
+
+Lazy initialization: In this approach, the singleton instance is created only when it is first requested.
+
+csharp
+
+Copy code
+
+public class Singleton {
+
+    private static Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+
+        if (instance == null) {
+
+            instance = new Singleton();
+
+        }
+
+        return instance;
+
+    }
+
+}
+
+We can get the instance of the singleton by calling Singleton.getInstance(). The first time this method is called, the instance variable is null, so a new object is created. Subsequent calls to this method will return the same instance.
+
+Initialization-on-demand holder (IoDH) idiom: This approach uses a nested static class to hold the singleton instance. The singleton instance is created only when the nested class is loaded into memory.
+
+java
+
+Copy code
+
+public class Singleton {
+
+    private Singleton() {}
+
+    private static class SingletonHolder {
+
+        private static final Singleton instance = new Singleton();
+
+    }
+
+    public static Singleton getInstance() {
+
+        return SingletonHolder.instance;
+
+    }
+
+}
+
+We can get the instance of the singleton by calling Singleton.getInstance(). The SingletonHolder class is only loaded into memory when the getInstance() method is called for the first time. The static instance variable is then initialized with a new Singleton object. Subsequent calls to this method will return the same instance.
+
+
+
+
+
+
+
+
+
+
+
