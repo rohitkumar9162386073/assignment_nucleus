@@ -270,9 +270,37 @@ We can get the instance of the singleton by calling Singleton.getInstance(). The
 
 
 
+Here's an example of how to use these three approaches:
 
 
 
+
+
+public class SingletonDemo {
+
+    public static void main(String[] args) {
+
+        // Eager initialization
+
+        Singleton eagerSingleton = Singleton.getInstance();
+
+        System.out.println("Eager Singleton: " + eagerSingleton);
+
+        // Lazy initialization
+
+        Singleton lazySingleton = Singleton.getInstance();
+
+        System.out.println("Lazy Singleton: " + lazySingleton);
+
+        // IoDH idiom
+
+        Singleton ioDHSingleton = Singleton.getInstance();
+
+        System.out.println("IoDH Singleton: " + ioDHSingleton);
+
+    }
+
+}
 
 
 
