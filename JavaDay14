@@ -1,0 +1,27 @@
+// Q9.
+
+package day14;
+import day06.customer;
+import java.util.Arrays;
+public class mainQ7 {
+ public static void main(String[] args) {
+ customer obj = new customer();
+ boolean flag =true;
+ customer[] arr = new customer[10];
+ for(int i=0; i<10; i++) {
+ arr[i] = new customer(i + 1, flag);
+ flag = !flag;
+ }
+ long count =
+Arrays.stream(arr).parallel().filter(customer::isLoanTaken).count();
+ System.out.println(count);
+// long startTimeSS = System.nanoTime();
+// long endTimeSS = System.nanoTime();
+// long startTimePS = System.nanoTime();
+// Arrays.stream(arr).parallel().forEach(customer ->
+System.out.println(customer.getCustomerId()));
+// long endTimePS = System.nanoTime();
+// System.out.println("Sequential : " + (endTimeSS - startTimeSS));
+// System.out.println("Parallel : " + (endTimePS - startTimePS));
+ }
+}
