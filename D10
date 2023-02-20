@@ -305,3 +305,36 @@ public class SingletonDemo {
 
 
 
+
+
+
+
+The SOLID principles are a set of design principles for software development that aim to make software more maintainable, flexible, and extensible. The principles are:
+
+Single Responsibility Principle (SRP)
+
+Open-Closed Principle (OCP)
+
+Liskov Substitution Principle (LSP)
+
+Interface Segregation Principle (ISP)
+
+Dependency Inversion Principle (DIP)
+
+These principles are not specific to any particular programming language or API, but rather provide general guidelines for software design.
+
+That being said, Java API follows the SOLID principles in various ways. Here are some examples:
+
+Single Responsibility Principle (SRP): Many classes in Java API follow SRP, such as java.util.ArrayList, which only has the responsibility of maintaining an ordered collection of elements.
+
+Open-Closed Principle (OCP): Java API has many examples of OCP, including java.util.Comparator, which allows for custom sorting algorithms to be implemented without modifying the code of the collection being sorted.
+
+Liskov Substitution Principle (LSP): Java API is designed with LSP in mind, allowing for derived classes to be used in place of their base classes. For example, java.util.List allows for any implementation of a list to be used where a List is expected.
+
+Interface Segregation Principle (ISP): Java API has many interfaces that follow ISP, such as java.util.Iterator, which only contains methods related to iterating over a collection.
+
+Dependency Inversion Principle (DIP): Java API provides many examples of DIP, such as the use of interfaces throughout the API. For example, java.util.Collection is an interface that can be implemented by different collection types.
+
+In conclusion, Java API follows the SOLID principles in various ways, as they provide a solid foundation for creating maintainable, flexible, and extensible software.
+
+
