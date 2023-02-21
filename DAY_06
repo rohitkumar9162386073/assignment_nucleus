@@ -1,0 +1,227 @@
+Bank . java
+
+
+
+package Assignment6;
+import Assignment1.LTV;
+import Assignment2.Customer;
+import Assignment2.LoanProduct;
+import Assignment8.MyIterator;
+
+import java.time.LocalDate;
+import java.util.Scanner;
+
+public class Bank implements Maker,Operator {
+
+    private int size = 10;
+    private int countcustomer = 0;
+
+    private int countLoanProducts = 0;
+
+    private LoanProduct[] loan = new LoanProduct[size];
+    private Customer[] cus = new Customer[size];
+    private static int customerId;
+
+
+    public boolean registerCustomer(Customer c){
+        this.cus[countcustomer] = c;
+        countcustomer++;
+        if(countcustomer < size){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void printAllLoanProducts() {
+        for(int i = 0; i< countLoanProducts; i++){
+            System.out.println(loan[i]);
+        }
+    }
+
+    @Override
+    public void printAllLoanProductDetails(String loanProductId) {
+        for (int i = 0; i< countLoanProducts; i++){
+            if(loan[i].getLoanProductCode() == loanProductId){
+                LoanProduct ans = loan[i];
+                System.out.println(loan[i]);//After overriding toString() in loanproduct
+            }
+        }
+    }
+
+    @Override
+    public void calculateLTVorLoanProducts() {
+        LTV ltv = new LTV();
+        ltv.LTVCalculator();
+    }
+
+    public Customer findCustomer(int customerId){
+        for(int i = 0; i < cus.length; i++){
+            if(cus[i].getCustomerID() == customerId){
+                return cus[i];
+            }
+        }
+        return cus[2];
+    }
+
+    public void printAllCustomer(){
+        for(int i = 0; i< cus.length; i++){
+            System.out.println(cus[i]);
+        }
+    }
+
+    public boolean findCustomer(Customer c){
+        for (Customer i: cus) {
+            if(i != c){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean deleteCustomer(int customerId){
+        for(int i =0; i< countcustomer; i++){
+            if(this.cus[i].getCustomerID() == customerId){
+                this.cus[i].setCustomerID(0);
+                countcustomer--;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean addNewLoanProduct(){
+        return true;
+    }
+
+    @Override
+    public boolean removeLoanProduct(String loanProductCode) {
+        for(int i = 0; i < countLoanProducts; i++){
+            if(loan[i].getLoanProductCode() == loanProductCode){
+                loan[i].setLoanProductCode(null);
+            }
+        }
+        countLoanProducts--;
+        return true;
+    }
+
+    public int getSize(){
+        return size;
+    }
+
+    public void setSize(int size){
+        this.size = size;
+    }
+
+   public int getCustomerId(){
+        return customerId;
+   }
+
+   public void setCustomerId(int customerId){
+        this.customerId = customerId;
+   }
+
+   public int getCountcustomer(){
+        return countcustomer;
+   }
+
+   public void setCus(Customer[] cus){
+        this.cus = cus;
+   }
+
+    public class BIterator implements MyIterator{
+
+        int index = 0;
+        @Override
+        public boolean hasNext() {
+            if(index < countcustomer){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        @Override
+        public Object next() {
+            if(hasNext()){
+                return (Customer)cus[index++];
+            }
+            return null;
+        }
+        @Override
+        public void remove() {
+            cus[index] = null;
+             index--;
+        }
+        public MyIterator getIndex(){
+            MyIterator it = new BIterator();
+            return it;
+        }
+
+        }
+}
+
+
+
+
+Main.java
+
+package Assignment6;
+
+import Assignment2.Customer;
+import Assignment8.MyIterator;
+
+import java.time.LocalDate;
+
+public class Main {
+    public static void main(String[] args) {
+        Bank b = new Bank();
+        Customer cus = new Customer("Amar Jyoti patel", 28, 150000);
+        Customer cus1 = new Customer("Rajeev ahir", 24, 550000);
+
+        b.registerCustomer(cus1);
+        b.registerCustomer(cus);
+        b.printAllCustomer();
+        MyIterator it = new Bank().new BIterator().getIndex();
+        while (it.hasNext()){
+            Customer customer = (Customer) it.next();
+            if(customer.getMonthlyIncome() > 500000){
+                it.remove();
+            }
+        }
+        b.printAllCustomer();
+    }
+}
+
+
+
+
+Maker.interface
+
+package Assignment6;
+
+import Assignment2.Customer;
+
+public interface Maker {
+
+     boolean registerCustomer(Customer c);
+     boolean deleteCustomer(int customerId);
+
+     boolean addNewLoanProduct();
+     boolean removeLoanProduct(String loanProductCode);
+}
+
+
+Operator.interface
+
+package Assignment6;
+
+import Assignment2.Customer;
+
+public interface Operator {
+     void printAllLoanProducts();
+     void printAllLoanProductDetails(String loanProductId);
+     void calculateLTVorLoanProducts();
+     Customer findCustomer(int customerId);
+     boolean findCustomer(Customer c);
+     void printAllCustomer();
+}
