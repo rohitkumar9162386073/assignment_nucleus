@@ -221,4 +221,103 @@ values[1], Double.parseDouble(values[2])));
  System.out.println(empList);
  }
 }
-1 
+
+
+
+import java.io.*;
+
+class Address implements Serializable {
+    private String houseNo;
+    private String city;
+    private String state;
+
+    public Address(String houseNo, String city, String state) {
+        this.houseNo = houseNo;
+        this.city = city;
+        this.state = state;
+    }
+
+    public String getHouseNo() {
+        return houseNo;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+}
+
+class Employee implements Serializable {
+    private int id;
+    private String name;
+    private Address address;
+
+    public Employee(int id, String name, Address address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
+
+    public void serialize() {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("employee.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(this);
+            out.close();
+            fileOut.close();
+            System.out.println("Serialized data is saved in employee.ser");
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+    }
+
+    public static Employee deserialize() {
+        Employee emp = null;
+        try {
+            FileInputStream fileIn = new FileInputStream("employee.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            emp = (Employee) in.readObject();
+            in.close();
+            fileIn.close();
+            System.out.println("Deserialized data is read from employee.ser");
+        } catch (IOException i) {
+            i.printStackTrace();
+        } catch (ClassNotFoundException c) {
+            System.out.println("Employee class not found");
+            c.printStackTrace();
+        }
+        return emp;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Address address = new Address("123 Main St", "Anytown", "CA");
+        Employee emp = new Employee(1, "John Doe", address);
+
+        emp.serialize();
+
+        Employee emp2 = Employee.deserialize();
+
+        System.out.println("Employee ID: " + emp2.getId());
+        System.out.println("Employee Name: " + emp2.getName());
+        System.out.println("Employee Address: " + emp2.getAddress().getHouseNo() + " " +
+                emp2.getAddress().getCity() + " " + emp2.getAddress().getState());
+    }
+}
+
