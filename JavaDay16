@@ -1,0 +1,177 @@
+NSBT
+CORE JAVA – DAY 16 ASSIGNMENT
+1. Write a Java program to create a new file named ‘MyFile’ and write some content in the
+same using FileOutputStream and then using FileWriter.
+Answer :-
+package day16;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+public class Q1 {
+ public static void main(String[] args) throws IOException {
+ File file = new File("C:\\Users\\dipayan.sarkar\\MyFile.txt");
+ file.createNewFile();
+ FileWriter writer = new FileWriter(file);
+ writer.write("This is the first question\nHello World\nBoi...");
+ writer.flush();
+ writer.close();
+ try{
+ FileOutputStream fout=new
+FileOutputStream("C:\\Users\\dipayan.sarkar\\MyFile.txt", true);
+ String s ="Hello World! using FileOutputStream.";
+ byte b[]=s.getBytes();
+ fout.write(b);
+ fout.close();
+ System.out.println("File OverWritten");
+ }catch(Exception e){
+ System.out.println(e);
+ }
+ }
+}
+2. Write a program to read the content of this file using FileOutputStream and then using
+FileReader.
+Answer :-
+FileReader fr = new FileReader(file);
+char [] a = new char[50];
+fr.read(a);
+for(char c : a)
+ System.out.print(c);
+fr.close();
+3. Write a program to modify the content of the file created in Question – 1.
+Answer :-
+package day16;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+public class Q3 {
+ public static void main(String[] args) throws IOException {
+ FileWriter writer = new
+FileWriter("C:\\Users\\dipayan.sarkar\\MyFile.txt", true);
+ writer.write("This will add to the file and not overwrite it.");
+ writer.flush();
+ writer.close();
+ }
+}
+true for append so that the file can be modified and not overwritten.
+4. Read the data from Console in different datatypes and use the PrintWriter class to store the
+data in file. Read the data again using the Scanner class.
+Answer :-
+package day16;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+public class Q4 {
+ public static void main(String[] args) throws FileNotFoundException {
+ PrintWriter pw = new
+PrintWriter("C:\\Users\\dipayan.sarkar\\MyFile.txt");
+ for(int i=0; i< args.length; i++){
+ pw.write(args[i]);
+ pw.write("\n");
+ }
+ pw.flush();
+ pw.close();
+ File text = new File("C:\\Users\\dipayan.sarkar\\MyFile.txt");
+ // Creating Scanner instance to read File in Java
+ try (Scanner scnr = new Scanner(text)) {
+ // Reading each line of file using Scanner class
+ int lineNumber = 1;
+ while (scnr.hasNextLine()) {
+ String line = scnr.nextLine();
+ System.out.println("line " + (lineNumber++) + " :" + line);
+ }
+ }
+ }
+}
+5. Write a program to read from four different files and write the contents of each one of these
+into one single output file.
+Answer :-
+package day16;
+import java.io.*;
+public class Q5 {
+ public static void main(String[] args) throws IOException {
+ File file1 = new File("C:\\Users\\dipayan.sarkar\\MyFile.txt");
+ File file2 = new File("C:\\Users\\dipayan.sarkar\\henlo.txt");
+ File file3 = new File("C:\\Users\\dipayan.sarkar\\MyFile.txt");
+ File file4 = new File("C:\\Users\\dipayan.sarkar\\test.txt");
+ File file5 = new File("C:\\Users\\dipayan.sarkar\\Output.txt");
+ FileOutputStream os = new FileOutputStream(file5);
+ BufferedOutputStream bos = new BufferedOutputStream(os);
+ byte[] b = new byte[4096];
+ FileInputStream fis = new FileInputStream(file1);
+ int bytes;
+ while((bytes = fis.read(b)) != -1){
+ bos.write(b, 0, bytes);
+ }
+ fis.close();
+ fis = new FileInputStream(file2);
+ while((bytes = fis.read(b)) != -1){
+ bos.write(b, 0, bytes);
+ }
+ fis.close();
+ fis = new FileInputStream(file3);
+ while((bytes = fis.read(b)) != -1){
+ bos.write(b, 0, bytes);
+ }
+ fis.close();
+ fis = new FileInputStream(file4);
+ while((bytes = fis.read(b)) != -1){
+ bos.write(b, 0, bytes);
+ }
+ fis.close();
+ bos.close();
+ os.close();
+ }
+}
+Create an object of Address class in Employee class and perform the Serialization and
+Deserialization process again.
+Answer :-
+package day16;
+import day12.employee;
+import java.io.*;
+public class Q9 {
+ public static void main(String[] args) {
+ employee object = new employee(101, "Dipayan", 35000);
+ String filename = "C:\\Users\\dipayan.sarkar\\aaaa.ser";
+ try {
+ FileOutputStream file = new FileOutputStream(filename);
+ ObjectOutputStream out = new ObjectOutputStream(file);
+ out.writeObject(object);
+ out.close();
+ file.close();
+ System.out.println("Object has been serialized\n" + "Data
+before Deserialization.");
+ System.out.println(object);
+ } catch (IOException ex) {
+ System.out.println("IOException is caught");
+ }
+ object = null;
+ try {
+ FileInputStream file = new FileInputStream(filename);
+ ObjectInputStream in = new ObjectInputStream(file);
+ object = (employee) in.readObject(); // Method for
+deserialization of object
+ in.close();
+ file.close();
+ System.out.println("Object has been deserialized\n" + "Data
+after Deserialization.");
+ System.out.println(object);
+ // System.out.println("z = " + object1.z);
+6. Write an example that counts the number of times a particular character, such as e, appears
+in a file. The character can be specified at the command line.
+7. Use the Employee class created in Java Collections assignment and store the objects of the
+class in a file named ‘emp.txt’. Read the file to retrieve the data from file and convert them
+in objects.
+8. Explain the use of serialVersionUID variable in the above question.
+9. Create a class Address as shown below:
+ } catch (IOException ex) {
+ System.out.println("IOException is caught");
+ } catch (ClassNotFoundException ex) {
+ System.out.println("ClassNotFoundException" + " is caught");
+ }
+ }
+}
+10. Recreate the assignment created in Question – 7 to read the file path and file name from the
+properties files.
+Answer :-
