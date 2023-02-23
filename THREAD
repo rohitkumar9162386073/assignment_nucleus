@@ -564,3 +564,53 @@ public class CarShowroom {
  
 12.	Create a collection containing 1000 LoanAgreement objects. Use the LoanAgreement Class created in Java Day – 2 assignment.  The objects will have all the information other than the emiPerMonth field value. We need to calculate EMI for all the 1000 objects. Use threading to implement the same. Do the parallel processing to achieve the result faster.   
  
+
+
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class AlternateFileReader {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the name of the first input file: ");
+        String file1Name = scanner.nextLine();
+        System.out.print("Enter the name of the second input file: ");
+        String file2Name = scanner.nextLine();
+
+        Thread thread1 = new Thread(new FileReaderThread(file1Name));
+        Thread thread2 = new Thread(new FileReaderThread(file2Name));
+
+        thread1.start();
+        thread2.start();
+
+    }
+
+    private static class FileReaderThread implements Runnable {
+
+        private final String fileName;
+
+        public FileReaderThread(String fileName) {
+            this.fileName = fileName;
+        }
+
+        @Override
+        public void run() {
+            try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                    Thread.sleep(1000); // pause for 1 second before printing the next line
+                    Thread.currentThread().yield(); // yield the CPU to the other thread
+                }
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
