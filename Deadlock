@@ -42,3 +42,100 @@ public class TestDeadLock {
         t2.start();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package Assignment15;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class ReadFileT1 implements Runnable{
+
+    String fileName;
+    ReadFileT1(String fileName){
+        this.fileName = fileName;
+    }
+
+    @Override
+    public synchronized void run() {
+
+        BufferedReader reader;
+
+
+        try {
+            reader = new BufferedReader(new FileReader(fileName));
+            String line = reader.readLine();
+            while (line != null) {
+                System.out.println(Thread.currentThread().getName());
+                System.out.println(line);
+                // read next line
+                line = reader.readLine();
+            }
+            wait(1000);
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        notify();
+    }
+}
+
+
+package Assignment15;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadFileT2 implements Runnable{
+
+    String fileName;
+    ReadFileT2(String fileName){
+        this.fileName = fileName;
+    }
+
+    @Override
+    public synchronized void run() {
+
+        BufferedReader reader;
+
+        try {
+            reader = new BufferedReader(new FileReader(fileName));
+            String line = reader.readLine();
+
+            while (line != null) {
+                System.out.println(Thread.currentThread().getName());
+                System.out.println(line);
+                // read next line
+                line = reader.readLine();
+            }
+            wait(2000);
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        notify();
+    }
+}
+
+
+
+
