@@ -175,3 +175,50 @@ in objects.
 10. Recreate the assignment created in Question – 7 to read the file path and file name from the
 properties files.
 Answer :-
+Answer of 6 :-
+package day16;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+public class Q6 {
+ public static void main(String[] args) throws IOException {
+ FileReader fileReader = new
+FileReader("C:\\Users\\dipayan.sarkar\\MyFile.txt");
+ BufferedReader br = new BufferedReader(fileReader);
+ String line;
+ int count = 0;
+ String str = args[0];
+ char charCompare = str.charAt(0);
+ while((line = br.readLine()) != null){
+ for(int i=0; i<line.length(); i++){
+ if(line.charAt(i) == charCompare)
+ count++;
+ }
+ }
+ br.close();
+ System.out.println("The number of times " + charCompare + " is "+
+count);
+ }
+}
+Answer of 7 :-
+package day16;
+import day12.employee;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+public class Q7 {
+ public static void main(String[] args) throws IOException {
+ List<Object> empList = new ArrayList<>();
+ try (BufferedReader in = new BufferedReader(new
+FileReader("C:\\Users\\dipayan.sarkar\\emp.txt"))) {
+ String line = null;
+ while((line = in.readLine()) != null) {
+ String[] values = line.split(",");
+ empList.add(new employee( Integer.parseInt(values[0]),
+values[1], Double.parseDouble(values[2])));
+ }
+ }
+ System.out.println(empList);
+ }
+}
+1 
