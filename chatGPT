@@ -1,0 +1,33 @@
+Day15Q5
+public class MyThread implements Runnable {
+    private String message;
+    private Object lock;
+    
+    public MyThread(String message, Object lock) {
+        this.message = message;
+        this.lock = lock;
+    }
+    
+    public void run() {
+        for (int i = 0; i < 10; i++) {
+            synchronized(lock) {
+                System.out.println(message);
+                lock.notify();
+                try {
+                    lock.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        Object lock = new Object();
+        MyThread thread1 = new MyThread("Hello", lock);
+        MyThread thread2 = new MyThread("Bye", lock);
+        
+        new Thread(thread1).start();
+        new Thread(thread2).start();
+    }
+}
