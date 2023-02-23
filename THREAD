@@ -1,0 +1,74 @@
+import java.util.concurrent.Semaphore;
+
+public class CarShowroom {
+    // Semaphore to control access to the test drive car
+    private Semaphore testDriveSemaphore = new Semaphore(1);
+
+    public static void main(String[] args) {
+        // Create new CarShowroom instance
+        CarShowroom showroom = new CarShowroom();
+        
+        // Create threads for the customers
+        Thread customerA = new Thread(() -> {
+            try {
+                System.out.println("Customer A is waiting to test drive a car.");
+                
+                // Acquire semaphore to access the test drive car
+                showroom.testDriveSemaphore.acquire();
+                
+                System.out.println("Customer A is test driving a car.");
+                Thread.sleep((long) (Math.random() * 10000)); // Random test drive time
+                
+                System.out.println("Customer A has finished test driving the car.");
+                
+                // Release semaphore to allow other customers to access the test drive car
+                showroom.testDriveSemaphore.release();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        
+        Thread customerB = new Thread(() -> {
+            try {
+                System.out.println("Customer B is waiting to test drive a car.");
+                
+                // Acquire semaphore to access the test drive car
+                showroom.testDriveSemaphore.acquire();
+                
+                System.out.println("Customer B is test driving a car.");
+                Thread.sleep((long) (Math.random() * 10000)); // Random test drive time
+                
+                System.out.println("Customer B has finished test driving the car.");
+                
+                // Release semaphore to allow other customers to access the test drive car
+                showroom.testDriveSemaphore.release();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        
+        Thread customerC = new Thread(() -> {
+            try {
+                System.out.println("Customer C is waiting to test drive a car.");
+                
+                // Acquire semaphore to access the test drive car
+                showroom.testDriveSemaphore.acquire();
+                
+                System.out.println("Customer C is test driving a car.");
+                Thread.sleep((long) (Math.random() * 10000)); // Random test drive time
+                
+                System.out.println("Customer C has finished test driving the car.");
+                
+                // Release semaphore to allow other customers to access the test drive car
+                showroom.testDriveSemaphore.release();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        
+        // Start the customer threads
+        customerA.start();
+        customerB.start();
+        customerC.start();
+    }
+}
