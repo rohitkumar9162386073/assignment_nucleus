@@ -1,0 +1,29 @@
+package day10day11;
+import java.util.*;
+public class NumberSorter {
+ public List<Integer> sort(List<Integer> numbers){
+ Collections.sort(numbers);
+ return numbers;
+ }
+}
+package day10day11;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.*;
+public class Q6 implements Sorter{
+ public int[] sort(int[] numbers){
+ List<Integer> numberList= new ArrayList<>();
+ for (int t : numbers) {
+ numberList.add(t);
+ }
+ NumberSorter sorter=new NumberSorter();
+ numberList=sorter.sort(numberList);
+ int i=0;
+ for (int t : numberList) {
+ numbers[i] = add(t);
+ i++;
+ }
+ return numbers;
+ }
+}
