@@ -1,0 +1,256 @@
+NSBT
+CORE JAVA – DAY 12 ASSIGNMENT
+1. Create a class Employee with three data members as given below:
+Create an ArrayList of the above-mentioned class and perform the below operations on the
+same.
+Answer :-
+For all a, b, c (I, II, III, IV) and d.
+Employee.java
+package day12;
+import java.util.Iterator;
+public class employee implements Iterator {
+ private int empId;
+ private String name;
+ private double salary;
+ public double getSalary() {
+ return salary;
+ }
+ public employee(int empId, String name, double salary) {
+ this.empId = empId;
+ this.name = name;
+ this.salary = salary;
+ }
+ @Override
+ public String toString() {
+ return "employee{" +
+ "empId=" + empId +
+ ", name='" + name + '\'' +
+ ", salary=" + salary +
+ '}';
+ }
+ @Override
+ public boolean hasNext() {
+ return false;
+ }
+ @Override
+ public Object next() {
+ return null;
+ }
+ @Override
+ public void remove() {
+ Iterator.super.remove();
+ }
+}
+main.java
+package day12;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+public class main {
+ public static void main(String[] args) {
+ List<Object> empArr = new ArrayList<>();
+ // a. Adding new employee in the list.
+ empArr.add(new employee(101, "Dipayan", 35000));
+ empArr.add(new employee(102, "Kach Kach", 55000));
+ empArr.add(new employee(103, "Kant Singh", 60000));
+ empArr.add(new employee(104, "Rohit Singh", 6000));
+ System.out.println("a : ");
+ System.out.println(empArr);
+ // b. Removing at a particular Index
+ System.out.println("b : ");
+ empArr.remove(0);
+ System.out.println(empArr);
+ // c. i. Using For Loop
+ System.out.println("c i : ");
+ for(int i=0; i< empArr.size(); i++)
+ System.out.println(empArr.get(i));
+ // c. ii. Printing using For Each
+ System.out.println("c ii : ");
+ for(Object emp : empArr){
+ System.out.println(emp);
+ }
+ // c. iii. Using Iterator
+ System.out.println("c iii : ");
+ Iterator emp = empArr.iterator();
+ while(emp.hasNext())
+ System.out.println(emp.next());
+ // c. iv. Print backwards using ListIterator Interface
+ ListIterator listEmp = empArr.listIterator(empArr.size());
+ System.out.println("c iv : ");
+ while(listEmp.hasPrevious())
+ System.out.println(listEmp.previous());
+ // d. Removing people with salary 10,000 or below using Iterator
+ System.out.println("d : ");
+ System.out.println(empArr);
+ Iterator emp1 = empArr.iterator();
+ while(emp1.hasNext()){
+ employee obj = (employee) emp1.next();
+ System.out.println("Salary : " + obj.getSalary());
+ if(obj.getSalary() < 10000) {
+ emp1.remove();
+ }
+ }
+ System.out.println(empArr);
+ }
+}
+a. Add Employee objects in the list.
+b. Remove the object at a particular Index.
+c. Print the list using the below methods:
+i. Using for loop
+Answer :-
+The original outcome would be :
+Check will return false; // should have been true because record matches with empId : 5
+After removing empId the empList.size() would still show 3. // should show 2 after remove.
+Changes Made :
+Creating an employee object and using the ArrayList.get() method to store the object.
+Using the object as a parameter in ArrayList.contain() and ArrayList.get().
+Why using object?
+Since .contain() and .remove() require an existing object of employee present in the ArrayList.
+The new keyword creates an java object and allocates new memory for the duplicate object.
+Hence we require the object already present in the empList.
+System.out.println("2 : ");
+List<employee> empList = new ArrayList<employee>();
+empList.add(new employee(5, "A", 45000));
+empList.add(new employee(2, "B", 30000));
+empList.add(new employee(7, "C", 80000));
+employee obj1 = empList.get(0);
+boolean check = empList.contains(obj1);
+System.out.println(check);
+empList.remove(obj1);
+System.out.println(empList.size());
+ii. Using for-each loop
+iii. Using Iterator Interface
+iv. Print backward using ListIterator interface.
+d. Remove all the instances from the list who have salary less than 10000. Use Iterator
+interface to perform the functionality.
+2. Using the above class, what will be the output of the below mentioned code snippet? Share
+your findings with the help of comments. What should be done to resolve the problem if any?
+3. Sort the above list on empId using Comparable interface.
+Answer :-
+Employee.java // adding the comparable interface and overriding the compareTo();
+For Ascending : return this.empId – o.empId;
+For Descending : return o.empId – this.empId;
+public class employee implements Iterator, Comparable<employee> {
+.
+.
+.
+.
+.
+@Override
+ public int compareTo(employee o) {
+ return o.empId - this.empId;
+ }
+}
+Main.java
+System.out.println("3 : ");
+Collections.sort(empList);
+System.out.println(empList);
+4. Sort the same list again on basis of salary using Comparator Interface. Show the
+implementation of Comparator with the help of
+a. Anonymous Inner Class
+b. Lambda Expression
+Answer :-
+Annonyous Inner Class
+System.out.println("4 : ");
+Collections.sort(empList, new Comparator<employee>() {
+ @Override
+ public int compare(employee o1, employee o2) {
+ return (int)(o1.getSalary() - o2.getSalary());
+ }
+});
+System.out.println(empList);
+Lambda Expression
+System.out.println("4 b : ");
+Collections.sort(empList, (o1, o2) -> {
+ return (int)(o2.getSalary() - o1.getSalary());
+});
+System.out.println(empList);
+5. Change the above code to use LinkedList instead of ArrayList and perform the same operations.
+Answer :-
+System.out.println("5 : ");
+List <employee> empListLL = new LinkedList<>();
+empListLL.add(new employee(1001, "Dipayan", 35000));
+empListLL.add(new employee(1002, "Kach Kach", 55000));
+empListLL.add(new employee(1003, "Kant Singh", 60000));
+Collections.sort(empListLL, new Comparator<employee>() {
+ @Override
+ public int compare(employee o1, employee o2) {
+ return (int)(o1.getSalary() - o2.getSalary());
+ }
+});
+System.out.println(empListLL);
+Collections.sort(empListLL, (o1, o2) -> {
+ return (int)(o2.getSalary() - o1.getSalary());
+});
+System.out.println(empListLL);
+1
+NSBT
+CORE JAVA – DAY 12 ASSIGNMENT
+6. Create a Java program that creates a Set using a HashSet implementation. The Set stores fruit
+names and the fruits must be added in the following sequence:
+Pear
+Banana
+Tangerine
+Strawberry
+Blackberry
+The functionalities which must be exhibited by the program are:
+a. Display the contents of set.
+Answer :-
+package day12;
+import java.util.HashSet;
+import java.util.Set;
+public class fruitSet {
+ public static void main(String[] args) {
+ Set<String> fruitSet = new HashSet<>();
+ fruitSet.add("Pear");
+ fruitSet.add("Banana");
+ fruitSet.add("Tangerine");
+ fruitSet.add("Strawberry");
+ fruitSet.add("Blackberry");
+ System.out.println(fruitSet);
+ }
+}
+b. Display the number of elements in the set.
+Answer :-
+System.out.println(fruitSet.size()); // Output : 5
+c. Remove blackberry and strawberry, display contents of set again.
+Answer :-
+fruitSet.remove("Strawberry");
+fruitSet.remove("Blackberry");
+System.out.println(fruitSet);
+System.out.println(fruitSet.size()); // Output : 3
+d. Remove the remaining fruits using a single method invocation.
+e. Show the set is now empty.
+Answer :-
+fruitSet.clear();
+System.out.println(fruitSet); // Output : []
+System.out.println(fruitSet.size()); // Output : 0
+Since we have taken an HashSet we do not have the guarantee of Natural ordering.
+HashSet does not maintain Natural Order.
+Check the result and document your findings in a form of comments.
+Print the HashSet with the help of Iterator Interface. Explain why HashSet can’t be index-based.
+Create a readMe.txt file to document your answer.
+ Answer :-
+ While displaying the set contents, explain why the fruits don’t get listed in the order in which
+they were added.
+7. Create a HashSet of the class Employee created in Question-1.
+package day12;
+import java.util.HashSet;
+public class hashSetQ7 {
+ public static void main(String[] args) {
+ HashSet<employee> employeeHashSet = new HashSet<employee>();
+ employeeHashSet.add(new employee(1, "A", 45000));
+ employeeHashSet.add(new employee(5, "D", 55000));
+ employeeHashSet.add(new employee(7, "B", 35000));
+ employeeHashSet.add(new employee(2, "P", 75000));
+ employeeHashSet.add(new employee(1, "A", 45000));
+ System.out.println(employeeHashSet.size()); // Output : 5
+ System.out.println(employeeHashSet);
+ }
+}
+The expected answer should be 4 since Set is a data structure that doesn’t accept duplicate values
+but since the employee class doesn’t have the overridden equals() and hashCode() therefore the
+expected set is not working as expected. Even if object at index 0 and 4 are same but according to
+the hashCode() it is not hence it is not a duplicate.
+2 
