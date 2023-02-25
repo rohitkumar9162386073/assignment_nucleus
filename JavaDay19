@@ -1,0 +1,261 @@
+NSBT
+CORE JAVA – DAY 19 ASSIGNMENT
+1. Create Employee class with data Members: employeeId, dateOfBirth, employeeName,
+emailAddress
+a. Create table corresponding to above java class in database.
+b. Now Write JDBC program that will store some objects of Employee class in the
+database.
+c. Verify the result from the database.
+Answer :-
+Employees.java
+package day19;
+public class employee {
+ private int employeeId;
+ private String dateOfBirth;
+ private String employeeName;
+ private String employeeAddress;
+ public int getEmployeeId() {
+ return employeeId;
+ }
+ public void setEmployeeId(int employeeId) {
+ this.employeeId = employeeId;
+ }
+ public String getDateOfBirth() {
+ return dateOfBirth;
+ }
+ public void setDateOfBirth(String dateOfBirth) {
+ this.dateOfBirth = dateOfBirth;
+ }
+ public String getEmployeeName() {
+ return employeeName;
+ }
+ public void setEmployeeName(String employeeName) {
+ this.employeeName = employeeName;
+ }
+ public String getEmployeeAddress() {
+ return employeeAddress;
+ }
+ public void setEmployeeAddress(String employeeAddress) {
+ this.employeeAddress = employeeAddress;
+ }
+ public employee(int employeeId, String dateOfBirth, String
+employeeName, String employeeAddress) {
+ this.employeeId = employeeId;
+ this.dateOfBirth = dateOfBirth;
+ this.employeeName = employeeName;
+ this.employeeAddress = employeeAddress;
+ }
+ @Override
+ public String toString() {
+ return "\nemployee{" +
+ "employeeId=" + employeeId +
+ ", dateOfBirth='" + dateOfBirth + '\'' +
+ ", employeeName='" + employeeName + '\'' +
+ ", employeeAddress='" + employeeAddress + '\'' +
+ '}';
+ }
+}
+Similary TABLE in ORACLE DB19C
+CREATE TABLE employees_dip_java (employeeId INT, dateOfBirth DATE, employeeName
+VARCHAR(40), employeeAddress VARCHAR(40));
+Main01.java
+package day19;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+public class Main01 {
+ public static void main(String[] args) {
+ int result = 0;
+ try{
+ Class.forName("oracle.jdbc.driver.OracleDriver");
+ Connection con = DriverManager.getConnection(
+ "jdbc:oracle:thin:@10.1.50.198:1535:nsbt19c",
+"training", "training");
+ Statement stmt = con.createStatement();
+ result = stmt.executeUpdate("INSERT INTO EMPLOYEES_DIP_JAVA
+values(101,'01-JAN-2001', 'Emp1', 'Emp1@ns.com')");
+ } catch (ClassNotFoundException | SQLException e){
+ System.out.println(e);
+ }
+ System.out.println(result + " records affected");
+ }
+}
+SQL > SELECT * FROM employees_dip_java;
+2. Write a program to display the details of the stored object.
+Answer :-
+package day19;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+public class Main02 {
+ public static void main(String[] args) {
+ try {
+ Class.forName("oracle.jdbc.driver.OracleDriver");
+ Connection con = DriverManager.getConnection(
+ "jdbc:oracle:thin:@10.1.50.198:1535:nsbt19c",
+"training", "training");
+ Statement stmt = con.createStatement();
+ ResultSet rs = stmt.executeQuery("SELECT * FROM
+EMPLOYEES_DIP_JAVA");
+ System.out.println("EmpID DateOfBirth\t\t\t EmpName
+EmpAddress");
+ while (rs.next())
+ System.out.println(rs.getInt(1) + " " + rs.getString(2)
++ " " + rs.getString(3) + " " + rs.getString(4));
+ con.close();
+ } catch (Exception e) {
+ System.out.println(e);
+ }
+ }
+}
+3. Write program to fetch one Employee record from database given the employee id.
+Answer :-
+package day19;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+public class Main03 {
+ public static void main(String[] args) {
+ Scanner sc= new Scanner(System.in);
+ System.out.println("Enter the employee ID : ");
+ String empId = sc.next();
+ try{
+ Class.forName("oracle.jdbc.driver.OracleDriver");
+ Connection con = DriverManager.getConnection(
+ "jdbc:oracle:thin:@10.1.50.198:1535:nsbt19c",
+"training", "training");
+ Statement stmt = con.createStatement();
+ ResultSet rs = stmt.executeQuery("SELECT * FROM
+EMPLOYEES_DIP_JAVA WHERE employeeId = " + empId);
+ if(rs.next())
+ System.out.println(rs.getInt(1) + " " + rs.getString(2)
++ " " + rs.getString(3) + " " + rs.getString(4));
+ } catch(Exception e){
+ System.out.println(e);
+ }
+ }
+}
+4. Write a menu driven java program to update any information of employee. Take input from
+user.
+Answer :-
+package day19;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+public class Main04 {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter Employee ID : ");
+ int empId = sc.nextInt();
+ System.out.println("Enter DOB : ");
+ String dateOfBirth = sc.next();
+ System.out.println("Enter the Employee Name : ");
+ String empName = sc.next();
+ System.out.println("Enter the Employee Address : ");
+ String empAdd = sc.next();
+ try {
+ Class.forName("oracle.jdbc.driver.OracleDriver");
+ Connection con = DriverManager.getConnection(
+ "jdbc:oracle:thin:@10.1.50.198:1535:nsbt19c",
+"training", "training");
+ PreparedStatement stmt = con.prepareStatement("INSERT INTO
+EMPLOYEES_DIP_JAVA VALUES(?, ?, ?, ?)");
+ stmt.setInt(1, empId);
+ stmt.setString(2, dateOfBirth);
+ stmt.setString(3, empName);
+ stmt.setString(4, empAdd);
+ int i = stmt.executeUpdate();
+ System.out.println(i + " records inserted");
+ con.close();
+ } catch (Exception e) {
+ System.out.println(e);
+ }
+ }
+}
+5. Write a program to print all the employees younger than given employee. Take employee
+id from user.
+Answer :-
+package day19;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+public class Main05 {
+ public static void main(String[] args) {
+ Scanner sc= new Scanner(System.in);
+ System.out.println("Enter the employee ID : ");
+ String empId = sc.next();
+ try{
+ Class.forName("oracle.jdbc.driver.OracleDriver");
+ Connection con = DriverManager.getConnection(
+ "jdbc:oracle:thin:@10.1.50.198:1535:nsbt19c",
+"training", "training");
+ Statement stmt = con.createStatement();
+ ResultSet rs = stmt.executeQuery("SELECT * FROM
+EMPLOYEES_DIP_JAVA WHERE DATEOFBIRTH > (SELECT DATEOFBIRTH FROM
+EMPLOYEES_DIP_JAVA WHERE EMPLOYEEID = " + empId + ")");
+ while(rs.next())
+ System.out.println(rs.getInt(1) + " " + rs.getString(2)
++ " " + rs.getString(3) + " " + rs.getString(4));
+ } catch(Exception e){
+ System.out.println(e);
+ }
+ }
+}
+
+6. Write a program to display all the employees having the same date of Birth which is given by
+user.
+NOTE:
+• Write explanation of each JDBC steps in comments
+• Use Statement object to perform all the operations mentioned above.
+• Use PreparedStatement object to perform the same operations.
+7. Create a DAO class which will be used to perform all the CRUD operations on
+LoanAgreement and Customer classes. The functionalities which must be part of this DAO
+class are:
+a. Insert customer
+b. Find customer given a customer Id
+c. Insert a new Loan Application
+d. Track Loan status given the Loan agreement id
+e. Get all active Loan details
+f. Get Loan details of a particular Loan agreement id
+g. Get the details of all the loans being applied by a customer given the customer id
+h. Based on the eligibility.txt file, approve or reject the loan application.
+
+Answer of 6 :-
+package day19;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+public class Main06 {
+ public static void main(String[] args) {
+ Scanner sc= new Scanner(System.in);
+ System.out.println("Enter the employee ID : ");
+ String empId = sc.next();
+ try{
+ Class.forName("oracle.jdbc.driver.OracleDriver");
+ Connection con = DriverManager.getConnection(
+ "jdbc:oracle:thin:@10.1.50.198:1535:nsbt19c",
+"training", "training");
+ Statement stmt = con.createStatement();
+ ResultSet rs = stmt.executeQuery("SELECT * FROM
+EMPLOYEES_DIP_JAVA WHERE DATEOFBIRTH = (SELECT DATEOFBIRTH FROM
+EMPLOYEES_DIP_JAVA WHERE EMPLOYEEID = " + empId + ") AND EMPLOYEEID <> " +
+empId);
+ while(rs.next())
+ System.out.println(rs.getInt(1) + " " + rs.getString(2)
++ " " + rs.getString(3) + " " + rs.getString(4));
+ } catch(Exception e){
+ System.out.println(e);
+ }
+ }
+}
+
+Answer of 7:- NA
