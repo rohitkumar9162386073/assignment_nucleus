@@ -1,31 +1,515 @@
-1. Create two threads in java. One using thread class and other using Runnable interface.
+NSBT 
+CORE JAVA – DAY 15 ASSIGNMENT 
+1. Create two threads in java. One using thread class and other using Runnable interface. 
+Using Thread Class
+package DAY_15;
+class Thread1 extends Thread{
+ public void run(){
+ System.out.println("value of i ");
+ for(int i=0;i<5;i++){
+ System.out.print(i + " ");
+ }
+ }
+}
+class Thread2 extends Thread {
+ public void run() {
+ System.out.println("value of j ");
+ for (int j = 0; j < 5; j++) {
+ System.out.print(j + " ");
+ }
+ }
+}
+public class Main {
+ public static void main(String[] args) {
+ Thread1 t1=new Thread1();
+ Thread2 t2=new Thread2();
+ t1.start();
+ t2.start();
+ }
+}
+Using Runnable:
+package DAY_15;
+class CustomThread implements Runnable {
+ public void run() {
+ System.out.println("value of j ");
+ for (int j = 0; j < 5; j++) {
+ System.out.print(j + " ");
+ }
+ }
+}
+public class Main2 {
+ public static void main(String[] args) {
+ CustomThread ct=new CustomThread();
+ Thread t1=new Thread(ct);
+ t1.start();
+ }
+}
 2. Create two threads, one will print “hello world” every second and other will print “Bye” 
-every 2 seconds.
+every 2 seconds. 
+package DAY_15;
+import java.lang.Thread;
+class MyThread implements Runnable
+{
+ public void run() {
+ for(int i=0;i<5;i++) {
+ System.out.println("Hello World");
+ try {
+ Thread.sleep(1 * 1000);
+ } catch (InterruptedException ex) {
+ }
+ }
+ }
+}
+ class MyThread2 implements Runnable {
+ public void run () {
+ for(int j=0;j<5;j++){
+ System.out.println("BYE");
+ try {
+ Thread.sleep(1 * 1000);
+ } catch (InterruptedException ex1) {
+ }
+ }
+ }
+ }
+ public class ThreadSleep
+ {
+ public static void main(String[] args)
+ {
+ MyThread t1=new MyThread();
+ Thread ct1=new Thread(t1);
+ MyThread2 t2=new MyThread2();
+ Thread ct2 = new Thread(t2);
+ ct1.start();
+ ct2.start();
+ }
+ }
 3. Write a Java program to create 5 threads to print 1-10 in a loop in every thread. The output 
-must look like as displayed below:
+must look like as displayed below: 
 <Thead Name> – 1
-<Thread Name> - 2 and so on
+<Thread Name> - 2 and so on 
+Main class: 
+package DAY_15;
+public class MainCreate5Thread {
+ public static void main(String[] args) {
+ Create5Thread C1 = new Create5Thread();
+ Thread t1 = new Thread(C1);
+ Thread t2 = new Thread(C1);
+ Thread t3 = new Thread(C1);
+ Thread t4 = new Thread(C1);
+ Thread t5 = new Thread(C1);
+ t1.setName("Thread 1");
+ t2.setName("Thread 2");
+ t3.setName("Thread 3");
+ t4.setName("Thread 4");
+ t5.setName("Thread 5");
+ t1.start();
+ /** Output Will not be sequential as each thread will act upon 
+Run() of Create5Thread class concurrently*/
+ t2.start();
+ t3.start();
+ t4.start();
+ t5.start();
+ }
+}
+package DAY_15;
+public class Create5Thread implements Runnable{
+ public void run(){
+ for(int i=1; i<=10;i++){
+ System.out.println(Thread.currentThread().getName() + " : " + 
+i);
+ }
+ }
+}
 Each thread will print in the same manner. Check the output sequence. Is it in sequence or 
-random order. Record your findings with the reason in form of comments.
+random order. Record your findings with the reason in form of comments. 
 4. In the above question, set the priority of Thread 1 to be highest. See the impact on the 
 output. 
-5. Create two threads, one will print “hello” and other will print Bye for 10 times. The order of 
-printing the message should be one after another i.e “hello” “bye” “hello” “bye”
-6. Write a java program that creates a number of threads and each thread must start after the 
+Main class: 
+package DAY_15;
+public class MainCreate5Thread {
+ public static void main(String[] args) {
+ Create5Thread C1 = new Create5Thread();
+ Thread t1 = new Thread(C1);
+ Thread t2 = new Thread(C1);
+ Thread t3 = new Thread(C1);
+ Thread t4 = new Thread(C1);
+ Thread t5 = new Thread(C1);
+ t1.setName("Thread 1");
+ t2.setName("Thread 2");
+ t3.setName("Thread 3");
+ t4.setName("Thread 4");
+ t5.setName("Thread 5");
+ t1.setPriority(1);
+ t1.start();
+ /** Output Will not be sequential as each thread will act upon 
+Run() of Create5Thread class concurrently*/
+ t2.start();
+ t3.start();
+ t4.start();
+ t5.start();
+ }
+}
+package DAY_15;
+public class Create5Thread implements Runnable{
+ public void run(){
+ for(int i=1; i<=10;i++){
+ System.out.println(Thread.currentThread().getName() + " : " + 
+i);
+ }
+ }
+}
+5. Write a java program that creates a number of threads and each thread must start after the 
 completion of previous thread except the first one.
-7. Write a java program taking array as a shared resource and which is access by multiple 
+Main class
+package DAY_15;
+public class PreviousAfterThread {
+ public static void main(String[] args) {
+ PreviousAfterThread1 C1 = new PreviousAfterThread1();
+ Thread t1 = new Thread(C1);
+ Thread t2 = new Thread(C1);
+ Thread t3 = new Thread(C1);
+ Thread t4 = new Thread(C1);
+ Thread t5 = new Thread(C1);
+ t1.setName("Thread 1");
+ t2.setName("Thread 2");
+ t3.setName("Thread 3");
+ t4.setName("Thread 4");
+ t5.setName("Thread 5");
+ t1.start();
+ try {
+ t1.join();
+ }catch (InterruptedException e){
+ }
+ /** Output Will not be sequential as each thread will act upon 
+Run() of Create5Thread class concurrently*/
+ t2.start();
+ try {
+ t2.join();
+ }catch (InterruptedException e){
+ }
+ t3.start();
+ try {
+ t3.join();
+ }catch (InterruptedException e){
+ }
+ t4.start();
+ try {
+ t4.join();
+ }catch (InterruptedException e){
+ }
+ t5.start();
+ }
+}
+Class file : package DAY_15;
+public class PreviousAfterThread1 implements Runnable {
+ public void run(){
+ System.out.println(Thread.currentThread().getName());
+ }
+}
+6. Create two threads, one will print “hello” and other will print Bye for 10 times. The order of 
+printing the message should be one after another i.e “hello” “bye” “hello” “bye”
+Class HelloBye:
+package DAY_15;
+public class PrintHelloBye {
+ int f=0;
+ public synchronized void printHello(){
+ if(f==1) {
+ try {
+ wait();
+ } catch (InterruptedException e) {
+ System.out.println(e);
+ }
+ }
+ System.out.println("Hello");
+ f=1;
+ notify();
+ }
+ public synchronized void printHBye(){
+ if(f==0) {
+ try {
+ wait();
+ } catch (InterruptedException e) {
+ System.out.println(e);
+ }
+ }
+ System.out.println("Bye!");
+ f=0;
+ notify();
+ }
+}
+package DAY_15;
+public class MyThreadQ41 extends Thread {
+ PrintHelloBye p;
+ MyThreadQ41(PrintHelloBye p) {
+ this.p = p;
+ }
+ public void run() {
+ for (int i = 1; i <= 10; i++) {
+ p.printHello();
+ }
+ }
+}
+package DAY_15;
+public class MyThreadQ42 extends Thread {
+ PrintHelloBye p;
+ MyThreadQ42(PrintHelloBye p){
+ this.p=p;
+ }
+ public void run() {
+ for(int i=1;i<=10;i++){
+ p.printHBye();
+ }
+ }
+}
+package DAY_15;
+public class MyThreadQ4 extends Thread{
+ public static void main(String[] args) {
+ PrintHelloBye p=new PrintHelloBye();
+ MyThreadQ41 t1=new MyThreadQ41(p);
+ MyThreadQ42 t2=new MyThreadQ42(p);
+ t1.start();
+ t2.start();
+ }
+}
+1. Write a java program taking array as a shared resource and which is access by multiple
 threads with and without synchronization it.
-8. Write a java program that creates a number of threads which access the static field and 
-prints the incremented value of static field.
-9. Write a java program to present a deadlock condition.
-10. Write a java program with two threads in which each thread reads the data from a text file 
-and display the data of each file on Console alternatively such that one line from first input 
-file is printed and then one line from another input file is printed. The names of two input 
-file to be taken from user.
+Class file:
+package DAY_15;
+import java.util.Arrays;
+public class NonSynchronisedArray implements Runnable {
+ public void run() {
+ System.out.print(Thread.currentThread().getName());
+ String cus[] = new String[10];
+ cus[0] = "Rohit";
+ cus[1] = "Amar";
+ cus[2] = "Dipayan";
+ cus[3] = "Sagar";
+ cus[4] = "Harsh";
+ cus[5] = "Akash";
+ cus[6] = "Kunal";
+ cus[7] = "Manish";
+ cus[8] = "Priyansh";
+ cus[9] = "Satyajit";
+ for(int i=0;i<10;i++)
+ System.out.println(" "+cus[i] + " ");
+ }
+}
+class file:
+package DAY_15;
+import java.util.Arrays;
+public class MySynchronization implements Runnable {
+ public void run() {
+ synchronized (this)
+ {
+ System.out.print(Thread.currentThread().getName());
+ String cus[] = new String[10];
+ cus[0] = "Rohit";
+ cus[1] = "Amar";
+ cus[2] = "Dipayan";
+ cus[3] = "Sagar";
+ cus[4] = "Harsh";
+ cus[5] = "Akash";
+ cus[6] = "Kunal";
+ cus[7] = "Manish";
+ cus[8] = "Priyansh";
+ cus[9] = "Satyajit";
+ for(int i=0;i<10;i++)
+ System.out.print( " "+cus[i] + " ");
+ System.out.println();
+ }
+ }
+}
+main File:
+package DAY_15;
+public class Main7 {
+ public static void main(String[] args) {
+// MySynchronization ns=new MySynchronization();
+ NonSynchronisedArray ns = new NonSynchronisedArray();
+ Thread t1 = new Thread(ns);
+ Thread t2 = new Thread(ns);
+ Thread t3 = new Thread(ns);
+ Thread t4 = new Thread(ns);
+ Thread t5 = new Thread(ns);
+ Thread t6 = new Thread(ns);
+ Thread t7 = new Thread(ns);
+ t1.setName("Thread First");
+ t2.setName("Thread Second");
+ t3.setName("Thread Third");
+ t4.setName("Thread fourth");
+ t5.setName("Thread Fifth");
+ t6.setName("Thread sixth");
+ t7.setName("Thread Seventh");
+ t1.start();
+ t2.start();
+ t3.start();
+ t4.start();
+ t5.start();
+ t6.start();
+ t7.start();
+ }
+}
+8.Write a java program that creates a number of threads which access the static field and prints 
+the incremented value of static field. 
+Class File:
+package DAY_15;
+public class StaticIncre implements Runnable {
+ public static int x = 20;
+ public void setX(int x) {
+ StaticIncre.x = x;
+ }
+ public static int getX() {
+ return x++;
+ }
+ @Override
+ public void run() {
+ System.out.println("Increemented value of x : 
+"+StaticIncre.getX());
+ }
+}
+Main File:
+package DAY_15;
+public class Main8 {
+ public static void main(String[] args) {
+ StaticIncre ns = new StaticIncre();
+ Thread t1 = new Thread(ns);
+ Thread t2 = new Thread(ns);
+ Thread t3 = new Thread(ns);
+ Thread t4 = new Thread(ns);
+ Thread t5 = new Thread(ns);
+ Thread t6 = new Thread(ns);
+ Thread t7 = new Thread(ns);
+ t1.setName("Thread First");
+ t2.setName("Thread Second");
+ t3.setName("Thread Third");
+ t4.setName("Thread fourth");
+ t5.setName("Thread Fifth");
+ t6.setName("Thread sixth");
+ t7.setName("Thread Seventh");
+ t1.start();
+ t2.start();
+ t3.start();
+ t4.start();
+ t5.start();
+ t6.start();
+ t7.start();
+ }
+}
+9. Write a java program to present a deadlock condition. 
+10. package DAY_15;
+public class DeadLock {
+ public static void main(String[] args) {
+ String resource1 = "Java is an MultiThreaded Language";
+ String resource2 = "C language is close to operating 
+System";
+ // t1 tries to lock resource1 then resource2
+ class Resource1 implements Runnable {
+ public void run() {
+ synchronized (resource1) {
+ System.out.println("Thread 1: locked resource 
+1");
+ try { Thread.sleep(100);} catch (Exception e) {}
+ synchronized (resource2) {
+ System.out.println("Thread 1: locked 
+resource 2");
+ }
+ }
+ }
+ }
+ // t2 tries to lock resource2 then resource1
+ class Resource2 implements Runnable {
+ public void run() {
+ synchronized (resource2) {
+ System.out.println("Thread 2: locked resource 
+2");
+ try { Thread.sleep(100);} catch (Exception e) {}
+ synchronized (resource1) {
+ System.out.println("Thread 2: locked 
+resource 1");
+ }
+ }
+ }
+ }
+ Resource1 r1=new Resource1();
+ Resource2 r2=new Resource2();
+ Thread t1 = new Thread(r1);
+ Thread t2 = new Thread();
+ t1.start();
+ t2.start();
+ }
+}
 11. 3 customers (A, B, C) visit car showroom. The visitors take a test drive for random time and 
 the other visitors have to wait till a car becomes free. i.e if “A” is taking the drive B and C 
-have to wait. Implement this functionality using threads in java
+have to wait. Implement this functionality using threads in java 
+package DAY_15;
+import java.util.concurrent.Semaphore;
+public class CarShowroom {
+ // Semaphore to control access to the test drive car
+ private Semaphore testDriveSemaphore = new Semaphore(1);
+ public static void main(String[] args) {
+ // Create new CarShowroom instance
+ CarShowroom showroom = new CarShowroom();
+ // Create threads for the customers
+ Thread customerA = new Thread(() -> {
+ try {
+ System.out.println("Customer A is waiting to test drive a 
+car.");
+ // Acquire semaphore to access the test drive car
+ showroom.testDriveSemaphore.acquire();
+ System.out.println("Customer A is test driving a car.");
+ Thread.sleep((long) (Math.random() * 10000)); // Random 
+test drive time
+ System.out.println("Customer A has finished test driving 
+the car.");
+ // Release semaphore to allow other customers to access 
+the test drive car
+ showroom.testDriveSemaphore.release();
+ } catch (InterruptedException e) {
+ e.printStackTrace();
+ }
+ });
+ Thread customerB = new Thread(() -> {
+ try {
+ System.out.println("Customer B is waiting to test drive a 
+car.");
+ // Acquire semaphore to access the test drive car
+ showroom.testDriveSemaphore.acquire();
+ System.out.println("Customer B is test driving a car.");
+ Thread.sleep((long) (Math.random() * 10000)); // Random 
+test drive time
+ System.out.println("Customer B has finished test driving 
+the car.");
+ // Release semaphore to allow other customers to access 
+the test drive car
+ showroom.testDriveSemaphore.release();
+ } catch (InterruptedException e) {
+ e.printStackTrace();
+ }
+ });
+ Thread customerC = new Thread(() -> {
+ try {
+ System.out.println("Customer C is waiting to test drive a 
+car.");
+ // Acquire semaphore to access the test drive car
+ showroom.testDriveSemaphore.acquire();
+ System.out.println("Customer C is test driving a car.");
+ Thread.sleep((long) (Math.random() * 10000)); // Random 
+test drive time
+ System.out.println("Customer C has finished test driving 
+the car.");
+ // Release semaphore to allow other customers to access 
+the test drive car
+ showroom.testDriveSemaphore.release();
+ } catch (InterruptedException e) {
+ e.printStackTrace();
+ }
+ });
+ // Start the customer threads
+ customerA.start();
+ customerB.start();
+ customerC.start();
+ }
+}
 12. Create a collection containing 1000 LoanAgreement objects. Use the LoanAgreement Class 
-created in Java Day – 2 assignment. The objects will have all the information other than the 
-emiPerMonth field value. We need to calculate EMI for all the 1000 objects. Use threading 
-to implement the same. Do the parallel processing to achieve the result faster.
+created in Java Day – 2 assignment. The objects will have all the information other than 
+the emiPerMonth field value. We need to calculate EMI for all the 1000 objects. Use 
+threading to implement the same. Do the parallel processing to achieve the result faster. 
