@@ -1,0 +1,100 @@
+Nsbt01~Nsbt pvt Ltd~A-39,Noida~U.P.~201307~nsbt@nucleussoftware.com~9998065432~Chitralekha~N~A~13Aug2010~Nidhi~~~~
+Wipro01~Wipro pvt Ltd~A-12,Noida~U.P.~201307~wipro@gmail.com~9806543201~Naveen~N~A~13Aug2010~Rajeev~~~~
+Tcs01~Tcs pvt Ltd ~C-52,Mathura~U.P.~100445~tcs@hotmail.com~9980654321~Nitin~N~A~13Aug2010~Nishant~~~24Aug2010~Vaibhav
+Amity12~Amity pvt Ltd~22,Ghaziabad~U.P~144201~amity@rediffmail.com~9890202103~Vijay~N~A~13Aug2010~Gaurav~~~~
+Bharat11~Bharat Institute ltd~34,Noida~U.P~201307~bharat@gmail.com~9018900998~Gaurav~N~A~13Aug2010~Umesh~~~~
+Bharti01~Bhartividypeeth pvt Ltd~D-56,Noida~U.P~201307~bharti@yahoo.com~9899390448~Cheena~N~A~14Aug2010~Nishant~23Aug2010~Nikhil~~
+deva02~Sachdeva pvt ltd~200,Meerut~U.P~200111~Sachdeva02@gamil.com~9359920052~Devangi~N~A~14Aug2010~Anant~~~~
+P08~Purnima pvt Ltd~456,Mandi Dabwali Dist. Sirsa~Haryana~201408~Purnima08@rediffmail.com~9584110900~Vipul~N~A~14Aug2010~Rachit~~~~
+Accurate09~Accurate institute ltd~08,Ghaziabad~U.P~103405~Accurate09@yahoo.co.in~9891899963~Nikhil~N~A~14Aug2010~Shashank~~~~
+Techno10 ~Technocrats Institute ltd ~B-299,Ghaziabad~U.P~203450~Technocrats10@gmail.com~9901908963~Abhilash~N~A~14Aug2010~Shivam~~~~
+Ch13~Chitkara pvt Ltd~67,Chhindwara~M.P~144008~Chitkara13@yahoo.com~9944680081~Amit~N~A~15Aug2010~Rishu~~~25Aug2010~Shashank
+Narain14~Narain public ltd~89,Noida~U.P~201307~Narain14@hotmail.com~9811483888~Ajay~N~A~15Aug2010~Rohit~~~~
+Banarsi15~Banarsi das institute ltd~90,Karnal~Haryana~144010~das15@gmail.com~9482586393~Abhishek~N~A~15Aug2010~Deepak~~~~
+Bajaj16~Bajaj pvt ltd~27,Meerut~U.P~144011~Bajaj16@gamil.com~9999365332~Rahul~N~A~15Aug2010~Anuj~~~~
+Isha17~Krishna institute ltd~j-45,Lucknow~U.P~105001~Krishna17@yahoo.com~9060000492~Anchit~N~A~15Aug2010~Manish~~~~
+Charya18 ~Dronocharya pvt Ltd~35,Noida~U.P~201307~Dronocharya18@yahoo.com~9012265950~Kshitij~N~A~15Aug2010~Avtar~~~26Aug2010~Nitin
+Ad22~Advanced institute ltd~C-59Ghaziabad~U.P~105001~Advanced22@gmail.com~8099083299~Jagrati~N~A~15Aug2010~Gaurav~~~~
+Galgotia21~Galgotia pvt Ltd~Noida~U.P~201307~Galgotia21@yahoo.com~8010058095~Swapnil~N~A~15Aug2010~Arijit~~~~
+Bansal23~Bansal pvt Ltd~Kotkapura~Punjab~105551~bansal@gmail.com~9323301589~Kritika~N~A~15Aug2010~Ankita~26Aug2010~Sunil~24Aug2010~Vaibhav
+Malhotra27~Malhotra pvt Ltd~Bhiwani~Haryana~302105~malhotra@yahoo.com~9023014656~Prashant~N~A~15Aug2010~Prashant~~~~
+Jaipur26~Jaipuria pvt ltd~Gorakpur~U.P~140041~jaipuria@gmail.com~9806543001~Shivam~N~A~20Aug2010~Naveen~~~~
+Kamra24~Kamra pvt Ltd~Kanpur~U.P~100014~kamra@gmail.com~9965432100~Paresh~N~A~20Aug2010~Veerendra~~~~
+Gupta25~Gupta pvt ltd~Faridkot~Punjab~100015~gupta@yahoo.com~9822220104~Dheeraj~N~A~20Aug2010~Varoonee~~~~
+Ch30~Choudhary pvt Ltd~Yamuna Nagar~Haryana~100016~choudhary@gmail.com~9888892202~Priyatosh~N~A~20Aug2010~Nilendra~~~~
+Dutta29~Dutta Pvt ltd~PDRSA, Dist - Morena~M.P~100017~dutta@gmail.com~9000060320~Karan~N~A~20Aug2010~Neeraj~~~~
+Chauhan28~Chauhan pvt Ltd~Sangrur~Punjab~100407~chauhan@gmail.com~9414414903~Anurag~N~A~20Aug2010~Prateek~~~~
+Goel35~Goel Pvt ltd~Delhi~Delhi~102002~goel@yahoo.com~9582313085~Nikhil~N~A~20Aug2010~Vivek~25Aug2010~Anand~25Aug2010~Shashank
+Mishra32~Mishra Pvt Ltd~Noida~U.P~201307~mishra@gmail.com~9899453160~Somendra~N~A~20Aug2010~Ravi~~~~
+Sharma34~Sharma pvt ltd~Ghaziabad~U.P~201308~sharma@yahoo.com~9953136904~Deepak~N~A~20Aug2010~Rishabh~~~~
+Tiwari36~Tiwari pvt Ltd~New Delhi~Delhi~201309~tiwari@gmail.com~9999555040~Aditi~N~A~20Aug2010~Mayank~~~~
+Saxena37~Saxena pvt Ltd~Sangrur~Punjab~201310~saxena@gmail.com~9901489109~Rahul~N~A~20Aug2010~Sonal~~~~
+Singla38~Singla pvt Ltd~Delhi~Delhi~201311~singla@gmail.com~9560432525~Nippun~N~A~20Aug2010~Mayank~~~26Aug2010~Nitin
+Sri39~Srivastava pvt Ltd~New Delhi~Delhi~108935~srivastava@gmail.com~9988880008~Supreet~N~A~20Aug2010~Shailendra~~~~
+Shukla40~Shukla pvt ltd~Greater Noida~U.P~102567~shukla@yahoo.com~8085150039~Sahil~N~A~20Aug2010~Rahul~~~~
+Verma41~Verma pvt Ltd~Lucknow~U.P~105786~verma@yahoo.com~9011020499~Mahinga~N~A~21Aug2010~Saurabh~23Aug2010~Nikhil~~
+Mehta42~Mehta pvt Ltd~Greater Noida~U.P~201408~mehta@yahoo.com~9803532506~Saurabh~N~A~21Aug2010~Anuj~~~~
+Nanda43~Nanda pvt Ltd~Ghaziabad~U.P~103405~nanda@gmail.com~9011091900~Ashish~N~A~21Aug2010~Neha~~~24Aug2010~Vaibhav
+Jain44~Jain pvt ltd~Ghaziabad~U.P~203450~jain@gmail.com~8802641195~Abhishek~N~A~21Aug2010~Priyanka~~~~
+Khanna45~khanna pvt Ltd~Greater Noida~U.P~144008~khanna@yahoo.com~9463800843~Prerna~N~A~21Aug2010~Shelly~~~~
+Agarwal46~Agarwal pvt Ltd~Chandigarh~Chandigarh~201307~agarwal@yahoo.com~9820063303~Preeti~N~A~21Aug2010~Priyanka~~~~
+Ahuja47~Ahuja pvt Ltd~Bhopal~M.P~144010~Ahuja@yahoo.com~9999903632~Sourabh~N~A~21Aug2010~Himanshu~~~~
+Chabra48~Chabra pvt Ltd~Noida~U.P~201307~Chabra@gamil.com~9811351558~Vishal~N~A~21Aug2010~Vikas~~~~
+Khatri49~Khatri pvt Ltd~Delhi~Delhi~109099~khatri@yahoo.com~9252645006~Falguni~N~A~21Aug2010~Mukesh~~~~
+Garg50~Garg pvt Ltd~Muzzaffar Nagar~U.P~108935~garg@yahoo.com~9582403099~Paras~N~A~22Aug2010~Anant~~~~
+Jindal52~Jindal pvt Ltd~Narwana, District- Jind~Haryana~102567~jindal@yahoo.com~9410993125~Saruch~N~A~22Aug2010~Asmita~~~25Aug2010~Shashank
+Malik57~Malik pvt Ltd~Bathinda~Punjab~105786~malik@gmail.com~9988952821~Rohit~N~A~22Aug2010~Saurabh~~~~
+Yadav55~Yadav pvt Ltd~ Revilganj, Dist Chhapra~Bihar~201408~yadav@gmail.com~9891280988~Prashant~N~A~22Aug2010~Achin~~~~
+Dixit59~dixit pvt Ltd~New Delhi~Delhi~109099~dixit@yahoo.com~9999186849~Suraj~N~A~22Aug2010~Vicky~26Aug2010~Sunil~~
+Mittal60~Mittal pvt Ltd~Noida~U.P~201307~mittal@yahoo.com~9953466350~Vaibhav~N~A~22Aug2010~Ashutosh~~~~
+Kumar65~Kumar pvt Ltd~Noida~U.P.~201037~kumar@yahoo.com~9999999343~Manish~N~A~25Aug2010~Vikas~~~26Aug2010~Nitin
+Mh66~Mehta Exports ltd~Noida~U.P~201037~mehta@gmail.com~8085150039~Priyatosh~N~A~25Aug2010~Mayank~~~~
+Grover67~Grover Exports Ltd~Noida~U.P.~201037~Grover@yahoo.com~9011020499~Karan~N~A~25Aug2010~Sonal~~~~
+Ahuja68~Ahuja Exports Ltd~Noida~U.P~201037~ahuja@gmail.com~9803532506~Anurag~N~A~25Aug2010~Mayank~~~~
+Shivam69~Shivam Polymers ~Noida~U.P.~201037~shivam@gmail.com~9011091900~Nikhil~N~A~25Aug2010~Shailendra~~~~
+Atul70~Atul Exports Ltd~Noida~U.P~201037~atul@yahoo.com~8802641195~Somendra~N~A~25Aug2010~Rahul~~~24Aug2010~Vaibhav
+Nagarro71~Nagarro Software Ltd~Noida~U.P.~201037~nagarro@gmail.com~9463800843~Deepak~N~A~25Aug2010~Saurabh~25Aug2010~Anand~~
+Strong~HeadStrong Ltd~Noida~U.P~201037~headstrong@yahoo.com~9820063303~Aditi~N~A~25Aug2010~Anuj~~~~
+Barclay2~Barclays Ltd~Noida~U.P.~201037~barclays@gmail.com~9999903632~Rahul~N~A~25Aug2010~Neha~~~~
+Airtel34~Airtel Pvt Ltd~Noida~U.P~201037~airtel@yahoo.com~9811351558~Nippun~N~A~25Aug2010~Priyanka~~~~
+Aricent23~Aricent Pvt Ltd~Noida~U.P.~201037~aricent@gmail.COM~9252645006~Supreet~N~A~25Aug2010~Shelly~~~~
+HCL12~HCL Pvt Ltd~Noida~U.P~201037~hcl@gmail.com~9582403099~Sahil~N~A~25Aug2010~Priyanka~~~~
+Sulekha5~Sulekha Pvt Ltd~Noida~U.P.~201037~sulekha@gmail.com~9410993125~Mahinga~N~A~25Aug2010~Himanshu~~~~
+ICCI92~ICCI pvt Ltd~Noida~U.P~201037~ICCI@gmail.com~9988952821~Saurabh~N~A~25Aug2010~Vikas~~~25Aug2010~Shashank
+HDFC69~HDFC Pvt Ltd~Noida~U.P.~201037~HDFC@gmail.com~9891280988~Ashish~N~A~25Aug2010~Mukesh~~~~
+Infogains~Infogains Pvt Ltd~Noida~U.P~201037~Infogains@gmail.com~9999186849~Abhishek~N~A~25Aug2010~Anant~~~~
+Infosys76~Infosys Pvt Ltd~Noida~U.P.~201037~Infosys@gmail.com~9953466350~Prerna~N~A~25Aug2010~Asmita~~~~
+Meenu21~Meenu pvt Ltd~Lucknow~U.P~100016~Meenu@yahoo.com~9560432525~Aditi~N~A~20Aug2010~Mayank~~~~
+Garima4~Garima  pvt Ltd~Greater Noida~U.P~100017~Garima@yahoo.com~9988880008~Rahul~N~A~20Aug2010~Shailendra~~~~
+Navin28~Naveen  pvt Ltd~Ghaziabad~U.P~100407~Naveen@yahoo.com~8085150039~Nippun~N~A~20Aug2010~Rahul~~~~
+Alok29~Alok  pvt Ltd~Ghaziabad~U.P~102002~Alok@yahoo.com~9011020499~Supreet~N~A~20Aug2010~Saurabh~~~25Aug2010~
+Ur23~Urvashi  pvt Ltd~Greater Noida~U.P~201307~Urvashi@yahoo.com~9803532506~Sahil~N~A~20Aug2010~Anuj~~~~
+Aman34~Aman  pvt Ltd~Chandigarh~Chandigarh~201308~Aman@yahoo.com~9011091900~Mahinga~N~A~21Aug2010~Neha~~~~
+Ashok45~Ashok  pvt Ltd~C-52,Mathura~U.P.~201309~Ashok@yahoo.com~8802641195~Saurabh~N~A~21Aug2010~Priyanka~~~~
+Paul45~Paul  pvt Ltd~22,Ghaziabad~U.P~201310~Paul@yahoo.com~9463800843~Ashish~N~A~21Aug2010~Shelly~~~~
+John56~John  pvt Ltd~34,Noida~U.P~201311~John@yahoo.com~9820063303~Abhishek~N~A~21Aug2010~Priyanka~~~26Aug2010~
+Stephn3~Stephen  pvt Ltd~D-56,Noida~U.P~108935~Stephen@yahoo.com~9999903632~Prerna~N~A~21Aug2010~Himanshu~~~~
+Sh24~Shivam  pvt Ltd~200,Meerut~U.P~102567~Shivam@yahoo.com~9811351558~Preeti~N~A~21Aug2010~Vikas~~~~
+Keshav34~Keshav  pvt Ltd~456,Mandi Dabwali Dist. Sirsa~Haryana~105786~Keshav@yahoo.com~9252645006~Sourabh~N~A~21Aug2010~Mukesh~26Aug2010~Sunil~~
+Harish21~Harish  pvt Ltd~08,Ghaziabad~U.P~201408~Harish@yahoo.com~9582403099~Vishal~N~A~21Aug2010~Anant~~~~
+Asha35~Asha  pvt Ltd~B-299,Ghaziabad~U.P~103405~Asha@yahoo.com~9410993125~Falguni~N~A~21Aug2010~Asmita~~~~
+Shelly67~Shelly pvt Ltd~67,Chhindwara~M.P~203450~Shelly@yahoo.com~9988952821~Paras~N~A~22Aug2010~Saurabh~~~~
+Prem12~Prem1 pvt Ltd~89,Noida~U.P~144008~Prem1@yahoo.com~9891280988~Saruch~N~A~22Aug2010~Achin~~~~
+Hari26~Hari  pvt Ltd~90,Karnal~Haryana~201307~Hari@yahoo.com~9999186849~Rohit~N~A~22Aug2010~Vicky~~~~
+Polaris21~Polaris  pvt Ltd~27,Meerut~U.P~144010~Polaris@yahoo.com~9953466350~Prashant~N~A~22Aug2010~Ashutosh~~~~
+Acenture3~Accenture pvt Ltd~j-45,Lucknow~U.P~201307~Accenture@yahoo.com~9999999343~Suraj~N~A~22Aug2010~Vikas~~~~
+Usha37~Usha pvt Ltd~35,Noida~U.P~109099~Usha@yahoo.com~9560432525~Vaibhav~N~A~22Aug2010~Mayank~25Aug2010~Anand~~
+Telco28~Telco pvt Ltd~C-59Ghaziabad~U.P~108935~Telco@yahoo.com~9988880008~Manish~N~A~25Aug2010~Shailendra~~~~
+Kh21~Khaitan  pvt Ltd~Noida~U.P~102567~Khaitan@yahoo.com~8085150039~Prashant~N~A~20Aug2010~Rahul~~~~
+Atos21~Atos pvt Ltd~Kotkapura~Punjab~100016~Atos@yahoo.com~9011020499~Suraj~N~A~20Aug2010~Saurabh~~~~
+Thomas98~ThomasCook  pvt Ltd~Bhiwani~Haryana~100017~ThomasCook@yahoo.com~9803532506~Vaibhav~N~A~20Aug2010~Anuj~~~~
+Iflex30~Iflex  pvt Ltd~Gorakpur~U.P~100407~Iflex@yahoo.com~9011091900~Manish~N~A~20Aug2010~Neha~~~~
+Kotak21~Kotak pvt Ltd~Kanpur~U.P~102002~Kotak@yahoo.com~8802641195~Aditi~N~A~21Aug2010~Priyanka~~~~
+Sind23~PunjabSind  pvt Ltd~Faridkot~Punjab~201307~PunjabSind@yahoo.com~9463800843~Rahul~N~A~21Aug2010~Shelly~~~~
+Canara29~Canara pvt Ltd~C-52,Mathura~U.P.~201308~Canara@yahoo.com~9820063303~Nippun~N~A~21Aug2010~Priyanka~~~25Aug2010~
+SBI27~SBI pvt Ltd~22,Ghaziabad~U.P~201309~SBI@yahoo.com~9999903632~Supreet~N~A~21Aug2010~Himanshu~~~~
+Mahi45~Mahindra pvt Ltd~34,Noida~U.P~201310~Mahindra@yahoo.com~9811351558~Sahil~N~A~21Aug2010~Vikas~~~~
+Micro25~Microsoft pvt Ltd~D-56,Noida~U.P~201311~Microsoft@yahoo.com~9252645006~Mahinga~N~A~21Aug2010~Mukesh~~~~
+Rel24~Reliance pvt Ltd~200,Meerut~U.P~108935~Reliance@yahoo.com~9582403099~Saurabh~N~A~21Aug2010~Anant~~~~
+Fisher21~Kingfisher pvt Ltd~456,Mandi Dabwali Dist. Sirsa~Haryana~102567~Kingfisher@yahoo.com~9410993125~Ashish~N~A~21Aug2010~Asmita~~~26Aug2010~
+Cogni23~Cognizant pvt Ltd~08,Ghaziabad~U.P~105786~Cognizant@yahoo.com~9988952821~Abhishek~N~A~21Aug2010~Saurabh~~~~
