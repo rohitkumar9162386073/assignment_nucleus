@@ -1,0 +1,88 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Validation {
+
+    private Validation(){
+
+    }
+
+    public static<O> boolean DataType(O object, String str){
+
+        String str2 = "Numeric";
+        if(str.equals(str2) && object instanceof Integer){
+            return true;
+        } else if (str.equals(str2) && object instanceof Double) {
+            return true;
+        } else if (str.equals(str2) && object instanceof Float) {
+            return true;
+        } else if (str.equals("Boolean") && object instanceof Boolean) {
+            return true;
+        } else if (str.equals("Character") && object instanceof Character) {
+            return true;
+        } else if (str.equals("String") && object instanceof String) {
+            return true;
+        }else {
+            return false;
+        }
+
+    }
+
+    public static <O> boolean DataLength(O object, int length){
+        String obj = object.toString();
+        if(obj.length() <= length){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public static <O> boolean SpecialsCharacters(O object){
+        String s = object.toString();
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i)) && !Character.isLetter(s.charAt(i)) && !Character.isWhitespace(s.charAt(i))) {
+                count++;
+            }
+        }
+        if (count == 0)
+            return true;
+        else
+            return false;
+    }
+
+    public static <O>boolean DomainValue(O object){
+        String str = (object.toString()).toUpperCase();
+        for(Days item : Days.values()) {
+            if(str.equals(item.name())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public static <O>boolean ValidatEmail(O object){
+        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";;
+        Pattern pattern = Pattern.compile(regex);
+        String email = object.toString();
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    public static <O> boolean FormatValidation(O object, String date){
+        String value = object.toString();
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        sdf.setLenient(false);
+        try {
+            sdf.parse(value);
+            return true;
+        }catch (ParseException e){
+            return false;
+        }
+
+    }
+
+}
