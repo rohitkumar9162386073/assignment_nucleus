@@ -138,3 +138,116 @@ public class CustomerContactPersonValidator implements CustomerValidator {
 }
 
 // Customer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class CustomerDataProcessor {
+    // File path of the input CSV file
+    private static final String CSV_FILE_PATH = "customer_data.csv";
+
+    public static void main(String[] args) {
+        // Establish database connection
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/XE", "username", "password");
+            conn.setAutoCommit(false);
+
+            // Read the CSV file
+            BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH));
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                // Parse the CSV line into customer fields
+                String[] fields = line.split(",");
+                String customerCode = fields[0].trim();
+                String customerName = fields[1].trim();
+                String address1 = fields[2].trim();
+                String address2 = fields[3].trim();
+                String emailAddress = fields[4].trim();
+                String dateStr = fields[5].trim();
+                String contactNumber = fields[6].trim();
+                String contactPerson = fields[7].trim();
+
+                // Validate the customer data
+                if (isValidCustomerData(customerCode, customerName, address1, address2, emailAddress, dateStr, contactNumber, contactPerson)) {
+                    // Insert the customer data into the database using DAO pattern
+                    CustomerDAO customerDAO = new CustomerDAOImpl(conn);
+                    Customer customer = new Customer(customerCode, customerName, address1, address2, emailAddress, dateStr, contactNumber, contactPerson);
+                    customerDAO.insertCustomer(customer);
+                    System.out.println("Inserted customer: " + customer);
+                } else {
+                    // Log the validation failure
+                    System.out.println("Invalid customer data: " + line);
+                }
+            }
+            reader.close();
+
+            // Commit the database transaction
+            conn.commit();
+        } catch (SQLException | IOException e) {
+            // Rollback the database transaction on error
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+            }
+            e.printStackTrace();
+        } finally {
+            // Close the database connection
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // Validation function to check data type and length of each customer field
+    private static boolean isValidCustomerData(String customerCode, String customerName, String address1, String address2,
+                                               String emailAddress, String dateStr, String contactNumber, String contactPerson) {
+        boolean isValid = true;
+
+        // Validate customer code (5-digit alphanumeric)
+        if (!customerCode.matches("[A-Za-z0-9]{5}")) {
+            isValid = false;
+        }
+
+        // Validate customer name (up to 50 characters)
+        if (customerName.length() > 50) {
+            isValid = false;
+        }
+
+        // Validate address1 (up to 100 characters)
+        if (address1.length() > 100) {
+            isValid = false;
+        }
+
+        // Validate address2 (up to 100 characters)
+        if (address2.length() > 100) {
+            isValid = false;
+        }
+
+        // Validate email address (valid email format)
+       
