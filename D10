@@ -1,340 +1,192 @@
+package org.example;
 
-Eager initialization: In this approach, the singleton instance is created as soon as the class is loaded into memory.
+import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
+public class CustomerDataProcessor {
+    // File path of the input CSV file
+    private static final String CSV_FILE_PATH = "C:\\Users\\Rohitkumar.Singh\\Downloads\\JAVA_ASSIGNMENT\\Test_Input_1.txt";
 
-
-
-
-
-public class Singleton {
-
-    private static Singleton instance = new Singleton();
-
-    private Singleton() {}
-
-    public static Singleton getInstance() {
-
-        return instance;
-
-    }
-
-}
-
-
-We can get the instance of the singleton by calling Singleton.getInstance(). Note that the constructor of the class is private, so the singleton object cannot be instantiated from outside the class.
-
-
-
-Lazy initialization: In this approach, the singleton instance is created only when it is first requested.
-
-
-public class Singleton {
-
-    private static Singleton instance;
-
-    private Singleton() {}
-
-    public static Singleton getInstance() {
-
-        if (instance == null) {
-
-            instance = new Singleton();
-
+    public static void main(String[] args) throws SQLException, IOException {
+        ConnectionCreation cn=new ConnectionCreation();
+        ArrayList<String> list = new ArrayList<String>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH));
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split("~", line.length());
+                for (int i = 0; i < fields.length; i++) {
+                    list.add(fields[i]);
+                    // System.out.print(st[i]+ " ; ");
+                }
+                boolean bool=Validate.PrimaryKeyValidation(list);
+                if(bool==true)
+                    cn.jdbcConnection(list);
+                else{
+                    System.out.println("There is an discrepencies in the data");
+                    break;}
+//                System.out.print(list);
+//                System.out.println(list.size());
+                list.clear();
+            }
+        } catch (Exception ex) {
+            ex.getMessage();
         }
-
-        return instance;
-
-    }
-
-}
-
-
-We can get the instance of the singleton by calling Singleton.getInstance(). The first time this method is called, the instance variable is null, so a new object is created. Subsequent calls to this method will return the same instance.
-
-
-
-
-
-
-
-
-Initialization-on-demand holder (IoDH) idiom: This approach uses a nested static class to hold the singleton instance. The singleton instance is created only when the nested class is loaded into memory.
-
-
-
-
-public class Singleton {
-
-    private Singleton() {}
-
-    private static class SingletonHolder {
-
-        private static final Singleton instance = new Singleton();
-
-    }
-
-    public static Singleton getInstance() {
-
-        return SingletonHolder.instance;
-
-    }
-
-}
-
-
-
-
-
-
-
-
-
-ingleton Object Creation - 3 Ways.
-
-rohit kumar
-
-What are the 3 ways of creating singleton objects ? Show demo of all three
-
-In programming, a singleton is a design pattern that restricts the instantiation of a class to one object. There are several ways to create singleton objects, but the most common ones are:
-
-Using a static variable: We can use a static variable to store the instance of the singleton object. The constructor of the class should be private, and we can use a static method to access the instance. This ensures that only one instance of the object can be created.
-
-Here's an example of implementing a singleton using a static variable in Python:
-
-python
-
-Copy code
-
-class Singleton:
-
-    __instance = None
-
-    def __init__(self):
-
-        if Singleton.__instance != None:
-
-            raise Exception("You cannot create more than one instance of Singleton class")
-
-        else:
-
-            Singleton.__instance = self
-
-    @staticmethod
-
-    def get_instance():
-
-        if Singleton.__instance == None:
-
-            Singleton()
-
-        return Singleton.__instance
-
-We can use the get_instance() method to access the singleton object.
-
-scss
-
-Copy code
-
-s1 = Singleton.get_instance()
-
-s2 = Singleton.get_instance()
-
-print(s1)
-
-print(s2)
-
-Output:
-
-python
-
-Copy code
-
-<__main__.Singleton object at 0x7ff7642e7580>
-
-<__main__.Singleton object at 0x7ff7642e7580>
-
-As you can see, both s1 and s2 refer to the same object.
-
-Using a decorator: We can also use a decorator to create a singleton class. This method is useful when we want to apply the singleton pattern to an existing class.
-
-Here's an example of using a decorator to create a singleton class in Python:
-
-less
-
-Copy code
-
-from functools import wraps
-
-def singleton(cls):
-
-    instances = {}
-
-    @wraps(cls)
-
-    def get_instance(*args, **kwargs):
-
-        if cls not in instances:
-
-            instances[cls] = cls(*args, **kwargs)
-
-        return instances[cls]
-
-    return get_instance
-
-@singleton
-
-class
-
-rohit kumar
-
-What are the 3 ways of creating singleton objects in java ? Show demo of all three
-
-Sure! Here are three common ways to create singleton objects in Java:
-
-Eager initialization: In this approach, the singleton instance is created as soon as the class is loaded into memory.
-
-csharp
-
-Copy code
-
-public class Singleton {
-
-    private static Singleton instance = new Singleton();
-
-    private Singleton() {}
-
-    public static Singleton getInstance() {
-
-        return instance;
-
-    }
-
-}
-
-We can get the instance of the singleton by calling Singleton.getInstance(). Note that the constructor of the class is private, so the singleton object cannot be instantiated from outside the class.
-
-Lazy initialization: In this approach, the singleton instance is created only when it is first requested.
-
-csharp
-
-Copy code
-
-public class Singleton {
-
-    private static Singleton instance;
-
-    private Singleton() {}
-
-    public static Singleton getInstance() {
-
-        if (instance == null) {
-
-            instance = new Singleton();
-
+        finally {
+            System.out.println("done with the execution");
         }
-
-        return instance;
-
     }
-
-}
-
-We can get the instance of the singleton by calling Singleton.getInstance(). The first time this method is called, the instance variable is null, so a new object is created. Subsequent calls to this method will return the same instance.
-
-Initialization-on-demand holder (IoDH) idiom: This approach uses a nested static class to hold the singleton instance. The singleton instance is created only when the nested class is loaded into memory.
-
-java
-
-Copy code
-
-public class Singleton {
-
-    private Singleton() {}
-
-    private static class SingletonHolder {
-
-        private static final Singleton instance = new Singleton();
-
-    }
-
-    public static Singleton getInstance() {
-
-        return SingletonHolder.instance;
-
-    }
-
-}
-
-We can get the instance of the singleton by calling Singleton.getInstance(). The SingletonHolder class is only loaded into memory when the getInstance() method is called for the first time. The static instance variable is then initialized with a new Singleton object. Subsequent calls to this method will return the same instance.
-
-
-
-
-Here's an example of how to use these three approaches:
-
-
-
-
-
-public class SingletonDemo {
-
-    public static void main(String[] args) {
-
-        // Eager initialization
-
-        Singleton eagerSingleton = Singleton.getInstance();
-
-        System.out.println("Eager Singleton: " + eagerSingleton);
-
-        // Lazy initialization
-
-        Singleton lazySingleton = Singleton.getInstance();
-
-        System.out.println("Lazy Singleton: " + lazySingleton);
-
-        // IoDH idiom
-
-        Singleton ioDHSingleton = Singleton.getInstance();
-
-        System.out.println("IoDH Singleton: " + ioDHSingleton);
-
-    }
-
 }
 
 
 
 
 
+Validation funtion class:
+
+package org.example;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.text.ParseException;
+import java.util.regex.Pattern;
+
+public class Validate {
+
+    public static <ArrayList> boolean PrimaryKeyValidation(java.util.ArrayList<String> list) throws IOException {
+        java.util.ArrayList<String> pk = new java.util.ArrayList<String>();
+        String regex1 = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
+        Pattern pattern1 = Pattern.compile(regex1);
+        String regex = "[a-zA-Z0-9]";
+        Pattern pattern = Pattern.compile(regex);
+        BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\Rohitkumar.Singh\\Downloads\\JAVA_ASSIGNMENT\\Error_Report.txt"));
+        System.out.println(list + "Validate");
+        if (!(list.get(0) == null || pk.contains(list.get(0))) || (list.get(0).length()) >= 10) {
+            pk.add(list.get(0));
+            String CustName = list.get(1);
+            Matcher matcher = pattern.matcher(CustName);
+            if (!((list.get(1) == null || matcher.matches() == true) || (list.get(1).length()) > 30)) {
+                if (!(list.get(2) == null || (list.get(2).length() <= 100))) {
+                    if (!(list.get(3).length() <= 100)) {
+                        if (!(list.get(4) == null || (list.get(4).length() == 6))) {
+                            String email = list.get(5);
+                            Matcher matcher1 = pattern.matcher(email);
+                            if (!(email == null || matcher.matches() == true || email.length() >= 100)) {
+                                if (!(list.get(6).length() > 20)) {
+                                    if (!(list.get(7).length() > 100)) {
+                                        if (list.get(8).length() == 1 || list.get(8) != null || list.get(8).equals('N') || list.get(8).equals('M') || list.get(8).equals('A') || list.get(8).equals('R') || list.get(8).equals('D')) {
+                                            if (list.get(9).length() == 1 || list.get(9) != null || list.get(9).equals('A') || list.get(9).equals('I')) {
+                                                if (list.get(10) != null) {
+                                                    if (list.get(11) != null || list.get(11).length() <= 30) {
+                                                        if (list.get(13).length() <= 30) {
+                                                            if (list.get(15).length() <= 30) {
+                                                                return true;
+                                                            } else{
+                                                                bw.write("Authorized By field fails validation");
+                                                            return false;}
+                                                        } else{
+                                                            bw.write(" Modified By fails validation");
+                                                        return false;}
+                                                    } else{
+                                                        bw.write("Created By field fails validation ");
+                                                    return false;}
+                                                } else{
+                                                    bw.write("Created Date field fails validation");
+                                                return false;}
+                                            } else{
+                                                bw.write("Active/Inactive Flag fails validation ");
+                                            return false;}
+                                        } else{
+                                            bw.write("Record Status fails validation ");
+                                        return false;}
+                                    } else{
+                                        bw.write("Primary Contact person fails validation");
+                                    return false;}
+                                } else{
+                                    bw.write("Contact NUmber fails validation");
+                                return false;}
+                            } else{
+                                bw.write("E-mail address fails validation");
+                            return false;}
+                        } else{
+                            bw.write("Customer Pin Code fails validation");
+                        return false;}
+                    } else{
+                        bw.write("Customer Address 2 fails validation");
+                    return false;}
+                } else{
+                    bw.write("Customer Address 1 fails validation");
+                return false;}
+            } else{
+                bw.write("Customer Name fails validation");
+            return false;}
+        } else{
+            bw.write("Customer Code fails validation");
+        return false;}
+    }
+}
 
 
 
-The SOLID principles are a set of design principles for software development that aim to make software more maintainable, flexible, and extensible. The principles are:
 
-Single Responsibility Principle (SRP)
+jdbc connectioh creation class: 
+package org.example;
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
-Open-Closed Principle (OCP)
+public class ConnectionCreation {
 
-Liskov Substitution Principle (LSP)
+    void jdbcConnection(java.util.ArrayList<String> list) throws ParseException {
+        String url = "oracle.jdbc.driver.OracleDriver";
+        String user = "sh";
+        String password = "sh";
+        String sql = "INSERT INTO Customer_Master_Table_Rohit (CUSTOMER_CODE, CUSTOMER_NAME, CUSTOMER_ADDRESS_1, CUSTOMER_ADDRESS_2, CUSTOMER_PIN_CODE,EMAIL_ADDRESS,CONTACT,PRIMARY_CONTACT_PERSON,RECORD_STATUS,ACTIVE_INACTIVE_FLAG,CREATE_DATE,CREATED_BY,MODIFIED_DATE,MODIFIED_BY,AUTHORIZED_DATE,AUTHORIZED_BY) VALUES (?, ?, ?, ?, ?,?, ?, ?, ?, ?,?, ?, ?, ?, ?,?)";
+        ArrayList<String> list1 = list;
+        System.out.println(list1 + "Connection");
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-Interface Segregation Principle (ISP)
+            for (String str : list1) {
+                stmt.setInt(1, Integer.parseInt(list1.get(0)));
+                stmt.setString(2, list1.get(1));
+                stmt.setString(3, list1.get(2));
+                stmt.setString(4, list1.get(3));
+                stmt.setString(5, list1.get(4));
+                stmt.setInt(6, Integer.parseInt(list1.get(5)));
+                stmt.setString(7, list1.get(6));
+                stmt.setInt(8, Integer.parseInt(list1.get(7)));
+                stmt.setString(9, list1.get(8));
+                stmt.setString(10, list1.get(9));
+                stmt.setString(11, list1.get(10));
+                stmt.setDate(12, (Date) new SimpleDateFormat().parse(list1.get(11)));
+                stmt.setString(13, list1.get(12));
+                stmt.setDate(14, (Date) new SimpleDateFormat().parse(list1.get(13)));
+                stmt.setString(15, list1.get(14));
+                stmt.setDate(16, (Date) new SimpleDateFormat().parse(list1.get(15)));
+                stmt.setString(17, list1.get(16));
+                int j = stmt.executeUpdate();
+                System.out.println(++j + " records inserted");
+                System.out.println();
 
-Dependency Inversion Principle (DIP)
+            }
 
-These principles are not specific to any particular programming language or API, but rather provide general guidelines for software design.
+            int[] updateCounts = stmt.executeBatch();
+            System.out.println("Rows inserted: " + updateCounts.length);
 
-That being said, Java API follows the SOLID principles in various ways. Here are some examples:
-
-Single Responsibility Principle (SRP): Many classes in Java API follow SRP, such as java.util.ArrayList, which only has the responsibility of maintaining an ordered collection of elements.
-
-Open-Closed Principle (OCP): Java API has many examples of OCP, including java.util.Comparator, which allows for custom sorting algorithms to be implemented without modifying the code of the collection being sorted.
-
-Liskov Substitution Principle (LSP): Java API is designed with LSP in mind, allowing for derived classes to be used in place of their base classes. For example, java.util.List allows for any implementation of a list to be used where a List is expected.
-
-Interface Segregation Principle (ISP): Java API has many interfaces that follow ISP, such as java.util.Iterator, which only contains methods related to iterating over a collection.
-
-Dependency Inversion Principle (DIP): Java API provides many examples of DIP, such as the use of interfaces throughout the API. For example, java.util.Collection is an interface that can be implemented by different collection types.
-
-In conclusion, Java API follows the SOLID principles in various ways, as they provide a solid foundation for creating maintainable, flexible, and extensible software.
-
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.getMessage());
+        }
+    }
+}
 
