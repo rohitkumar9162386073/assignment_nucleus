@@ -251,3 +251,137 @@ public class CustomerDataProcessor {
 
         // Validate email address (valid email format)
        
+
+
+
+
+
+
+
+
+
+
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.List;
+
+public class FileToTableDAO {
+    private static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
+    private static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:XE";
+    private static final String USER = "yourusername";
+    private static final String PASS = "yourpassword";
+
+    public static void main(String[] args) {
+        Connection conn = null;
+        BufferedReader br = null;
+
+        try {
+            // Register JDBC driver and open connection
+            Class.forName(JDBC_DRIVER);
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            // Read file and insert records into database
+            String line;
+            br = new BufferedReader(new FileReader("yourfile.txt"));
+            UserDao userDao = new UserDaoImpl(conn);
+
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                User user = new User(values[0], values[1], values[2]);
+                userDao.addUser(user);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Clean up resources
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+            try {
+                if (br != null) {
+                    br.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+interface UserDao {
+    public List<User> getAllUsers() throws SQLException;
+    public void addUser(User user) throws SQLException;
+    public void updateUser(User user) throws SQLException;
+    public void deleteUser(int id) throws SQLException;
+}
+
+class UserDaoImpl implements UserDao {
+    private Connection conn;
+
+    public UserDaoImpl(Connection conn) {
+        this.conn = conn;
+    }
+
+    @Override
+    public List<User> getAllUsers() throws SQLException {
+        // Implementation details for retrieving all Users
+    }
+
+    @Override
+    public void addUser(User user) throws SQLException {
+        String sql = "INSERT INTO yourtable (column1, column2, column3) VALUES (?, ?, ?)";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPhone());
+            stmt.executeUpdate();
+        }
+    }
+
+    @Override
+    public void updateUser(User user) throws SQLException {
+        // Implementation details for updating an existing User
+    }
+
+    @Override
+    public void deleteUser(int id) throws SQLException {
+        // Implementation details for deleting a User by id
+    }
+}
+
+class User {
+    private String name;
+    private String email;
+    private String phone;
+
+    public User(String name, String email, String phone) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+}
