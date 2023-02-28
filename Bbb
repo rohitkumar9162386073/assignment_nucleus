@@ -1,0 +1,140 @@
+// Customer.java
+
+public class Customer {
+    private String code;
+    private String name;
+    private String address1;
+    private String address2;
+    private String email;
+    private String date;
+    private String contactNumber;
+    private String contactPerson;
+
+    public Customer(String code, String name, String address1, String address2, String email, String date, String contactNumber, String contactPerson) {
+        this.code = code;
+        this.name = name;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.email = email;
+        this.date = date;
+        this.contactNumber = contactNumber;
+        this.contactPerson = contactPerson;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public String getContactPerson() {
+        return contactPerson;
+    }
+}
+
+// CustomerValidator.java
+
+public interface CustomerValidator {
+    boolean isValid(Customer customer);
+}
+
+// CustomerCodeValidator.java
+
+public class CustomerCodeValidator implements CustomerValidator {
+    private static final Pattern CODE_PATTERN = Pattern.compile("[A-Z]{3}[0-9]{3}");
+
+    @Override
+    public boolean isValid(Customer customer) {
+        return CODE_PATTERN.matcher(customer.getCode()).matches();
+    }
+}
+
+// CustomerNameValidator.java
+
+public class CustomerNameValidator implements CustomerValidator {
+    private static final Pattern NAME_PATTERN = Pattern.compile("[A-Za-z ]+");
+
+    @Override
+    public boolean isValid(Customer customer) {
+        return NAME_PATTERN.matcher(customer.getName()).matches();
+    }
+}
+
+// CustomerAddressValidator.java
+
+public class CustomerAddressValidator implements CustomerValidator {
+    private static final Pattern ADDRESS_PATTERN = Pattern.compile("[A-Za-z0-9 ,-]+");
+
+    @Override
+    public boolean isValid(Customer customer) {
+        return ADDRESS_PATTERN.matcher(customer.getAddress1()).matches() && ADDRESS_PATTERN.matcher(customer.getAddress2()).matches();
+    }
+}
+
+// CustomerEmailValidator.java
+
+public class CustomerEmailValidator implements CustomerValidator {
+    private static final Pattern EMAIL_PATTERN = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}");
+
+    @Override
+    public boolean isValid(Customer customer) {
+        return EMAIL_PATTERN.matcher(customer.getEmail()).matches();
+    }
+}
+
+// CustomerDateValidator.java
+
+public class CustomerDateValidator implements CustomerValidator {
+    private static final Pattern DATE_PATTERN = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
+
+    @Override
+    public boolean isValid(Customer customer) {
+        return DATE_PATTERN.matcher(customer.getDate()).matches();
+    }
+}
+
+// CustomerContactValidator.java
+
+public class CustomerContactValidator implements CustomerValidator {
+    private static final Pattern CONTACT_PATTERN = Pattern.compile("\\d{10}");
+
+    @Override
+    public boolean isValid(Customer customer) {
+        return CONTACT_PATTERN.matcher(customer.getContactNumber()).matches();
+    }
+}
+
+// CustomerContactPersonValidator.java
+
+public class CustomerContactPersonValidator implements CustomerValidator {
+    private static final Pattern NAME_PATTERN = Pattern.compile("[A-Za-z ]+");
+
+    @Override
+    public boolean isValid(Customer customer) {
+        return NAME_PATTERN.matcher(customer.getContactPerson()).matches();
+    }
+}
+
+// Customer
