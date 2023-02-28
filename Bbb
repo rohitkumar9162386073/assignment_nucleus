@@ -385,3 +385,108 @@ class User {
         return phone;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+public class OracleJDBCExample {
+
+    public static void main(String[] args) {
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "username";
+        String password = "password";
+        String sql = "INSERT INTO my_table (field1, field2, field3, field4, field5) VALUES (?, ?, ?, ?, ?)";
+        List<MyObject> myList = getListFromSomewhere();
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            for (MyObject obj : myList) {
+                stmt.setString(1, obj.getField1());
+                stmt.setString(2, obj.getField2());
+                stmt.setInt(3, obj.getField3());
+                stmt.setDouble(4, obj.getField4());
+                stmt.setDate(5, new java.sql.Date(obj.getField5().getTime()));
+                stmt.addBatch();
+            }
+
+            int[] updateCounts = stmt.executeBatch();
+            System.out.println("Rows inserted: " + updateCounts.length);
+
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.getMessage());
+        }
+    }
+
+    private static List<MyObject> getListFromSomewhere() {
+        // This method should return a list of MyObject instances with 5 fields
+        // You can replace this with your own code that retrieves the list from somewhere
+        return null;
+    }
+
+    private static class MyObject {
+        private String field1;
+        private String field2;
+        private int field3;
+        private double field4;
+        private java.util.Date field5;
+
+        public String getField1() {
+            return field1;
+        }
+
+        public void setField1(String field1) {
+            this.field1 = field1;
+        }
+
+        public String getField2() {
+            return field2;
+        }
+
+        public void setField2(String field2) {
+            this.field2 = field2;
+        }
+
+        public int getField3() {
+            return field3;
+        }
+
+        public void setField3(int field3) {
+            this.field3 = field3;
+        }
+
+        public double getField4() {
+            return field4;
+        }
+
+        public void setField4(double field4) {
+            this.field4 = field4;
+        }
+
+        public java.util.Date getField5() {
+            return field5;
+        }
+
+        public void setField5(java.util.Date field5) {
+            this.field5 = field5;
+        }
+    }
+}
+
