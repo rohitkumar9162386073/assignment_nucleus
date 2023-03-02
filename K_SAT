@@ -475,3 +475,44 @@ public class Validation {
     }
 }
 
+
+
+
+
+Correction code for storing 1600 fields into a single ho in 100 records of 16 fields each:
+
+
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StringFieldsConverter {
+
+    public static void main(String[] args) {
+        
+        // Assuming that the ArrayList containing the 1600 string fields is named 'stringFields'
+        List<String> stringFields = new ArrayList<>();
+        // ... add 1600 string fields to the ArrayList
+        
+        // Convert 1600 string fields into 100 records of 16 fields each
+        List<String[]> records = new ArrayList<>();
+        for (int i = 0; i < stringFields.size(); i += 16) {
+            String[] record = new String[16];
+            for (int j = 0; j < 16; j++) {
+                record[j] = stringFields.get(i + j);
+            }
+            records.add(record);
+        }
+        
+        // Print the resulting records
+        for (String[] record : records) {
+            for (String field : record) {
+                System.out.print(field + ", ");
+            }
+            System.out.println();
+        }
+    }
+}
+
