@@ -69,3 +69,54 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+import java.io.*;
+
+import javax.servlet.*;
+
+import javax.servlet.http.*;
+
+public class GetServlet extends HttpServlet {
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+
+	throws ServletException, IOException {
+
+		response.setContentType("text/html");
+
+		PrintWriter out = response.getWriter();
+
+		String name = request.getParameter("name");
+
+		String email = request.getParameter("email");
+
+		String message = request.getParameter("message");
+
+		String gender = request.getParameter("gender");
+
+		String country = request.getParameter("country");
+
+		String[] interests = request.getParameterValues("interests");
+
+		String birthdate = request.getParameter("birthdate");
+
+		out.println("<html>");
+
+		out.println("<head>");
+
+		out.println("<title>GetServlet Output</title>");
+
+		out.println("</head>");
+
+		out.println("<body>");
+
+		out.println("<h2>
