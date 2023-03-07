@@ -1,0 +1,161 @@
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>dewesh</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    </head>
+
+    <body>
+
+        <div class="main-container">
+
+            <div class="navbar">
+
+              <ul>
+
+                <li>
+
+                  <a href="#product">product</a>
+
+                </li>
+
+                <li>
+
+                  <a href="#policy">policy setup</a>
+
+                </li>
+
+                <li>
+
+                  <a href="#parameters">parameters</a>
+
+                </li>
+
+                <li>
+
+                  <a href="#application">application</a>
+
+                </li>
+
+                <li>
+
+                    <a href="#Reciept">Reciept</a>
+
+                </li>
+
+                <li>
+
+                    <a href="#accounting">Accounting</a>
+
+                </li>
+
+                <li>
+
+                    <a href="#customer">Customer service </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#report">Report</a>
+
+                </li>
+
+                
+
+              </ul>
+
+            </div>
+
+            <div class="content">
+
+                <h1>Create allocation Priority</h1>
+
+            </div>
+
+          
+
+        </div>
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navbar{
+
+    position:fixed;
+
+    top: 0%;
+
+    background-color: aliceblue;
+
+    width: 100%;
+
+    box-shadow: 0px  0px 8px rgb(0 0 0 /6%);
+
+    }
+
+    ul{
+
+        list-style-type: none;
+
+        font-family: 'Lato', sans-serif;
+
+        font-weight: 600;
+
+        margin-top: 0%;
+
+    }
+
+    li{
+
+        float: left;
+
+    }
+
+    li a
+
+    {
+
+        display: block;  
+
+        padding: 25px;
+
+        background-color: aliceblue;
+
+        text-decoration: none;
+
+        color: black;
+
+    }
