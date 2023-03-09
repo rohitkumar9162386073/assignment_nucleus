@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<title>Product</title>
+<head>
+  <style>
+    table,
+    tr,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    #hello {
+      background-color: aliceblue;
+    }
+    b {
+      font-weight: bold;
+    }
+    .hello{
+        text-align: right;
+    }
+    button{
+        background-color: blue;
+        color: white;
+    }
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: aliceblue;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+.hell{
+    float: right;
+}
+  </style>
+</head>
+<body>
+<header>
+  <ul>
+    <li><a href="Question2.html">Product</a></li>
+    <li><a href="#">Policy Setup</a></li>
+    <li><a href="#">Parameters</a></li>
+    <li><a href="#">Applications</a></li>
+    <li><a href="#">Recipt</a></li>
+    <li><a href="#">Accounting</a></li>
+    <li><a href="#">Customer Service</a></li>
+    <li><a href="#">Report</a></li>
+  </ul>
+
+<br>
+<h3 style="display: inline;">Products</h3>
+<button class="hell" style="display: inline;">New Product</button>
+<br>
+<hr>
+<p style="display: inline;">Show
+  <select name="" id="">
+    <option value="">5</option>
+    <option value="">10</option>
+  </select>entries</p>
+<p class="hell" style="display: inline;">Search: <input type="text"> </p>
+<table style="width: 100%">
+  <tr>
+    <td><b>Code</b></td>
+    <td><b>Product Name</b></td>
+    <td><b>Product Description</b></td>
+    <td><b>Product Type</b></td>
+    <td><b>Created By</b></td>
+    <td><b>Status</b></td>
+    <td><b>Reviewed By</b></td>
+    <td><b>Action</b></td>
+  </tr>
+  <tr id="hello">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Edit|Delete</td>
+  </tr>
+</table>
+<div>
+  <p style="display: inline">Showing 1 to 1 of entries</p>
+  <p class="hell" style="display: inline">Prvious
+    <input type="button" value="1"></input>
+    Next</p>
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<head>
+    <title>Allocation Form </title>
+    <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    div {
+      text-align: right;
+    }
+    button {
+      color: white;
+      background-color: blue;
+    }
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f5f5f0;
+}
+
+li {
+  float: left;
+  background-color:#f5f5f0;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #e6e6e6;
+}
+
+    </style>
+</head>
+<body>
+<header>
+    <ul>
+        <li><a href="Question2.html">Product</a></li>
+        <li><a href="#">Policy Setup</a></li>
+        <li><a href="#">Parameters</a></li>
+        <li><a href="#">Applications</a></li>
+        <li><a href="#">Recipt</a></li>
+        <li><a href="#">Accounting</a></li>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">Report</a></li>
+
+
+    </ul>
+</header>
+<hr>
+
+<h1>Create Allocation Priority</h1>
+<hr>
+<form>
+    <div class="container">
+        <div class="row row-cols-2">
+            <div class="col1" style="float:left"><label class="form-label" style="float:left"><b>ProductName<span style="color:red">*</span></b></label><br>
+                <input type="text" name="Product" id="Product" style="float:left"></div>
+            <div class="col2"><label class="form-label" style=":50%" style="float:right"><b>Allocation Type<span style="color:red">*</span></b></label><br><br><br>
+                <select class="form-select" aria-label="Default select example" style="float:right">
+                <option selected>Select one option</option>
+                <option value="1">One</option>
+            </select></div>
+            <div class="col3" style="float:left"><label class="form-label" style="float:left"><b>Allocation Priority<span style="color:red">*</span></b></label><br>
+                <input type="text" name="Product" id="Allocation" style="float:left"></div>
+        </div>
+    </div>
+</form>
+<br><br>
+
+<p>Charge Inclusion</p>
+<table style="width: 70%">
+    <tr>
+        <td style="width: 5%">&#9744;</td>
+        <th>Charge Code</th>
+        <th>Priority</th>
+    </tr>
+    <tr>
+        <td>&#9744;</td>
+        <td>InstallmentPeincipleCompound</td>
+        <td><input type="text" style="width: 98%"/></td>
+    </tr>
+    <tr>
+        <td>&#9744;</td>
+        <td>InstallmentintenestCompound</td>
+        <td><input type="text" style="width: 98%"/></td>
+    </tr>
+    <tr>
+        <td>&#9744;</td>
+        <td>LatePaymentPenalty</td>
+        <td><input type="text" style="width: 98%"/></td>
+    </tr>
+    <tr>
+        <td>&#9744;</td>
+        <td>DisbursalCharge</td>
+        <td><input type="text" style="width: 98%"/></td>
+    </tr>
+    <tr>
+        <td>&#9744;</td>
+        <td>ProcessingFee</td>
+        <td><input type="text" style="width: 98%"/></td>
+    </tr>
+</table>
+<div>
+    <button type="button">Save</button>
+    <button type="button">Save & Request Approval</button>
+</div>
+</body>
