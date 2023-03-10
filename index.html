@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .navbar {
+        display: flex;
+        list-style: none;
+        background-color: #ccc;
+        gap: 1rem;
+        padding: 1rem 1rem;
+      }
+      .navbar li {
+        font-size: 1.2rem;
+      }
+
+      .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+      }
+
+      .tab button:hover {
+        background-color: #ddd;
+      }
+
+      .tab button.active {
+        background-color: #ccc;
+      }
+      .tab-content {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-top: none;
+      }
+
+      label {
+        display: inline-block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .container,
+      .tab-container {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 1rem;
+      }
+      /* Style for labels */
+      .form-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      select,
+      input[type="date"],
+      input[type="number"] {
+        width: 30rem;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      input[type="submit"] {
+        background-color: #4c68af;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #1635b1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <li>Product</li>
+      <li>Policy Setup</li>
+      <li>Parameter</li>
+      <li>Application</li>
+      <li>Reciept</li>
+      <li>Accounting</li>
+      <li>Customer Service</li>
+      <li>Report</li>
+    </div>
+
+    <div class="tab-container">
+      <div class="tab">
+        <button class="tab" onclick="openTab(event, 'tab1')">
+          Customer Information
+        </button>
+        <button class="tab" onclick="openTab(event, 'tab2')">
+          Loan Information
+        </button>
+      </div>
+
+      <div id="tab1" class="tab-content">
+        <div class="container">
+          <h2>Personal Information</h2>
+          <form onsubmit="return validateForm()">
+            <div class="form-container">
+              <div>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option></select
+                ><br />
+
+                <label for="lastname">Last Name:</label>
+                <input
+                  type="text"
+                  id="lastname"
+                  name="lastname"
+                  minlength="3"
+                /><br />
+                <label for="nationality">Nationality:</label>
+                <input type="text" id="nationality" name="nationality" /><br />
+              </div>
+              <div>
+                <label for="firstname">First Name:</label>
+                <input
+                  type="text"
+                  id="firstname"
+                  name="firstname"
+                  minlength="3"
+                /><br />
+
+                <label for="fullname">Full Name:</label>
+                <input
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  minlength="3"
+                /><br />
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" /><br />
+              </div>
+            </div>
+            <h2>Employment Details</h2>
+            <div class="form-container">
+              <div>
+                <label for="occupation">Occupation Type:</label>
+                <input type="text" id="occupation" name="occupation" /><br />
+
+                <label for="organization">Organization Name:</label>
+                <input
+                  type="text"
+                  id="organization"
+                  name="organization"
+                /><br />
+              </div>
+              <div>
+                <label for="experience"
+                  >Total Work Experience (in years):</label
+                >
+                <input type="number" id="experience" name="experience" /><br />
+              </div>
+            </div>
+            <h2>Employment Details</h2>
+            <div class="form-container">
+              <div>
+                <label for="home-no">Home No:</label>
+                <input type="number" id="home-no" name="home-no" /><br />
+
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" /><br />
+              </div>
+              <div>
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" /><br />
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" /><br />
+                <div>
+                  <input type="submit" value="Save" />
+                  <input type="submit" value="Next" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="tab2" class="tab-content" style="display: none">
+        <div class="container-1">
+          <form name="loanForm" onsubmit="return validateForm1()">
+            <div class="form-container">
+              <div>
+                <label for="applicationNo">Application No:</label>
+                <input
+                  type="text"
+                  id="applicationNo"
+                  name="applicationNo"
+                  required
+                />
+
+                <label for="product">Product:</label>
+                <input type="text" id="product" name="product" required />
+
+                <label for="tenure">Tenure (months):</label>
+                <input
+                  type="number"
+                  id="tenure"
+                  name="tenure"
+                  min="1"
+                  required
+                />
+
+                <label for="agreementDate">Agreement Date:</label>
+                <input
+                  type="date"
+                  id="agreementDate"
+                  name="agreementDate"
+                  required
+                />
+              </div>
+              <div>
+                <div>
+                  <label for="productType">Product Type:</label>
+                  <select id="productType" name="productType" required>
+                    <option value="">Select a Product Type</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Business">Business</option>
+                  </select>
+
+                  <label for="loanAmount">Loan Amount Requested:</label>
+                  <input
+                    type="number"
+                    id="loanAmount"
+                    name="loanAmount"
+                    min="1"
+                    required
+                  />
+
+                  <label for="rate">Rate:</label>
+                  <input
+                    type="number"
+                    id="rate"
+                    name="rate"
+                    min="1"
+                    max="100"
+                    step="0.01"
+                    required
+                  />
+
+                  <label for="installmentDueDate">Installment Due Date:</label>
+                  <input
+                    type="date"
+                    id="installmentDueDate"
+                    name="installmentDueDate"
+                    required
+                  />
+                </div>
+                <input type="submit" value="Move to next stage" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+
+        // Hide all tab content
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Remove the "active" class from all tab buttons
+        tablinks = document.getElementsByClassName("tab");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the selected tab content and set the corresponding button as active
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Open the first tab by default
+      document.getElementById("tab1").style.display = "block";
+      document.getElementsByClassName("tab")[0].className += " active";
+
+      function validateForm() {
+        var gender = document.forms[0]["gender"].value;
+        var firstname = document.forms[0]["firstname"].value;
+        var lastname = document.forms[0]["lastname"].value;
+        var fullname = document.forms[0]["fullname"].value;
+        var nationality = document.forms[0]["nationality"].value;
+        var dob = document.forms[0]["dob"].value;
+        var occupation = document.forms[0]["occupation"].value;
+        var organization = document.forms[0]["organization"].value;
+        var experience = document.forms[0]["experience"].value;
+        var homeNo = document.forms[0]["home-no"].value;
+        var state = document.forms[0]["state"].value;
+        var country = document.forms[0]["country"].value;
+        var city = document.forms[0]["city"].value;
+
+        if (gender == "") {
+          alert("Please select your gender");
+          return false;
+        }
+        if (firstname == "") {
+          alert("Please enter your first name");
+          return false;
+        }
+        if (lastname == "") {
+          alert("Please enter your last name");
+          return false;
+        }
+        if (fullname == "") {
+          alert("Please enter your full name");
+          return false;
+        }
+        if (nationality == "") {
+          alert("Please enter your nationality");
+          return false;
+        }
+        if (dob == "") {
+          alert("Please enter your date of birth");
+          return false;
+        }
+        if (occupation == "") {
+          alert("Please enter your occupation type");
+          return false;
+        }
+        if (organization == "") {
+          alert("Please enter your organization name");
+          return false;
+        }
+        if (experience == "" || experience < 0) {
+          alert("Please enter a valid total work experience (in years)");
+          return false;
+        }
+        if (homeNo == "" && homeNo < 0) {
+          alert("Please enter your home number");
+          return false;
+        }
+        if (state == "") {
+          alert("Please enter your state");
+          return false;
+        }
+        if (country == "") {
+          alert("Please enter your country");
+          return false;
+        }
+        if (city == "") {
+          alert("Please enter your city");
+          return false;
+        }
+      }
+
+      function validateForm1() {
+        var applicationNo = document.forms["loanForm"]["applicationNo"].value;
+        var product = document.forms["loanForm"]["product"].value;
+        var tenure = document.forms["loanForm"]["tenure"].value;
+        var agreementDate = document.forms["loanForm"]["agreementDate"].value;
+        var productType = document.forms["loanForm"]["productType"].value;
+        var loanAmount = document.forms["loanForm"]["loanAmount"].value;
+        var rate = document.forms["loanForm"]["rate"].value;
+        var installmentDueDate =
+          document.forms["loanForm"]["installmentDueDate"].value;
+
+        if (applicationNo == "") {
+          alert("Application No must be filled out");
+          return false;
+        }
+
+        if (product == "") {
+          alert("Product must be filled out");
+          return false;
+        }
+
+        if (tenure == "" || tenure <= 0) {
+          alert("Tenure must be a positive number");
+          return false;
+        }
+
+        if (agreementDate == "") {
+          alert("Agreement Date must be filled out");
+          return false;
+        }
+
+        if (productType == "") {
+          alert("Product Type must be selected");
+          return false;
+        }
+
+        if (loanAmount == "" || loanAmount <= 0) {
+          alert("Loan Amount Requested must be a positive number");
+          return false;
+        }
+
+        if (rate == "" || rate <= 0) {
+          alert("Rate must be a positive number");
+          return false;
+        }
+
+        if (installmentDueDate == "") {
+          alert("Provide installment Due Date data");
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
