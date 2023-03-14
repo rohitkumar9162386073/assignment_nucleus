@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Page</title>
+</head>
+<style>
+    .div{
+        width:100%;
+        border: 2px solid Black;
+        margin:auto;
+        Padding:2px;
+        font-size:20px;
+        }
+        #RegistrationForm table tr td input{
+        font-size:20px
+        }
+</style>
+<body>
+<div class="container">
+    <h1>RegistrationForm</h1>
+    <form id="MyForm" action="Servlet6", method="get">
+        <table>
+            <tr>
+                <td>Enter Your Name</td>
+                <td><input type="text", name="User_Name", placeholder="Enter Here"></td>
+            </tr>
+            <tr>
+                <td>Enter Your E-mail</td>
+                <td> <input type="email", name="User_Email", placeholder="Enter Here"></td>
+            </tr>
+            <tr>
+                <td>Enter Your Password</td>
+                <td><input type="password", name="password", placeholder="Enter Here"></td>
+            </tr>
+            <tr>
+            <td>Enter Date</td>
+            <td><input type="date", name="Date"></td>
+            </tr>
+            <tr>
+                <td>Select Gender</td>
+                <td> <input type="radio", name="User_Gender", value="Male">Male &nbsp; &nbsp; <input type="radio", name="User_Gender", value="Female">Female</td>
+            </tr>
+            <tr>
+                <td>Enter About Yourself</td>
+                <td><input type="text", name="About", placeholder="Enter about Yourself Here"></td>
+            </tr>
+            <tr>
+                <td>
+                    Select Your Course
+                </td>
+                <td>
+                    <select name="User_course">
+                        <option value="Java">Java</option>
+                        <option value="Java">php</option>
+                        <option value="Java">IoT</option>
+                        <option value="Java">C++</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+
+            </tr>
+
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <button type="submit", >Register</button>
+                    <button type="Reset", >Reset</button>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: Right">
+                    <input type="checkbox", value="Checked", name="Condition">
+                </td>
+                <td>
+                    Agree terms and Conditions
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
