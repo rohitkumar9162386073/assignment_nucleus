@@ -1,0 +1,120 @@
+Php file:
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Product Form</title>
+</head>
+<body>
+    <h1>Product Form</h1>
+    <form action="ProductServlet" method="post">
+        Product Name: <input type="text" name="name"><br>
+        Product Description: <input type="text" name="description"><br>
+        Product Price: <input type="text" name="price"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
+
+Java file:
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ProductServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    
+    private static List<Product> products = new ArrayList<>();
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String description = request.getParameter("description");
+        double price = Double.parseDouble(request.getParameter("price"));
+        
+        Product product = new Product(name, description, price);
+        
+        if (products.contains(product)) {
+            request.setAttribute("message", "Product already exists.");
+        } else {
+            products.add(product);
+            request.setAttribute("message", "Product added successfully.");
+        }
+        
+        request.setAttribute("products", products);
+        request.getRequestDispatcher("products.jsp").forward(request, response);
+    }
+}
+
+A.) Sciptlets
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Products</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <p>${requestScope.message}</p>
+    <ul>
+    <% for (Product product : (List<Product>)requestScope.get("products")) { %>
+        <li><%= product.getName() %>, <%= product.getDescription() %>, <%= product.getPrice() %></li>
+    <% } %>
+    </ul>
+</body>
+</html>
+
+
+
+
+Java bean:
+
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Products</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <p>${message}</p>
+    <ul>
+    <jsp:useBean id="productList" class="java.util.ArrayList" scope="request" />
+    <jsp:setProperty name="productList" property="*" />
+    <c:forEach var="product" items="${productList}">
+        <li>${product.name}, ${product.description}, ${product.price}</li>
+    </c:forEach>
+    </ul>
+</body>
+</html>
+
+
+
+Expression Lang:
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta
+
+
+
+
