@@ -1,0 +1,177 @@
+Q4.java
+package com.rest.assignment01;
+
+import com.rest.entity.LoanDetails;
+import com.rest.entity.LoanDetailsDAO;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.util.HashMap;
+import java.util.List;
+
+@Path("/Question4")
+public class Question4 {
+    HashMap<Integer, String> hashMap = new HashMap<>();
+
+    public void insertCredentials(){
+        hashMap.put(1, "Dipayan");
+        hashMap.put(2, "Rohit");
+    }
+    @GET
+    @Path("/read")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getMessage(
+            @QueryParam("ID") int customerID,
+            @QueryParam("Pass") String password
+    ){
+        insertCredentials();
+        if(!hashMap.get(customerID).equals(password))
+            return "Password not found.";
+        LoanDetailsDAO obj = new LoanDetailsDAO();
+        List<LoanDetails> customerDetails = obj.read(customerID);
+        if(customerDetails.size() == 0)
+            return "The Customer ID does not exists.";
+        String str = "Customer ID : " + customerID + "\n";
+        str += "Customer Name : " + customerDetails.get(0).getCustomerName();
+        str += "\nCustomer Number : " + customerDetails.get(0).getContactNumber();
+        str += "\nCustomer Email : " + customerDetails.get(0).getEmail();
+        for(int i=0; i<customerDetails.size(); i++)
+            str += customerDetails.get(i).toString();
+        return str;
+    }
+}
+
+LoanDetails.java
+package com.rest.entity;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class LoanDetailsDAO {
+
+    Connection con = null;
+
+    Statement stmt = null;
+
+    private static String connectionParameters = "training";
+
+    public LoanDetailsDAO(){}
+
+    public void conn() {
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            con = DriverManager.getConnection(
+                    "jdbc:oracle:thin:training@//10.1.50.198:1535/nsbt19c", connectionParameters, connectionParameters);
+            stmt = con.createStatement();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.getMessage();
+        }
+    }
+
+    public List<LoanDetails> read(int customerID) {
+        conn();
+        List<LoanDetails> customerDetails = null;
+        try {
+            ResultSet rs = stmt.executeQuery("SELECT LOANID, LOANTYPE, LOANSTATUS, CUSTOMERNAME, CONTACTNUMBER, EMAIL FROM LOANDETAILS16920 WHERE CUSTOMERID = " + customerID);
+            customerDetails = new ArrayList<>();
+            while (rs.next()) {
+                LoanDetails obj = new LoanDetails(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getLong(5), rs.getString(6));
+                customerDetails.add(obj);
+            }
+            return customerDetails;
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return null;
+    }
+}
+
+// [[1,2,3],[1,2,3]]
+
+LoanDetailsDAO.java
+package com.rest.entity;
+
+public class LoanDetails {
+    private String loanId;
+    private String loanType;
+    private String loanStatus;
+    private int customerId;
+    private String customerName;
+    private long contactNumber;
+    private String email;
+
+    public LoanDetails(String loanId, String loanType, String loanStatus, String customerName, long contactNumber, String email) {
+        this.loanId = loanId;
+        this.loanType = loanType;
+        this.loanStatus = loanStatus;
+        this.customerName = customerName;
+        this.contactNumber = contactNumber;
+        this.email = email;
+    }
+
+    public String getLoanId() {
+        return loanId;
+    }
+
+    public void setLoanId(String loanId) {
+        this.loanId = loanId;
+    }
+
+    public String getLoanType() {
+        return loanType;
+    }
+
+    public void setLoanType(String loanType) {
+        this.loanType = loanType;
+    }
+
+    public String getLoanStatus() {
+        return loanStatus;
+    }
+
+    public void setLoanStatus(String loanStatus) {
+        this.loanStatus = loanStatus;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public long getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(long contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "\nLoan Details : {" +
+                "loanId='" + loanId + '\'' +
+                ", loanType='" + loanType + '\'' +
+                ", loanStatus='" + loanStatus + '\'' +
+                '}';
+    }
+}
