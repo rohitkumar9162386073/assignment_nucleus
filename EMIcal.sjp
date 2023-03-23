@@ -1,0 +1,653 @@
+
+<!doctype html><html
+lang=en-US><head><meta
+charset="utf-8"><meta
+http-equiv="x-ua-compatible" content="ie=edge"><meta
+name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"><meta
+name="theme-color" content="#ffffff"><link
+rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png?x58608><link
+rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png?x58608><link
+rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png?x58608><link
+rel=manifest href=/manifest.json?x58608><link
+rel=mask-icon href=/safari-pinned-tab.svg?x58608 color=#5bbad5><link
+rel=alternate type=application/rss+xml title="EMI Calculator Feed" href=https://emicalculator.net/feed/ > <script async src=//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?x58608></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+	    google_ad_client: "ca-pub-6020664305604651",
+	    enable_page_level_ads: true
+	  });</script> <meta
+name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'><title>Loan Calculator — Calculate EMI, Affordability, Tenure &amp; Interest Rate</title><link
+rel=canonical href=https://emicalculator.net/loan-calculator/ ><meta
+property="og:locale" content="en_US"><meta
+property="og:type" content="article"><meta
+property="og:title" content="Loan Calculator — Calculate EMI, Affordability, Tenure &amp; Interest Rate"><meta
+property="og:description" content="Introduction The multi-purpose loan calculator is a 4-in-1 calculator that aims to answer your questions such as: How much is the monthly payment &#8211; aka EMI &#8211; for my loan? How much money can I afford to borrow? How long will it take to repay my loan? How much interest would I have to pay&hellip; Continue Reading"><meta
+property="og:url" content="https://emicalculator.net/loan-calculator/"><meta
+property="og:site_name" content="EMI Calculator"><meta
+property="article:modified_time" content="2022-01-26T05:33:43+00:00"><meta
+name="twitter:label1" content="Est. reading time"><meta
+name="twitter:data1" content="3 minutes"> <script type=application/ld+json class=yoast-schema-graph>{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://emicalculator.net/loan-calculator/","url":"https://emicalculator.net/loan-calculator/","name":"Loan Calculator — Calculate EMI, Affordability, Tenure & Interest Rate","isPartOf":{"@id":"https://emicalculator.net/#website"},"datePublished":"2013-07-17T06:58:11+00:00","dateModified":"2022-01-26T05:33:43+00:00","breadcrumb":{"@id":"https://emicalculator.net/loan-calculator/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://emicalculator.net/loan-calculator/"]}]},{"@type":"BreadcrumbList","@id":"https://emicalculator.net/loan-calculator/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://emicalculator.net/"},{"@type":"ListItem","position":2,"name":"Loan Calculator — Calculate EMI, Affordability, Tenure &#038; Interest Rate"}]},{"@type":"WebSite","@id":"https://emicalculator.net/#website","url":"https://emicalculator.net/","name":"EMI Calculator","description":"Calculate EMI for Home Loan / Housing Loan, Car Loan &amp; Personal Loan in India","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://emicalculator.net/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"}]}</script> <link
+rel=dns-prefetch href=//v0.wordpress.com><link
+rel=dns-prefetch href=//jetpack.wordpress.com><link
+rel=dns-prefetch href=//s0.wp.com><link
+rel=dns-prefetch href=//public-api.wordpress.com><link
+rel=dns-prefetch href=//0.gravatar.com><link
+rel=dns-prefetch href=//1.gravatar.com><link
+rel=dns-prefetch href=//2.gravatar.com><link
+rel=alternate type=application/rss+xml title="EMI Calculator &raquo; Loan Calculator — Calculate EMI, Affordability, Tenure &#038; Interest Rate Comments Feed" href=https://emicalculator.net/loan-calculator/feed/ > <script>window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/emicalculator.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.1.1"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);</script> <style>img.wp-smiley,img.emoji{display:inline !important;border:none !important;box-shadow:none !important;height:1em !important;width:1em !important;margin:0
+0.07em !important;vertical-align:-0.1em !important;background:none !important;padding:0
+!important}</style><link
+rel=stylesheet id=wp-block-library-css href='https://emicalculator.net/wp-includes/css/dist/block-library/style.min.css?x58608' type=text/css media=all><style id=wp-block-library-inline-css>.has-text-align-justify{text-align:justify}</style><link
+rel=stylesheet id=mediaelement-css href='https://emicalculator.net/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?x58608' type=text/css media=all><link
+rel=stylesheet id=wp-mediaelement-css href='https://emicalculator.net/wp-includes/js/mediaelement/wp-mediaelement.min.css?x58608' type=text/css media=all><link
+rel=stylesheet id=classic-theme-styles-css href='https://emicalculator.net/wp-includes/css/classic-themes.min.css?x58608' type=text/css media=all><style id=global-styles-inline-css>/*<![CDATA[*/body{--wp--preset--color--black:#000;--wp--preset--color--cyan-bluish-gray:#abb8c3;--wp--preset--color--white:#fff;--wp--preset--color--pale-pink:#f78da7;--wp--preset--color--vivid-red:#cf2e2e;--wp--preset--color--luminous-vivid-orange:#ff6900;--wp--preset--color--luminous-vivid-amber:#fcb900;--wp--preset--color--light-green-cyan:#7bdcb5;--wp--preset--color--vivid-green-cyan:#00d084;--wp--preset--color--pale-cyan-blue:#8ed1fc;--wp--preset--color--vivid-cyan-blue:#0693e3;--wp--preset--color--vivid-purple:#9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum:linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple:linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux:linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk:linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean:linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass:linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight:linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale:url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale:url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow:url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red:url('#wp-duotone-blue-red');--wp--preset--duotone--midnight:url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow:url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green:url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange:url('#wp-duotone-blue-orange');--wp--preset--font-size--small:13px;--wp--preset--font-size--medium:20px;--wp--preset--font-size--large:36px;--wp--preset--font-size--x-large:42px;--wp--preset--spacing--20:0.44rem;--wp--preset--spacing--30:0.67rem;--wp--preset--spacing--40:1rem;--wp--preset--spacing--50:1.5rem;--wp--preset--spacing--60:2.25rem;--wp--preset--spacing--70:3.38rem;--wp--preset--spacing--80:5.06rem}:where(.is-layout-flex){gap:0.5em}body .is-layout-flow>.alignleft{float:left;margin-inline-start:0;margin-inline-end:2em}body .is-layout-flow>.alignright{float:right;margin-inline-start:2em;margin-inline-end:0}body .is-layout-flow>.aligncenter{margin-left:auto !important;margin-right:auto !important}body .is-layout-constrained>.alignleft{float:left;margin-inline-start:0;margin-inline-end:2em}body .is-layout-constrained>.alignright{float:right;margin-inline-start:2em;margin-inline-end:0}body .is-layout-constrained>.aligncenter{margin-left:auto !important;margin-right:auto !important}body .is-layout-constrained>:where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:var(--wp--style--global--content-size);margin-left:auto !important;margin-right:auto !important}body .is-layout-constrained>.alignwide{max-width:var(--wp--style--global--wide-size)}body .is-layout-flex{display:flex}body .is-layout-flex{flex-wrap:wrap;align-items:center}body .is-layout-flex>*{margin:0}:where(.wp-block-columns.is-layout-flex){gap:2em}.has-black-color{color:var(--wp--preset--color--black) !important}.has-cyan-bluish-gray-color{color:var(--wp--preset--color--cyan-bluish-gray) !important}.has-white-color{color:var(--wp--preset--color--white) !important}.has-pale-pink-color{color:var(--wp--preset--color--pale-pink) !important}.has-vivid-red-color{color:var(--wp--preset--color--vivid-red) !important}.has-luminous-vivid-orange-color{color:var(--wp--preset--color--luminous-vivid-orange) !important}.has-luminous-vivid-amber-color{color:var(--wp--preset--color--luminous-vivid-amber) !important}.has-light-green-cyan-color{color:var(--wp--preset--color--light-green-cyan) !important}.has-vivid-green-cyan-color{color:var(--wp--preset--color--vivid-green-cyan) !important}.has-pale-cyan-blue-color{color:var(--wp--preset--color--pale-cyan-blue) !important}.has-vivid-cyan-blue-color{color:var(--wp--preset--color--vivid-cyan-blue) !important}.has-vivid-purple-color{color:var(--wp--preset--color--vivid-purple) !important}.has-black-background-color{background-color:var(--wp--preset--color--black) !important}.has-cyan-bluish-gray-background-color{background-color:var(--wp--preset--color--cyan-bluish-gray) !important}.has-white-background-color{background-color:var(--wp--preset--color--white) !important}.has-pale-pink-background-color{background-color:var(--wp--preset--color--pale-pink) !important}.has-vivid-red-background-color{background-color:var(--wp--preset--color--vivid-red) !important}.has-luminous-vivid-orange-background-color{background-color:var(--wp--preset--color--luminous-vivid-orange) !important}.has-luminous-vivid-amber-background-color{background-color:var(--wp--preset--color--luminous-vivid-amber) !important}.has-light-green-cyan-background-color{background-color:var(--wp--preset--color--light-green-cyan) !important}.has-vivid-green-cyan-background-color{background-color:var(--wp--preset--color--vivid-green-cyan) !important}.has-pale-cyan-blue-background-color{background-color:var(--wp--preset--color--pale-cyan-blue) !important}.has-vivid-cyan-blue-background-color{background-color:var(--wp--preset--color--vivid-cyan-blue) !important}.has-vivid-purple-background-color{background-color:var(--wp--preset--color--vivid-purple) !important}.has-black-border-color{border-color:var(--wp--preset--color--black) !important}.has-cyan-bluish-gray-border-color{border-color:var(--wp--preset--color--cyan-bluish-gray) !important}.has-white-border-color{border-color:var(--wp--preset--color--white) !important}.has-pale-pink-border-color{border-color:var(--wp--preset--color--pale-pink) !important}.has-vivid-red-border-color{border-color:var(--wp--preset--color--vivid-red) !important}.has-luminous-vivid-orange-border-color{border-color:var(--wp--preset--color--luminous-vivid-orange) !important}.has-luminous-vivid-amber-border-color{border-color:var(--wp--preset--color--luminous-vivid-amber) !important}.has-light-green-cyan-border-color{border-color:var(--wp--preset--color--light-green-cyan) !important}.has-vivid-green-cyan-border-color{border-color:var(--wp--preset--color--vivid-green-cyan) !important}.has-pale-cyan-blue-border-color{border-color:var(--wp--preset--color--pale-cyan-blue) !important}.has-vivid-cyan-blue-border-color{border-color:var(--wp--preset--color--vivid-cyan-blue) !important}.has-vivid-purple-border-color{border-color:var(--wp--preset--color--vivid-purple) !important}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background:var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background:var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background:var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important}.has-cool-to-warm-spectrum-gradient-background{background:var(--wp--preset--gradient--cool-to-warm-spectrum) !important}.has-blush-light-purple-gradient-background{background:var(--wp--preset--gradient--blush-light-purple) !important}.has-blush-bordeaux-gradient-background{background:var(--wp--preset--gradient--blush-bordeaux) !important}.has-luminous-dusk-gradient-background{background:var(--wp--preset--gradient--luminous-dusk) !important}.has-pale-ocean-gradient-background{background:var(--wp--preset--gradient--pale-ocean) !important}.has-electric-grass-gradient-background{background:var(--wp--preset--gradient--electric-grass) !important}.has-midnight-gradient-background{background:var(--wp--preset--gradient--midnight) !important}.has-small-font-size{font-size:var(--wp--preset--font-size--small) !important}.has-medium-font-size{font-size:var(--wp--preset--font-size--medium) !important}.has-large-font-size{font-size:var(--wp--preset--font-size--large) !important}.has-x-large-font-size{font-size:var(--wp--preset--font-size--x-large) !important}.wp-block-navigation a:where(:not(.wp-element-button)){color:inherit}:where(.wp-block-columns.is-layout-flex){gap:2em}.wp-block-pullquote{font-size:1.5em;line-height:1.6}/*]]>*/</style><link
+rel=stylesheet id=prism-detached-css href='https://emicalculator.net/wp-content/plugins/prism-detached/cache/fa04f5c1c746aee193a49d3bbda0717d.css?x58608' type=text/css media=all><link
+rel=stylesheet id=wpfla-style-handle-css href='https://emicalculator.net/wp-content/plugins/wp-first-letter-avatar/css/style.css?x58608' type=text/css media=all><link
+rel=stylesheet id=sage/css-css href=https://emicalculator.net/wp-content/themes/emicalculator/dist/styles/main.css?x58608 type=text/css media=all><link
+rel=stylesheet id=jetpack_css-css href='https://emicalculator.net/wp-content/plugins/jetpack/css/jetpack.css?x58608' type=text/css media=all><link
+rel=stylesheet id=google-fonts-css href='//fonts.googleapis.com/css?family=Lora%3A400%2C400italic%2C700%2C700italic%7CLato%3A400%2C100%2C100italic%2C300%2C300italic%2C400italic%2C700%2C700italic%2C900%2C900italic&#038;ver=6.1.1' type=text/css media=all><link
+rel=stylesheet id=commoncalculator_css-css href=https://emicalculator.net/wp-content/themes/emicalculator/dist/styles/commoncalculator.css?x58608 type=text/css media=all><link
+rel=stylesheet id=loancalculator_css-css href=https://emicalculator.net/wp-content/themes/emicalculator/dist/styles/loancalculator.css?x58608 type=text/css media=all> <script src='https://emicalculator.net/wp-includes/js/jquery/jquery.min.js?x58608' id=jquery-core-js></script> <script src='https://emicalculator.net/wp-includes/js/jquery/jquery-migrate.min.js?x58608' id=jquery-migrate-js></script> <link
+rel=https://api.w.org/ href=https://emicalculator.net/wp-json/ ><link
+rel=alternate type=application/json href=https://emicalculator.net/wp-json/wp/v2/pages/2416><link
+rel=EditURI type=application/rsd+xml title=RSD href=https://emicalculator.net/xmlrpc.php?rsd><link
+rel=wlwmanifest type=application/wlwmanifest+xml href=https://emicalculator.net/wp-includes/wlwmanifest.xml><meta
+name="generator" content="WordPress 6.1.1"><link
+rel=shortlink href=https://wp.me/P8H5CU-CY><link
+rel=alternate type=application/json+oembed href="https://emicalculator.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Femicalculator.net%2Floan-calculator%2F"><link
+rel=alternate type=text/xml+oembed href="https://emicalculator.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Femicalculator.net%2Floan-calculator%2F&#038;format=xml"><link
+type=text/css rel=stylesheet href=https://emicalculator.net/wp-content/plugins/simple-pull-quote/css/simple-pull-quote.css?x58608><style>img#wpstats{display:none}</style> <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-24595283-1', 'auto');
+
+
+
+
+	ga('require', 'displayfeatures');
+
+	ga('set', 'forceSSL', true);
+
+	ga('send', 'pageview');</script> </head><body
+class="page-template page-template-template-loancalculator page-template-template-loancalculator-php page page-id-2416 loan-calculator">
+<!--[if IE]><div
+class="alert alert-warning">
+You are using an <strong>outdated</strong> browser. Please <a
+href=http://browsehappy.com/ >upgrade your browser</a> to improve your experience.</div>
+<![endif]--><header
+class=banner role=banner><div
+class=container><nav
+class="navbar navbar-expand-lg navbar-dark"><div
+class=navbar-brand-wrapper>
+<a
+class=navbar-brand title="EMI Calculator" href=https://emicalculator.net/ >EMI Calculator</a></div>
+<button
+class=navbar-toggler type=button data-toggle=collapse data-target=#navbarNavDropdown aria-controls=navbarNavDropdown aria-expanded=false aria-label="Toggle navigation">
+<span
+class=navbar-toggler-icon></span>
+</button><div
+class="collapse navbar-collapse" id=navbarNavDropdown><div
+class=menu-main-menu-container><ul
+id=menu-main-menu class=navbar-nav><li
+itemscope=itemscope itemtype=https://www.schema.org/SiteNavigationElement id=menu-item-2696 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children dropdown active menu-item-2696 nav-item"><a
+title=Calculators href=# data-toggle=dropdown aria-haspopup=true aria-expanded=false class="dropdown-toggle nav-link" id=menu-item-dropdown-2696>Calculators</a><ul
+class=dropdown-menu aria-labelledby=menu-item-dropdown-2696 role=menu>
+<li
+itemscope=itemscope itemtype=https://www.schema.org/SiteNavigationElement id=menu-item-3294 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3294 nav-item"><a
+title="Home Loan EMI Calculator" href=https://emicalculator.net/home-loan-emi-calculator/ class=dropdown-item>Home Loan EMI Calculator</a></li>
+<li
+itemscope=itemscope itemtype=https://www.schema.org/SiteNavigationElement id=menu-item-2423 class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2416 current_page_item active menu-item-2423 nav-item"><a
+title="Loan Calculator" href=https://emicalculator.net/loan-calculator/ class=dropdown-item>Loan Calculator</a></li>
+<li
+itemscope=itemscope itemtype=https://www.schema.org/SiteNavigationElement id=menu-item-3016 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3016 nav-item"><a
+title="EMI Calculator Android App" href="https://play.google.com/store/apps/details?id=net.emicalculator" class=dropdown-item>EMI Calculator Android App</a></li>
+<li
+itemscope=itemscope itemtype=https://www.schema.org/SiteNavigationElement id=menu-item-4448 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4448 nav-item"><a
+title="Loan EMI Calculation — How Does It Work?" href=https://emicalculator.net/loan-emi-calculation-work/ class=dropdown-item>Loan EMI Calculation — How Does It Work?</a></li></ul>
+</li>
+<li
+itemscope=itemscope itemtype=https://www.schema.org/SiteNavigationElement id=menu-item-2482 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2482 nav-item"><a
+title="EMI Calculator Widget" href=https://emicalculator.net/emi-calculator-widget/ class=nav-link>EMI Calculator Widget</a></li>
+<li
+itemscope=itemscope itemtype=https://www.schema.org/SiteNavigationElement id=menu-item-228 class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-228 nav-item"><a
+title=Articles href=https://emicalculator.net/category/articles/ class=nav-link>Articles</a></li>
+<li
+itemscope=itemscope itemtype=https://www.schema.org/SiteNavigationElement id=menu-item-5828 class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5828 nav-item"><a
+title="Product Reviews" href=https://emicalculator.net/category/reviews/ class=nav-link>Product Reviews</a></li>
+<li
+itemscope=itemscope itemtype=https://www.schema.org/SiteNavigationElement id=menu-item-318 class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-318 nav-item"><a
+title="News &amp; Opinion" href=https://emicalculator.net/category/news-opinion/ class=nav-link>News &amp; Opinion</a></li></ul></div></div></nav></div></header><div
+class="wrap container" role=document><div
+class="content row"><main
+class=main><article
+class="post-2416 page type-page status-publish hentry"><div
+class=page-header><h1>
+Loan Calculator — Calculate EMI, Affordability, Tenure &#038; Interest Rate</h1></div><div
+class="homepagebanner d-block d-sm-none"><section
+class="widget block-7 widget_block widget_text"> <script async src=//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?x58608></script>
+<ins
+class=adsbygoogle
+style=display:block
+data-ad-client=ca-pub-6020664305604651
+data-ad-slot=8554094722
+data-ad-format=horizontal></ins> <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> </section></div><div
+class=calculatorcontainer><div
+class=loancalculatorcontainer><div
+id=loanformcontainer class=row><div
+id=loancalculatordashboard class=col-sm-8><ul
+class=loancalculator-nav>
+<li
+id=emi-calc class=active><a
+href=# class=hidden-ts>EMI <br>Calculator</a><a
+href=# class=visible-ts>EMI</a></li>
+<li
+id=loan-amount-calc><a
+href=# class=hidden-ts>Loan Amount <br>Calculator</a><a
+href=# class=visible-ts>Loan <br>Amount</a></li>
+<li
+id=loan-tenure-calc><a
+href=# class=hidden-ts>Loan Tenure <br>Calculator</a><a
+href=# class=visible-ts>Loan <br>Tenure</a></li>
+<li
+id=interest-rate-calc><a
+href=# class=hidden-ts>Interest Rate <br>Calculator</a><a
+href=# class=visible-ts>Interest <br>Rate</a></li></ul><div
+class=cleardiv></div><div
+id=loancalculatorinnerformwrapper><form
+class=form-horizontal id=loancalculatorform><div
+id=loancalculatorinnerform><div
+id=lamountwrapper class=toggle-visible><div
+class="row form-group lamount">
+<label
+class="col-lg-4 control-label" for=loanamount>Loan Amount</label><div
+class=col-lg-6><div
+class=input-group>
+<input
+class=form-control id=loanamount name=loanamount value=10,00,000 type=text><div
+class=input-group-append>
+<span
+class=input-group-text>₹</span></div></div></div></div><div
+id=loanamountslider></div><div
+id=loanamountsteps class=steps>
+<span
+class=tick style="left: 0%;">|<br><span
+class=marker>0</span></span>
+<span
+class="tick d-none d-sm-block" style="left: 12.5%;">|<br><span
+class=marker>25L</span></span>
+<span
+class=tick style="left: 25%;">|<br><span
+class=marker>50L</span></span>
+<span
+class="tick d-none d-sm-block" style="left: 37.5%;">|<br><span
+class=marker>75L</span></span>
+<span
+class=tick style="left: 50%;">|<br><span
+class=marker>100L</span></span>
+<span
+class="tick d-none d-sm-block" style="left: 62.5%;">|<br><span
+class=marker>125L</span></span>
+<span
+class=tick style="left: 75%;">|<br><span
+class=marker>150L</span></span>
+<span
+class="tick d-none d-sm-block" style="left: 87.5%;">|<br><span
+class=marker>175L</span></span>
+<span
+class=tick style="left: 100%;">|<br><span
+class=marker>200L</span></span></div></div><div
+id=lemiwrapper class="sep toggle-visible"><div
+class="sep row form-group lemi">
+<label
+class="col-lg-4 control-label" for=loanemi>EMI</label><div
+class=col-lg-6><div
+class=input-group>
+<input
+class=form-control id=loanemi name=loanemi value=21,617.95 type=text><div
+class=input-group-append>
+<span
+class=input-group-text>₹</span></div></div></div></div><div
+id=loanemislider></div><div
+id=loanemisteps class=steps>
+<span
+class=tick style="left: 0%;">|<br><span
+class=marker>0</span></span>
+<span
+class=tick style="left: 25%;">|<br><span
+class=marker>0.25L</span></span>
+<span
+class=tick style="left: 50%;">|<br><span
+class=marker>0.5L</span></span>
+<span
+class=tick style="left: 75%;">|<br><span
+class=marker>0.75L</span></span>
+<span
+class=tick style="left: 100%;">|<br><span
+class=marker>1L</span></span></div></div><div
+id=lintwrapper class="sep toggle-visible"><div
+class="sep row form-group lint">
+<label
+class="col-lg-4 control-label" for=loaninterest>Interest Rate</label><div
+class=col-lg-6><div
+class=input-group>
+<input
+class=form-control id=loaninterest name=loaninterest value=10.75 type=text><div
+class=input-group-append>
+<span
+class=input-group-text>%</span></div></div></div></div><div
+id=loaninterestslider></div><div
+id=loanintereststeps class=steps>
+<span
+class=tick style="left: 0%;">|<br><span
+class=marker>0</span></span>
+<span
+class=tick style="left: 12.5%;">|<br><span
+class=marker>2.5</span></span>
+<span
+class=tick style="left: 25%;">|<br><span
+class=marker>5</span></span>
+<span
+class=tick style="left: 37.5%;">|<br><span
+class=marker>7.5</span></span>
+<span
+class=tick style="left: 50%;">|<br><span
+class=marker>10</span></span>
+<span
+class=tick style="left: 62.5%;">|<br><span
+class=marker>12.5</span></span>
+<span
+class=tick style="left: 75%;">|<br><span
+class=marker>15</span></span>
+<span
+class=tick style="left: 87.5%;">|<br><span
+class=marker>17.5</span></span>
+<span
+class=tick style="left: 100%;">|<br><span
+class=marker>20</span></span></div></div><div
+id=ltermwrapper class="sep toggle-visible"><div
+class="sep row form-group lterm">
+<label
+class="col-lg-4 control-label" for=loanterm>Loan Tenure</label><div
+class=col-lg-6><div
+class=loantermwrapper><div
+class=input-group>
+<input
+class=form-control id=loanterm name=loanterm value=5 type=text><div
+class="input-group-append tenure-choice" data-toggle=buttons><div
+class="btn-group btn-group-toggle" data-toggle=buttons>
+<label
+class="btn btn-secondary active"> <input
+type=radio name=loantenure value=loanyears id=loanyears tabindex=4 autocomplete=off checked=checked>Yr </label>
+<label
+class="btn btn-secondary"> <input
+type=radio name=loantenure value=loanmonths id=loanmonths tabindex=5 autocomplete=off>Mo </label></div></div></div></div></div></div><div
+id=loantermslider></div><div
+id=loantermsteps class=steps>
+<span
+class=tick style="left: 0%;">|<br><span
+class=marker>0</span></span>
+<span
+class=tick style="left: 16.67%;">|<br><span
+class=marker>5</span></span>
+<span
+class=tick style="left: 33.33%;">|<br><span
+class=marker>10</span></span>
+<span
+class=tick style="left: 50%;">|<br><span
+class=marker>15</span></span>
+<span
+class=tick style="left: 66.67%;">|<br><span
+class=marker>20</span></span>
+<span
+class=tick style="left: 83.33%;">|<br><span
+class=marker>25</span></span>
+<span
+class=tick style="left: 100%;">|<br><span
+class=marker>30</span></span></div></div><div
+id=lfeeswrapper class="sep toggle-visible"><div
+class="sep row form-group lfees">
+<label
+class="col-lg-4 control-label" for=loanfees>Fees &amp; Charges</label><div
+class=col-lg-6><div
+class=input-group>
+<input
+class=form-control id=loanfees name=loanfees value=10,000 type=text><div
+class=input-group-append>
+<span
+class=input-group-text>₹</span></div></div></div></div><div
+id=loanfeesslider></div><div
+id=loanfeessteps class=steps>
+<span
+class=tick style="left: 0%;">|<br><span
+class=marker>0</span></span>
+<span
+class=tick style="left: 25%;">|<br><span
+class=marker>0.25L</span></span>
+<span
+class=tick style="left: 50%;">|<br><span
+class=marker>0.5L</span></span>
+<span
+class=tick style="left: 75%;">|<br><span
+class=marker>0.75L</span></span>
+<span
+class=tick style="left: 100%;">|<br><span
+class=marker>1L</span></span></div></div><div
+id=leschemewrapper class="sep toggle-visible"><div
+class="sep row form-group escheme">
+<label
+class="col-lg-4 control-label" for=emischeme>EMI Scheme</label><div
+class=col-lg-8><div
+class="input-group emischemes"><div
+class="btn-group btn-group-toggle add-check" data-toggle=buttons>
+<label
+class="btn btn-secondary"> <input
+type=radio name=emischeme id=emiadvance value=emiadvance tabindex=4 autocomplete=off>EMI in Advance </label>
+<label
+class="btn btn-secondary active"> <input
+type=radio name=emischeme id=emiarrears value=emiarrears tabindex=5 autocomplete=off checked=checked>EMI in Arrears </label></div></div></div></div></div></div>
+<input
+id=loancalc name=loancalc value type=hidden>
+<input
+id=loanstartdate name=loanstartdate value type=hidden>
+<input
+id=loanyearformat name=loanyearformat value type=hidden>
+<input
+id=loandata name=loandata value type=hidden>
+<input
+id=calcversion name=calcversion value=4.0 type=hidden></form><div
+id=loancalc-message class=toggle-hidden><p
+class="bg-warning text-warning">Note: <span>Error Message</span></p></div><div
+class="row gutter-left gutter-right"><div
+id=loansummary class="col-sm-5 col-md-6 no-gutter-left no-gutter-right"><div
+id=loansummary-loanamount class=toggle-hidden><h4>Principal Loan Amount</h4><p>₹<span>10,00,000</span></p></div><div
+id=loansummary-emi><h4>Loan EMI</h4><p>₹<span>21,617.95</span></p></div><div
+id=loansummary-tenure class=toggle-hidden><h4>Loan Tenure</h4><p><span>60</span>months</p></div><div
+id=loansummary-interestrate class=toggle-hidden><h4>Loan Interest Rate</h4><p><span>10.75</span>%</p></div><div
+id=loansummary-apr><h4>Loan APR</h4><p><span>11.18</span>%</p></div><div
+id=loansummary-totalinterest><h4>Total Interest Payable</h4><p>₹<span>2,97,077</span></p></div><div
+id=loansummary-totalamount><h4>Total Payment<br>(Principal + Interest + Fees &amp; Charges)</h4><p>₹<span>13,07,077</span></p></div></div><div
+id=loansummary-piechart class="no-gutter-left no-gutter-right col-sm-7 col-md-6 highcharts-container"></div></div></div></div><div
+class="sidebar col-sm-4"><section
+class="widget recent-posts-6 widget_recent_entries"><h3>Recent Articles</h3><ul>
+<li>
+<a
+href=https://emicalculator.net/sbi-reduces-home-loan-interest-rates-for-those-with-good-cibil-scores/ >SBI Reduces Home Loan Interest Rates for Those with Good CIBIL Scores</a>
+</li>
+<li>
+<a
+href=https://emicalculator.net/where-are-you-investing-for-your-final-tax-saving-season/ >Where Are You Investing for Your FINAL Tax-Saving Season?</a>
+</li>
+<li>
+<a
+href=https://emicalculator.net/hdfc-ergo-cyber-sachet-insurance-plan-do-you-need-one/ >HDFC Ergo Cyber Sachet Insurance Plan: Do You Need One?</a>
+</li>
+<li>
+<a
+href=https://emicalculator.net/coming-soon-emi-defaults-to-attract-penal-charges-instead-of-penal-interest/ >Coming Soon: EMI Defaults to Attract &#8216;Penal Charges&#8217; Instead of &#8216;Penal Interest&#8217;</a>
+</li>
+<li>
+<a
+href=https://emicalculator.net/you-cannot-take-the-tax-benefit-for-home-loan-interest-twice/ >You Cannot Take the Tax Benefit for Home Loan Interest Twice</a>
+</li>
+<li>
+<a
+href=https://emicalculator.net/how-to-use-credit-cards-to-budget-and-track-your-expenses/ >How to Use Credit Cards to Budget and Track Your Expenses?</a>
+</li>
+<li>
+<a
+href=https://emicalculator.net/union-budget-2023-highlights-of-an-action-packed-budget/ >Union Budget 2023: Highlights of an Action Packed Budget</a>
+</li>
+<li>
+<a
+href=https://emicalculator.net/should-you-buy-or-rent-a-car/ >Should You Buy or Rent a Car?</a>
+</li></ul></section><section
+class="widget block-9 widget_block widget_text"> <script async src=//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?x58608></script>
+<ins
+class=adsbygoogle
+style=display:block
+data-ad-client=ca-pub-6020664305604651
+data-ad-slot=8554094722
+data-ad-format=rectangle></ins> <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> </section><section
+class="widget block-10 widget_block widget_text"> <script async src=//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?x58608></script>
+<ins
+class=adsbygoogle
+style=display:block
+data-ad-client=ca-pub-6020664305604651
+data-ad-slot=8554094722
+data-ad-format=rectangle></ins> <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> </section></div></div><div
+id=loanpaymentdetails><form
+class="gutter-left gutter-right form-horizontal"><div
+class="row form-group" id=loanpaymentscheduleheader>
+<label
+class="col-md-4 col-lg-5 control-label" for=startmonthyear>Schedule showing EMI payments starting from</label><div
+class="col-md-4 col-lg-3"><div
+class=input-group>
+<input
+class=form-control id=startmonthyear name=startmonthyear value type=text><div
+class=input-group-append>
+<span
+class=input-group-text><i
+class="far fa-calendar-alt"></i></span></div></div></div><div
+class="col-md-4 col-lg-3 form-group lyearformat">
+<select
+class=form-control tabindex=15 name=yearformat id=yearformat><option
+value=calendaryear selected=selected>Calendar Year wise</option><option
+value=financialyear>Financial Year wise</option>
+</select></div></div></form><div
+id=loanpaymentbarchart class="hidden-ts highcharts-container"></div><div
+id=loanpaymenttable></div><div
+id=ecalprintandshare><p
+id=ecalprintandsharetext>Want to print OR share a custom link to your EMI calculation (with all your numbers pre-filled)?</p>
+<a
+title="Print this page" class="ecalprint btn btn-primary btn-lg" href=# role=button><i
+class="fa fa-print"></i> Print</a>
+<a
+title="Share this EMI calculation with friends &amp; family" class="ecalshare btn btn-primary btn-lg" href=# role=button><i
+class="fa fa-link"></i> Share</a><div
+id=loader><i
+class="fa fa-spinner fa-pulse"></i></div></div><div
+id=ecalsharelink class=form-group>
+<label
+class=control-label for=sharelink>Copy and share this link</label>
+<input
+class=form-control	name=sharelink id=sharelink readonly=readonly type=text value=https://ecal.in/ ></div></div></div></div><div
+class=entry-content><h2 dir="ltr">Introduction</h2><p
+dir=ltr>The multi-purpose loan calculator is a 4-in-1 calculator that aims to answer your questions such as:</p><ul>
+<li>How much is the monthly payment &#8211; aka EMI &#8211; for my loan?</li>
+<li>How much money can I afford to borrow?</li>
+<li>How long will it take to repay my loan?</li>
+<li>How much interest would I have to pay for an item (electronic gadgets, furniture, household appliances etc.) that I purchased under a “low EMI” scheme?</li></ul><p>These four calculators aim to address all the above questions, and more, with an easy-to-use and intuitive interface that provides instantaneous answers.</p><p>It is also important to understand the <strong>Loan APR</strong> concept before using these calculators. Banks charge more than just the interest rate on loans. When obtaining a loan, lenders charge various kinds of non-refundable fees including processing fees and documentation charges. The loan APR factors in these one-time costs associated with borrowing. Loan APR, which is expressed as a yearly percentage rate, represents the true cost of your loan after taking into account the loan interest rate plus the fees &amp; charges that you pay when getting a loan. Loan APR is a more complete measure that reflects the net effective cost of your loan on a yearly basis. For the banks, it represents their internal rate of return (IRR) on the loan.</p><blockquote><p>If you pay ₹ 1600/- as processing fees for a computer worth ₹ 40,000/- under a zero percent EMI scheme with a tenure of 6 months, your loan APR is 14.15%. i.e., you are effectively paying 14.15% interest on the loan.</p></blockquote><h2 dir="ltr">EMI Calculator</h2><p
+dir=ltr>This calculator is available on the homepage of our website and is provided again here for your convenience. Enter the amount you wish to borrow along with the interest rate and tenure to determine your EMI. You can also change the start date for the EMI payment schedule. Interest rates offered by different banks may vary and you will be able to quickly determine your monthly payment under all scenarios.</p><h2 dir="ltr">Loan Amount Calculator / Loan Affordability Calculator</h2><p
+dir=ltr>If you are planning to purchase your dream home or car, you must be wondering how much money you can afford to repay without overburdening yourself. It depends on how much EMI (i.e., monthly payment) you can pay and for how long. If you have an idea about how much EMI you can pay every month, then it will be easier for you to know how much you can afford. Enter the amount of EMI that you can pay every month, the interest rate charged by your bank and the preferred tenure, the loan amount calculator will tell you how much you can afford to borrow. Read more about factors that influence the amount you can borrow.</p><h2 dir="ltr">Loan Tenure Calculator</h2><p
+dir=ltr>If you are planning to refinance your loan at a lower rate, you have the option to either reduce your EMI or loan tenure. In case you choose the latter option, you can quickly estimate how much time is required to repay your refinanced loan.</p><p
+dir=ltr>If you are planning to make a partial pre-payment on an existing loan, you can determine the remaining tenure on the outstanding principal amount using this calculator.</p><h2 dir="ltr">Interest Rate Calculator</h2><p
+dir=ltr>It has become common these days to purchase high-end electronic gadgets, furniture and household appliances (such as fridge, TV, washing machine etc.) using installment loans. Manufacturers and sellers lure buyers with low EMI payments and buyers fall into the trap without understanding the interest rate for such loans. Given the loan amount (i.e., item price), EMI and tenure, this calculator helps you estimate the interest rate on such loans.</p></div><section
+id=comments class=comments><div
+id=respond class=comment-respond><h3 id="reply-title" class="comment-reply-title">Leave a Reply	<small><a
+rel=nofollow id=cancel-comment-reply-link href=/loan-calculator/#respond style=display:none;>Cancel reply</a></small></h3><form
+id=commentform class=comment-form>
+<iframe
+title="Comment Form"
+src="https://jetpack.wordpress.com/jetpack-comment/?blogid=128480424&#038;postid=2416&#038;comment_registration=0&#038;require_name_email=1&#038;stc_enabled=1&#038;stb_enabled=1&#038;show_avatars=1&#038;avatar_default=mystery&#038;greeting=Leave+a+Reply&#038;jetpack_comments_nonce=cbabe3e952&#038;greeting_reply=Leave+a+Reply+to+%25s&#038;color_scheme=transparent&#038;lang=en_US&#038;jetpack_version=11.8.4&#038;show_cookie_consent=10&#038;has_cookie_consent=0&#038;token_key=%3Bnormal%3B&#038;sig=b11d87bb98171131ab8b41f807708788c04014b3#parent=https%3A%2F%2Femicalculator.net%2Floan-calculator%2F"
+name=jetpack_remote_comment
+style="width:100%; height: 430px; border:0;"
+class=jetpack_remote_comment
+id=jetpack_remote_comment
+sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups"
+>
+</iframe>
+<!--[if !IE]><!--> <script>document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = true;
+								commentForms[i].scrolling = 'no';
+							}
+						});</script> <!--<![endif]--></form></div>
+<input
+type=hidden name=comment_parent id=comment_parent value><h2>89 responses to &ldquo;<span>Loan Calculator — Calculate EMI, Affordability, Tenure &#038; Interest Rate</span>&rdquo;</h2><style>/*<![CDATA[*/.alm-btn-wrap{display:block;text-align:center;padding:10px
+0;margin:0
+0 15px;position:relative}.alm-btn-wrap:after{display:table;clear:both;height:0;content:""}.alm-btn-wrap .alm-load-more-btn{font-size:15px;font-weight:500;width:auto;height:43px;line-height:1;background:#ed7070;-webkit-box-shadow:0 1px 1px rgba(0,0,0,.04);box-shadow:0 1px 1px rgba(0,0,0,.04);color:#fff;border:none;border-radius:4px;margin:0;padding:0
+20px;display:inline-block;position:relative;-webkit-transition:all .3s ease;transition:all .3s ease;text-align:center;text-decoration:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer}.alm-btn-wrap .alm-load-more-btn.loading,.alm-btn-wrap .alm-load-more-btn:hover{background-color:#e06161;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.09);box-shadow:0 1px 3px rgba(0,0,0,.09);color:#fff;text-decoration:none}.alm-btn-wrap .alm-load-more-btn:active{-webkit-box-shadow:none;box-shadow:none;text-decoration:none}.alm-btn-wrap .alm-load-more-btn.loading{cursor:wait;outline:0;padding-left:44px}.alm-btn-wrap .alm-load-more-btn.done{cursor:default;opacity:.15;background-color:#ed7070;outline:0!important;-webkit-box-shadow:none!important;box-shadow:none!important}.alm-btn-wrap .alm-load-more-btn.done:before,.alm-btn-wrap .alm-load-more-btn:before{background:0 0;width:0}.alm-btn-wrap .alm-load-more-btn.loading:before{background:#fff url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/ajax-loader.gif) no-repeat center center;width:30px;height:31px;margin:6px;border-radius:3px;display:inline-block;z-index:0;content:"";position:absolute;left:0;top:0;overflow:hidden;-webkit-transition:width .5s ease-in-out;transition:width .5s ease-in-out}.alm-btn-wrap .alm-elementor-link{display:block;font-size:13px;margin:0
+0 15px}@media screen and (min-width:768px){.alm-btn-wrap .alm-elementor-link{position:absolute;left:0;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);margin:0}}.ajax-load-more-wrap.white .alm-load-more-btn{background-color:#fff;color:#787878;border:1px
+solid #e0e0e0;overflow:hidden;-webkit-transition:none;transition:none;outline:0}.ajax-load-more-wrap.white .alm-load-more-btn.loading,.ajax-load-more-wrap.white .alm-load-more-btn:focus,.ajax-load-more-wrap.white .alm-load-more-btn:hover{background-color:#fff;color:#333;border-color:#aaa}.ajax-load-more-wrap.white .alm-load-more-btn.done{background-color:#fff;color:#444;border-color:#ccc}.ajax-load-more-wrap.white .alm-load-more-btn.loading{color:rgba(255,255,255,0)!important;outline:0!important;background-color:transparent;border-color:transparent!important;-webkit-box-shadow:none!important;box-shadow:none!important;padding-left:20px}.ajax-load-more-wrap.white .alm-load-more-btn.loading:before{margin:0;left:0;top:0;width:100%;height:100%;background-color:transparent;background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/ajax-loader-lg.gif);background-size:25px 25px;background-position:center center}.ajax-load-more-wrap.light-grey .alm-load-more-btn{background-color:#efefef;color:#787878;border:1px
+solid #e0e0e0;overflow:hidden;-webkit-transition:all 75ms ease;transition:all 75ms ease;outline:0}.ajax-load-more-wrap.light-grey .alm-load-more-btn.done,.ajax-load-more-wrap.light-grey .alm-load-more-btn.loading,.ajax-load-more-wrap.light-grey .alm-load-more-btn:focus,.ajax-load-more-wrap.light-grey .alm-load-more-btn:hover{background-color:#f1f1f1;color:#222;border-color:#aaa}.ajax-load-more-wrap.light-grey .alm-load-more-btn.loading{color:rgba(255,255,255,0)!important;outline:0!important;background-color:transparent;border-color:transparent!important;-webkit-box-shadow:none!important;box-shadow:none!important;padding-left:20px}.ajax-load-more-wrap.light-grey .alm-load-more-btn.loading:before{margin:0;left:0;top:0;width:100%;height:100%;background-color:transparent;background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/ajax-loader-lg.gif);background-size:25px 25px;background-position:center center}.ajax-load-more-wrap.blue .alm-load-more-btn{background-color:#1b91ca}.ajax-load-more-wrap.blue .alm-load-more-btn.done,.ajax-load-more-wrap.blue .alm-load-more-btn.loading,.ajax-load-more-wrap.blue .alm-load-more-btn:hover{background-color:#1b84b7}.ajax-load-more-wrap.green .alm-load-more-btn{background-color:#80ca7a}.ajax-load-more-wrap.green .alm-load-more-btn.done,.ajax-load-more-wrap.green .alm-load-more-btn.loading,.ajax-load-more-wrap.green .alm-load-more-btn:hover{background-color:#81c17b}.ajax-load-more-wrap.purple .alm-load-more-btn{background-color:#b97eca}.ajax-load-more-wrap.purple .alm-load-more-btn.done,.ajax-load-more-wrap.purple .alm-load-more-btn.loading,.ajax-load-more-wrap.purple .alm-load-more-btn:hover{background-color:#a477b1}.ajax-load-more-wrap.grey .alm-load-more-btn{background-color:#a09e9e}.ajax-load-more-wrap.grey .alm-load-more-btn.done,.ajax-load-more-wrap.grey .alm-load-more-btn.loading,.ajax-load-more-wrap.grey .alm-load-more-btn:hover{background-color:#888}.ajax-load-more-wrap.infinite>.alm-btn-wrap .alm-load-more-btn{width:100%;background-color:transparent!important;background-position:center center;background-repeat:no-repeat;background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/spinner.gif);border:none!important;opacity:0;-webkit-transition:opacity .2s ease;transition:opacity .2s ease;-webkit-box-shadow:none!important;box-shadow:none!important;overflow:hidden;text-indent:-9999px;cursor:default!important;outline:0!important}.ajax-load-more-wrap.infinite>.alm-btn-wrap .alm-load-more-btn:before{display:none!important}.ajax-load-more-wrap.infinite>.alm-btn-wrap .alm-load-more-btn:active,.ajax-load-more-wrap.infinite>.alm-btn-wrap .alm-load-more-btn:focus{outline:0}.ajax-load-more-wrap.infinite>.alm-btn-wrap .alm-load-more-btn.done{opacity:0}.ajax-load-more-wrap.infinite>.alm-btn-wrap .alm-load-more-btn.loading{opacity:1}.ajax-load-more-wrap.infinite.skype>.alm-btn-wrap .alm-load-more-btn{background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/spinner-skype.gif)}.ajax-load-more-wrap.infinite.ring>.alm-btn-wrap .alm-load-more-btn{background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/spinner-ring.gif)}.ajax-load-more-wrap.infinite.fading-blocks>.alm-btn-wrap .alm-load-more-btn{background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/loader-fading-blocks.gif)}.ajax-load-more-wrap.infinite.fading-circles>.alm-btn-wrap .alm-load-more-btn{background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/loader-fading-circles.gif)}.ajax-load-more-wrap.infinite.chasing-arrows>.alm-btn-wrap .alm-load-more-btn{background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/spinner-chasing-arrows.gif)}.ajax-load-more-wrap.alm-horizontal .alm-btn-wrap{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:0;margin:0}.ajax-load-more-wrap.alm-horizontal .alm-btn-wrap
+button{margin:0}.ajax-load-more-wrap.alm-horizontal .alm-btn-wrap
+button.done{display:none}.alm-btn-wrap--prev{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;clear:both;padding:0;margin:0}.alm-btn-wrap--prev:after{display:table;clear:both;height:0;content:""}.alm-btn-wrap--prev a.alm-load-more-btn--prev{line-height:1;font-size:14px;font-weight:500;padding:5px;display:inline-block;position:relative;margin:0
+0 15px;text-decoration:none}.alm-btn-wrap--prev a.alm-load-more-btn--prev:focus,.alm-btn-wrap--prev a.alm-load-more-btn--prev:hover{text-decoration:underline}.alm-btn-wrap--prev a.alm-load-more-btn--prev.loading,.alm-btn-wrap--prev a.alm-load-more-btn--prev.loading:focus{cursor:wait;text-decoration:none}.alm-btn-wrap--prev a.alm-load-more-btn--prev.loading:before,.alm-btn-wrap--prev a.alm-load-more-btn--prev.loading:focus:before{content:"";display:block;position:absolute;left:-18px;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);width:16px;height:16px;background:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/ajax-loader-lg.gif) no-repeat left center;background-size:16px 16px}.alm-btn-wrap--prev a.alm-load-more-btn--prev.skype.loading:before{background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/spinner-skype.gif)}.alm-btn-wrap--prev a.alm-load-more-btn--prev.ring.loading:before{background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/spinner-ring.gif)}.alm-btn-wrap--prev a.alm-load-more-btn--prev.fading-blocks.loading:before{background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/spinner-fading-blocks.gif)}.alm-btn-wrap--prev a.alm-load-more-btn--prev.chasing-arrows.loading:before{background-image:url(https://emicalculator.net/wp-content/plugins/ajax-load-more/core/img/spinner-chasing-arrows.gif)}.alm-btn-wrap--prev a.alm-load-more-btn--prev button:not([disabled]),.alm-btn-wrap--prev a.alm-load-more-btn--prev:not(.disabled){cursor:pointer}.alm-btn-wrap--prev a.alm-load-more-btn--prev.done{display:none!important}.alm-listing .alm-reveal{outline:0}.alm-listing .alm-reveal:after{display:table;clear:both;height:0;content:""}.alm-listing{margin:0;padding:0}.alm-listing .alm-paging-content>li,.alm-listing .alm-reveal>li,.alm-listing>li{position:relative}.alm-listing .alm-paging-content>li.alm-item,.alm-listing .alm-reveal>li.alm-item,.alm-listing>li.alm-item{background:0 0;margin:0
+0 30px;padding:0
+0 0 80px;position:relative;list-style:none}@media screen and (min-width:480px){.alm-listing .alm-paging-content>li.alm-item,.alm-listing .alm-reveal>li.alm-item,.alm-listing>li.alm-item{padding:0
+0 0 100px}}@media screen and (min-width:768px){.alm-listing .alm-paging-content>li.alm-item,.alm-listing .alm-reveal>li.alm-item,.alm-listing>li.alm-item{padding:0
+0 0 135px}}@media screen and (min-width:1024px){.alm-listing .alm-paging-content>li.alm-item,.alm-listing .alm-reveal>li.alm-item,.alm-listing>li.alm-item{padding:0
+0 0 160px}}.alm-listing .alm-paging-content>li.alm-item h3,.alm-listing .alm-reveal>li.alm-item h3,.alm-listing>li.alm-item
+h3{margin:0}.alm-listing .alm-paging-content>li.alm-item p,.alm-listing .alm-reveal>li.alm-item p,.alm-listing>li.alm-item
+p{margin:10px
+0 0}.alm-listing .alm-paging-content>li.alm-item p.entry-meta,.alm-listing .alm-reveal>li.alm-item p.entry-meta,.alm-listing>li.alm-item p.entry-meta{opacity:.75}.alm-listing .alm-paging-content>li.alm-item img,.alm-listing .alm-reveal>li.alm-item img,.alm-listing>li.alm-item
+img{position:absolute;left:0;top:0;border-radius:2px;max-width:65px}@media screen and (min-width:480px){.alm-listing .alm-paging-content>li.alm-item img,.alm-listing .alm-reveal>li.alm-item img,.alm-listing>li.alm-item
+img{max-width:85px}}@media screen and (min-width:768px){.alm-listing .alm-paging-content>li.alm-item img,.alm-listing .alm-reveal>li.alm-item img,.alm-listing>li.alm-item
+img{max-width:115px}}@media screen and (min-width:1024px){.alm-listing .alm-paging-content>li.alm-item img,.alm-listing .alm-reveal>li.alm-item img,.alm-listing>li.alm-item
+img{max-width:140px}}.alm-listing .alm-paging-content>li.no-img,.alm-listing .alm-reveal>li.no-img,.alm-listing>li.no-img{padding:0}.alm-listing.products
+li.product{padding-left:inherit}.alm-listing.products li.product
+img{position:static;border-radius:inherit}.alm-listing.stylefree .alm-paging-content>li,.alm-listing.stylefree .alm-reveal>li,.alm-listing.stylefree>li{padding:inherit;margin:inherit}.alm-listing.stylefree .alm-paging-content>li img,.alm-listing.stylefree .alm-reveal>li img,.alm-listing.stylefree>li
+img{padding:inherit;margin:inherit;position:static;border-radius:inherit}.alm-listing.rtl .alm-paging-content>li,.alm-listing.rtl .alm-reveal>li{padding:0
+170px 0 0;text-align:right}.alm-listing.rtl .alm-paging-content>li img,.alm-listing.rtl .alm-reveal>li
+img{left:auto;right:0}.alm-listing.rtl.products
+li.product{padding-right:inherit}.alm-masonry{display:block;overflow:hidden;clear:both}.alm-placeholder{opacity:0;-webkit-transition:opacity .2s ease;transition:opacity .2s ease;display:none}.ajax-load-more-wrap.alm-horizontal{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;width:100%}.ajax-load-more-wrap.alm-horizontal .alm-listing,.ajax-load-more-wrap.alm-horizontal .alm-listing .alm-reveal{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.ajax-load-more-wrap.alm-horizontal .alm-listing .alm-reveal>li.alm-item,.ajax-load-more-wrap.alm-horizontal .alm-listing>li.alm-item{padding:0;text-align:center;margin:0
+2px;padding:20px
+20px 30px;height:auto;background-color:#fff;border:1px
+solid #efefef;border-radius:4px;width:300px}.ajax-load-more-wrap.alm-horizontal .alm-listing .alm-reveal>li.alm-item img,.ajax-load-more-wrap.alm-horizontal .alm-listing>li.alm-item
+img{position:static;border-radius:100%;max-width:125px;margin:0
+auto 15px;border-radius:4px;-webkit-box-shadow:0 2px 10px rgba(0,0,0,.075);box-shadow:0 2px 10px rgba(0,0,0,.075)}.ajax-load-more-wrap.alm-horizontal .alm-listing .alm-reveal:after{display:none}.alm-toc{display:-webkit-box;display:-ms-flexbox;display:flex;width:auto;padding:10px
+0}.alm-toc
+button{background:#f7f7f7;border-radius:4px;-webkit-transition:all .15s ease;transition:all .15s ease;outline:0;border:1px
+solid #efefef;-webkit-box-shadow:none;box-shadow:none;color:#454545;cursor:pointer;font-size:14px;font-weight:500;padding:7px
+10px;line-height:1;margin:0
+5px 0 0;height:auto}.alm-toc button:focus,.alm-toc button:hover{border-color:#ccc;color:#222}.alm-toc button:hover{text-decoration:underline}.alm-toc button:focus{-webkit-box-shadow:0 0 0 3px rgba(0,0,0,.05);box-shadow:0 0 0 3px rgba(0,0,0,.05)}/*]]>*/</style><div
+id=ajax-load-more class="ajax-load-more-wrap infinite fading-blocks"  data-alm-id data-canonical-url=https://emicalculator.net/loan-calculator/ data-slug=loan-calculator data-post-id=2416  data-localized=ajax_load_more_vars data-alm-object=ajax_load_more><ol
+aria-live=polite aria-atomic=true class="commentlist alm-comments alm-ajax alm-has-transition" data-comments=true data-comments_per_page=10 data-comments_type=comment data-comments_style=ol data-comments_template=none data-comments_callback data-comments_post_id=2416 data-container-type=ol data-loading-style="infinite fading-blocks" data-repeater=default data-post-type=post data-order=DESC data-orderby=date data-offset=0 data-posts-per-page=10 data-scroll-distance=100 data-button-label="Load More"></ol><div
+class=alm-btn-wrap><button
+class="alm-load-more-btn more " type=button>Load More</button></div></div></section></article></main></div></div><footer
+class=content-info><div
+class=container><div
+class=row><section
+class="col-12 col-sm-4 widget nav_menu-4 widget_nav_menu"><h3>Calculators &#038; Widgets</h3><div
+class=menu-calculators-widgets-container><ul
+id=menu-calculators-widgets class=menu><li
+id=menu-item-3003 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3003"><a
+href=https://emicalculator.net/ >EMI Calculator</a></li>
+<li
+id=menu-item-3196 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3196"><a
+href="https://play.google.com/store/apps/details?id=net.emicalculator">Android App</a></li>
+<li
+id=menu-item-3002 class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2416 current_page_item menu-item-3002"><a
+href=https://emicalculator.net/loan-calculator/ aria-current=page>Loan Calculator — Calculate EMI, Affordability, Tenure &#038; Interest Rate</a></li>
+<li
+id=menu-item-3318 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3318"><a
+href=https://emicalculator.net/home-loan-emi-calculator/ >Home Loan EMI Calculator with Prepayments, Taxes &#038; Insurance</a></li>
+<li
+id=menu-item-3001 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3001"><a
+href=https://emicalculator.net/emi-calculator-widget/ >Mobile-friendly EMI Calculator Widget</a></li></ul></div></section><section
+class="col-12 col-sm-4 widget text-14 widget_text"><h3>Android App</h3><div
+class=textwidget><p>You can also download our <a
+target=_blank href="https://play.google.com/store/apps/details?id=net.emicalculator" rel=noopener><strong>EMI Calculator android app</strong></a> from the Google Play Store.</p><p><a
+target=_blank href="https://play.google.com/store/apps/details?id=net.emicalculator" rel=noopener><img
+width=128px height=128px src="https://lh3.googleusercontent.com/bXsJnF2AQA-xAG7GdoS6X5icWJvEZkRwRqc_RkUJG4c-CHbFF--y1xKbY1nEDuuvRkqP=w300-rw"></a></p></div></section><section
+class="col-12 col-sm-4 widget nav_menu-3 widget_nav_menu"><h3>About Us</h3><div
+class=menu-about-us-container><ul
+id=menu-about-us class=menu><li
+id=menu-item-2995 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2995"><a
+href=https://emicalculator.net/privacy-policy/ >Privacy Policy</a></li>
+<li
+id=menu-item-2996 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2996"><a
+href=https://emicalculator.net/terms-of-use/ >Terms of Use</a></li>
+<li
+id=menu-item-2997 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2997"><a
+href=https://emicalculator.net/contact/ >Contact Us</a></li></ul></div></section></div><div
+class="row copyrighttext"><p
+class="col-12 alignright">Copyright © 2011-2019 emicalculator.net. All Rights Reserved.</p></div></div></footer> <script id=ajax_load_more_vars>var ajax_load_more_vars = {"id":"ajax-load-more","script":"ajax_load_more_vars"}</script><script src='https://emicalculator.net/wp-content/plugins/jetpack/modules/contact-form/js/form-styles.js?x58608' id=contact-form-styles-js></script> <script src='https://emicalculator.net/wp-includes/js/comment-reply.min.js?x58608' id=comment-reply-js></script> <script src='https://emicalculator.net/wp-content/plugins/prism-detached/cache/598bf2a83d0b3a0445eaa86afe9f7ace.js?x58608' id=prism-detached-js></script> <script src=https://emicalculator.net/wp-content/themes/emicalculator/dist/scripts/main.js?x58608 id=sage/js-js></script> <script src='https://emicalculator.net/wp-includes/js/jquery/ui/core.min.js?x58608' id=jquery-ui-core-js></script> <script src='https://emicalculator.net/wp-includes/js/jquery/ui/mouse.min.js?x58608' id=jquery-ui-mouse-js></script> <script src='https://emicalculator.net/wp-includes/js/jquery/ui/slider.min.js?x58608' id=jquery-ui-slider-js></script> <script src=https://emicalculator.net/wp-content/themes/emicalculator/dist/scripts/commoncalculator.js?x58608 id=commmoncalculator_js-js></script> <script src=https://emicalculator.net/wp-content/themes/emicalculator/dist/scripts/loancalculator.js?x58608 id=loancalculator_js-js></script> <script defer src='https://emicalculator.net/wp-content/plugins/akismet/_inc/akismet-frontend.js?x58608' id=akismet-frontend-js></script> <script id=ajax-load-more-js-extra>/*<![CDATA[*/var alm_localize = {"version":"5.6.0.3","ajaxurl":"https:\/\/emicalculator.net\/wp-admin\/admin-ajax.php","alm_nonce":"776e79ba37","rest_api":"https:\/\/emicalculator.net\/wp-json\/","rest_nonce":"c6a2e43260","pluginurl":"https:\/\/emicalculator.net\/wp-content\/plugins\/ajax-load-more","speed":"200","ga_debug":"false","results_text":"Viewing {post_count} of {total_posts} results.","no_results_text":"No results found.","alm_debug":"","a11y_focus":"1","site_title":"EMI Calculator","site_tagline":"Calculate EMI for Home Loan \/ Housing Loan, Car Loan & Personal Loan in India"};/*]]>*/</script> <script src='https://emicalculator.net/wp-content/plugins/ajax-load-more/core/dist/js/ajax-load-more.min.js?x58608' id=ajax-load-more-js></script> <!--[if IE]> <script>if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+				// window.location.reload() doesn't respect the Hash in IE
+				window.location.hash = window.location.hash;
+			}</script> <![endif]--> <script>(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=128480424&postid=2416&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&jetpack_comments_nonce=cbabe3e952&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=transparent&lang=en_US&jetpack_version=11.8.4&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=b11d87bb98171131ab8b41f807708788c04014b3#parent=https%3A%2F%2Femicalculator.net%2Floan-calculator%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=128480424&postid=2416&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&jetpack_comments_nonce=cbabe3e952&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=transparent&lang=en_US&jetpack_version=11.8.4&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=b11d87bb98171131ab8b41f807708788c04014b3#parent=https%3A%2F%2Femicalculator.net%2Floan-calculator%2F";
+					}
+				};
+
+
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								frame.style.height = event.data + 'px';
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								frame.style.height = event.data + 'px';
+							});
+						}
+					}
+				})
+
+			})();</script> <script src=https://stats.wp.com/e-202312.js defer></script> <script>_stq = window._stq || [];
+		_stq.push([ 'view', {v:'ext',blog:'128480424',post:'2416',tz:'5.5',srv:'emicalculator.net',j:'1:11.8.4'} ]);
+		_stq.push([ 'clickTrackerInit', '128480424', '2416' ]);</script> </body></html>
