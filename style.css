@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container{
+    padding: 15%;
+    height: 100vh;
+}
+
+#username{
+    font-weight: 500;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+    /* border: 1px solid black; */
+}
+
+.options{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+}
+
+.options button{
+    font-weight: 600;
+    text-align: center;
+    width: 15%;
+    padding: 5px;
+    font-size: 1.1rem;
+    border: 1px solid lightgray;
+    background-color: #6255dd94;
+    cursor: pointer;
+}
+
+#search{
+    border: none;
+    margin: 8px 0;
+    font-size: 13px;
+    padding: 10px;
+    background-color: #009dff28;
+}
+
+#details{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#details span{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 49%;
+    margin: 10px 5px;
+}
+
+#details span input,
+#details span select{
+    font-size: 13px;
+    width: 50%;
+    padding: 5px;
+}
+
+#details span p{
+    font-size: 14px;
+}
+
+#details span div{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 50%;
+}
+
+#details span div input{
+    width: 100%;
+}
