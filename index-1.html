@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        max-width: 50vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .buttons {
+        display: flex;
+        justify-content: end;
+        gap: 1rem;
+        padding: 0.2rem;
+      }
+      .buttons button {
+        background-color: gray;
+        padding: 0.4rem 2rem;
+        cursor: pointer;
+      }
+      .search {
+        font-size: 1.2rem;
+        padding: 0.2rem;
+        background: grey;
+      }
+      form {
+        display: flex;
+        /* max-width: 500px; */
+        margin: 0 auto;
+        gap: 1rem;
+      }
+
+      div {
+        margin-bottom: 10px;
+      }
+
+      label {
+        display: inline-block;
+        width: 150px;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      input[type="text"],
+      select,
+      input[type="date"] {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      select {
+        width: 100%;
+      }
+
+      button[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Organization</h1>
+      <div class="buttons">
+        <button>Add</button>
+        <button>Submit</button>
+        <button>Clear</button>
+      </div>
+      <div class="search">Search</div>
+      <form>
+        <div class="left">
+          <div>
+            <label for="org-code">Organization Code:</label>
+            <input type="text" id="org-code" name="org-code" />
+          </div>
+          <div>
+            <label for="created-by">Created By:</label>
+            <input type="text" id="created-by" name="created-by" />
+          </div>
+          <div>
+            <label for="modified-by">Modified By:</label>
+            <input type="text" id="modified-by" name="modified-by" />
+          </div>
+          <div>
+            <label for="active-inactive">Active/Inactive:</label>
+            <select id="active-inactive" name="active-inactive">
+              <option value="">-- Select --</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+          <div>
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+              <option value="">-- Select --</option>
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
+        <div class="right">
+          <div>
+            <label for="org-name">Organization Name:</label>
+            <input type="text" id="org-name" name="org-name" />
+          </div>
+          <div>
+            <label for="created-date">Created Date:</label>
+            <input type="date" id="created-date" name="created-date" />
+          </div>
+          <div>
+            <label for="modified-date">Modified Date:</label>
+            <input type="date" id="modified-date" name="modified-date" />
+          </div>
+          <div>
+            <label for="block-unblock">Block/Unblock:</label>
+            <select id="block-unblock" name="block-unblock">
+              <option value="">-- Select --</option>
+              <option value="block">Block</option>
+              <option value="unblock">Unblock</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
