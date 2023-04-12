@@ -1,0 +1,41 @@
+[12/04, 08:13] Kr.rohit: const addBtn = document.querySelector("#add-btn");
+
+addBtn.addEventListener("click", () => {
+
+  const form = document.querySelector("form");
+
+  const formData = new FormData(form);
+
+  fetch("userData", {
+
+    method: "POST",
+
+    body: formData,
+
+  }).then(() => {
+
+    alert("Form data sent to userData URL!");
+
+  });
+
+});
+
+[12/04, 08:13] Kr.rohit: <button id="add-btn">Add</button>
+
+<button id="submit-btn">Submit</button>
+
+[12/04, 08:14] Kr.rohit: const submitBtn = document.querySelector("#submit-btn");
+
+submitBtn.addEventListener("click", () => {
+
+  window.location.href = "GetData";
+
+});
+
+[12/04, 08:15] Kr.rohit: <button onclick="document.querySelector('form').reset()">Clear</button>
+
+[12/04, 08:16] Kr.rohit: <head>
+
+  <script src="${pageContext.request.contextPath}/js/script.js"></script>
+
+</head>
