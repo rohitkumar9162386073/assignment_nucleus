@@ -1,0 +1,37 @@
+function submitForm() {
+
+  // get the values from the form
+
+  const name = document.getElementById("name").value;
+
+  const email = document.getElementById("email").value;
+
+  const password = document.getElementById("password").value;
+
+  // determine the user's role using Spring Security's Principal object
+
+  const username = [[${#authentication.principal.username}]];
+
+  const isAdmin = username === "admin";
+
+  // redirect to the appropriate URL based on the role
+
+  if (isAdmin) {
+
+    window.location.href = "http://example.com/admin-submit.php";
+
+  } else {
+
+    window.location.href = "http://example.com/user-submit.php";
+
+  }
+
+}
+
+
+
+
+
+
+
+
