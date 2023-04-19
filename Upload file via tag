@@ -1,0 +1,95 @@
+const form = document.querySelector('#upload-form');
+
+form.addEventListener('submit', (event) => {
+
+  event.preventDefault();
+
+  const fileInput = document.querySelector('#file-input');
+
+  const file = fileInput.files[0];
+
+  const formData = new FormData();
+
+  formData.append('file', file);
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.open('POST', '/upload', true);
+
+  xhr.onreadystatechange = function() {
+
+    if (xhr.readyState === 4 && xhr.status === 200) {
+
+      // Handle response data
+
+    }
+
+  };
+
+  xhr.send(formData);
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+@PostMapping("/upload")
+
+public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+
+  try {
+
+    InputStream inputStream = file.getInputStream();
+
+    // Use a file reader to read the contents of the file
+
+    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+    String line;
+
+    while ((line = reader.readLine()) != null) {
+
+      // Process file content as needed
+
+      System.out.println(line);
+
+    }
+
+    return ResponseEntity.ok().body("File uploaded successfully");
+
+  } catch (IOException e) {
+
+    e.printStackTrace();
+
+    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error uploading file");
+
+  }
+
+}
+
+
+
+
+
+
+<form id="upload-form" method="POST" enctype="multipart/form-data">
+
+  <input type="file" id="file-input" name="file">
+
+  <button type="submit">Upload File</button>
+
+</form>
+
+
+
+
+
+
