@@ -1,37 +1,38 @@
-    public void addProject(){
-        Project toAddPrj = new Project();
-//        List<Integer> emps = new ArrayList<>();
-        System.out.println("Enter Project's Details");
-        System.out.println("Enter Prj id - ");
-        toAddPrj.setPid(sc.nextInt());
-
-        System.out.println("Enter prj start date - ");
-        toAddPrj.setStartDate(LocalDate.parse(sc.next()));
-
-        System.out.println("Enter prj end date - ");
-        toAddPrj.setEndDate(LocalDate.parse(sc.next()));
-
-        System.out.println("Enter Project Description - ");
-        toAddPrj.setPrjDesc(sc.nextLine());
-
-        System.out.println("Enter no of techs to be used - ");
-        int noOfTechs = sc.nextInt();
-        System.out.println("Enter Techs - ");
-        List<String> techs = new ArrayList<>();
-        while (noOfTechs!=0){
-            techs.add(sc.next());
-            noOfTechs--;
+ public void assignProject(){
+        List<Integer> addToPrjList = new ArrayList<>();         //To add emp ids to the project
+        List<Integer> addToEmpList = new ArrayList<>();
+        
+        System.out.println("Enter Project id that will be assigned to an Employee - ");
+        int pid = sc.nextInt();
+        Project prjToAssign = (allProjects.stream().filter(p -> p.getPid() == pid).findAny().orElse(null));
+        if (prjToAssign != null) {
+            System.out.println("Project found!!!");
+            addToEmpList.add(prjToAssign.getPid());
+        } else {
+            System.out.println("No Project found for this id.");
+            return;
         }
-        toAddPrj.setTechUsed(techs);
+        
+        System.out.println("Enter Employee id that to assign project - ");
+        int eid = sc.nextInt();
+        Employee empTobeAssigned = (allEmployees.stream().filter(e->e.getEid() == eid).findAny().orElse(null));
+        if(empTobeAssigned != null){
+            System.out.println("Employee Found");
+            addToPrjList.add(empTobeAssigned.getEid());
+        }else {
+            System.out.println("Employee not found");
+        }
 
-//Adding Project to Project List
-        allProjects.add(toAddPrj);
-//        System.out.println("Enter no of Employee to assign this prj to - ");
-//        int noOfEmp = sc.nextInt();
-//        System.out.println("Enter Emp id's - ");
-//        while (noOfEmp!=0){
-//            emps.add(sc.nextInt());
-//            noOfEmp--;
-//        }
-//        toAddPrj.setEmpList(emps);
+        empTobeAssigned = 
+        if(empTobeAssigned != null && prjToAssign != null){
+            if(){
+                prjToAssign.setEmpList(addToPrjList);
+                empTobeAssigned.setPrjList(addToEmpList);
+            }
+        }
+        System.out.println("Project Assigned Successfully!!!");
+        System.out.println(prjToAssign);
+
+        System.out.println("Employee - ");
+        System.out.println(empTobeAssigned);
     }
