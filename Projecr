@@ -1,0 +1,37 @@
+    public void addProject(){
+        Project toAddPrj = new Project();
+//        List<Integer> emps = new ArrayList<>();
+        System.out.println("Enter Project's Details");
+        System.out.println("Enter Prj id - ");
+        toAddPrj.setPid(sc.nextInt());
+
+        System.out.println("Enter prj start date - ");
+        toAddPrj.setStartDate(LocalDate.parse(sc.next()));
+
+        System.out.println("Enter prj end date - ");
+        toAddPrj.setEndDate(LocalDate.parse(sc.next()));
+
+        System.out.println("Enter Project Description - ");
+        toAddPrj.setPrjDesc(sc.nextLine());
+
+        System.out.println("Enter no of techs to be used - ");
+        int noOfTechs = sc.nextInt();
+        System.out.println("Enter Techs - ");
+        List<String> techs = new ArrayList<>();
+        while (noOfTechs!=0){
+            techs.add(sc.next());
+            noOfTechs--;
+        }
+        toAddPrj.setTechUsed(techs);
+
+//Adding Project to Project List
+        allProjects.add(toAddPrj);
+//        System.out.println("Enter no of Employee to assign this prj to - ");
+//        int noOfEmp = sc.nextInt();
+//        System.out.println("Enter Emp id's - ");
+//        while (noOfEmp!=0){
+//            emps.add(sc.nextInt());
+//            noOfEmp--;
+//        }
+//        toAddPrj.setEmpList(emps);
+    }
